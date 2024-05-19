@@ -75,5 +75,4 @@
 ### 画面遷移図
 https://www.figma.com/file/N6O6fXTn5YilXZFHf47uAw/RUNTEQ%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C%EF%BC%88%E5%B9%BC%E5%85%90%E5%90%91%E3%81%91%E9%81%8A%E3%81%B3%E5%A0%B4%E3%82%B9%E3%83%9D%E3%83%83%E3%83%88%EF%BC%89?type=whiteboard&node-id=0%3A1&t=WhBdwdQSazSIUhDB-1
 
-### ER図
-https://app.diagrams.net/#G1WHDlPJpQZt4h_oao_zqkZSx0oLP7F5u2#%7B%22pageId%22%3A%22R2lEEEUBdFMjLlhIrx00%22%7D
+
