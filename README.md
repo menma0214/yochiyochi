@@ -1,4 +1,5 @@
-# graduation_exhibition_original_application(サービス名：Yochiyochi/よちよち)
+# サービス名：Yochiyochi/よちよち(卒業制作)
+
 
 ## サービス概要
 - 小さなお子様とのお出かけスポットを検索できるサービス。
