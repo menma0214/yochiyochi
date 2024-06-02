@@ -7,7 +7,10 @@ databases:
 services:
   - type: web
     name: yochiyochi
-    env: ruby
+    env: docker
+    repo: https://github.com/username/repository
+    branch: main
+    dockerfilePath: Dockerfile
     region: singapore
     plan: free
     buildCommand: "./bin/render-build.sh"
