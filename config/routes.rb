@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'login', to: 'user_sessions#new'
+  post 'login', to: 'user_sessions#create'
+  # get '/logout', to: 'user_sessions#destroy'
+  delete 'logout', to: 'user_sessions#destroy'
   root 'tops#index'
 
   get 'tops/index'
@@ -12,4 +16,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :tops, only: %i[index]
+  resources :users, only: %i[new create]
 end

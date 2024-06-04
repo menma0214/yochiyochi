@@ -2,26 +2,64 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  margin: auto;
 }
 
 .logo {
   display: flex;
 }
 
-.sub-title {
-  display: flex;
-  margin-left: 3px;
-}
 
-.sub-title-up {
-  line-height: 2.5em;
-  margin-left: 3px;
-}
 
-.sub-title-down {
-  margin-left: 3px;
-  line-height: 3em;
-}
 
 // .btn-wrapper {
 // }
+
+@media screen and (min-width: 796px) { /* pc用スタイル */
+  .header {
+    width: 1200px;
+  }
+  .sub-title {
+    display: flex;
+    margin-left: 3px;
+  }
+  
+  .sub-title-up {
+    line-height: 2.5em;
+    margin-left: 3px;
+  }
+  
+  .sub-title-down {
+    margin-left: 3px;
+    line-height: 3em;
+  }
+
+  .sp-sub-title {
+    display: none;
+  }
+
+
+
+}
+
+@media screen and (max-width: 795px) { /* sp用スタイル */
+  .sub-title {
+    display: none;
+  }
+
+  .sp-sub-title {
+    display: flex;
+    margin: auto;
+  }
+  
+  .sp-sub-title-up {
+    line-height: 2.5em;
+    margin-left: 3px;
+  }
+  
+  .sp-sub-title-down {
+    margin-left: 3px;
+    line-height: 3em;
+  }
+
+}
