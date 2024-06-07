@@ -1,0 +1,20 @@
+<% content_for(:title, t('.title')) %>
+<div class="container-fluid m-auto w-25">
+  <%= render 'shared/search_form', q: @q, url: facilities_path %>
+</div>
+<div class="article-wrapper">
+  <div class="article-title">
+    <h5 class="article-title-text">施設情報</h5>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% if @facilities.present? %>
+          <%= render partial: 'facility', collection: @facilities %>
+        <% else %>
+          <div class="mb-3">施設情報がありません</div>
+        <% end %>
+      </div>
+    <%= paginate @facilities %>
+  </div>
+</div>
