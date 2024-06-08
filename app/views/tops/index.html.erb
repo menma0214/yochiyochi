@@ -90,7 +90,11 @@
     <div class="article-title">
       <h5 class="article-title-text">施設情報</h5>
     </div>
-    <%# <%= render 'facilities/facility' %> %>
+    <% if @facilities.present? %>
+      <%= render partial: 'facility', collection: @facilities %>
+    <% else %>
+      <div class="mb-3">施設情報がありません</div>
+    <% end %>
     <%# <div class="card" style="width: 18rem;"> %>
       <%# <img src="..." class="card-img-top" alt="..."> %>
       <%# <div class="card-body">
