@@ -5,7 +5,7 @@ class FacilitiesController < ApplicationController
     @facilities = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(20)
   end
 
-  # def show
-  #   # @fasility = Facility.find(params[:id])
-  # end
+  def show
+    @facility = Facility.find(params[:id])
+  end
 end
