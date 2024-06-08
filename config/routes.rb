@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'facilities/index'
+  get 'facilities/show'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   # get '/logout', to: 'user_sessions#destroy'
@@ -17,4 +19,9 @@ Rails.application.routes.draw do
 
   resources :tops, only: %i[index]
   resources :users, only: %i[new create]
+  resources :facilities, only: %i[index show] do
+    collection do
+      get 'search', to: 'facilities#index', as: :search
+    end
+  end
 end

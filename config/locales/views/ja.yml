@@ -7,6 +7,9 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  shared:
+    search_form:
+      search_word: フリー検索
   user_sessions:
     new:
       title: ログイン
@@ -17,3 +20,9 @@ ja:
     new:
       title: ユーザー登録
       to_login_page: ログインページへ
+  facilities:
+    index:
+      title: 施設一覧
+    show:
+      title: 施設詳細
+
