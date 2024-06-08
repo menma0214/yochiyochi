@@ -5,11 +5,14 @@
         <div>
           <h2><%= @facility.title %></h2>
         </div>
-        <div>
+        <div class="pt-3">
           <%= image_tag "sample.png", alt: "image", width: "400px", height: "200px" %>
         </div>
       </div>
-      <div class="map-wrapper">
+      <%# <div class="pt-5">
+      </div> %>
+      <div class="map-wrapper pt-5">
+        <h3 class="mb-2">マップ</h3>
         <%= image_tag "sample.png", alt: "map", width: "400px", height: "200px" %>
       </div>
       <div>
@@ -19,46 +22,46 @@
     </div>
     <div>
       <div>
-        <table class="table table-bordered">
+        <table class="table table-bordered rounded">
           <tr>
-            <td>項目</td>
-            <td>内容</td>
+            <th class="table-light">施設名(かな)</th>
+            <td class="table-decription"><%= @facility.furigana %></td>
           </tr>
           <tr>
-            <td>項目</td>
-            <td>内容</td>
+            <th class="table-light">施設名</th>
+            <td><%= @facility.name %></td>
           </tr>
           <tr>
-            <td>項目</td>
+            <th class="table-light">施設住所</th>
             <td><%= @facility.address %></td>
           </tr>
           <tr>
-            <td>項目</td>
+            <th class="table-light">営業時間</th>
             <td><%= @facility.business_hours %></td>
           </tr>
           <tr>
-            <td>項目</td>
-            <td>内容</td>
+            <th class="table-light">料金</th>
+            <td><%= @facility.fee %></td>
           </tr>
           <tr>
-            <td>項目</td>
-            <td>内容</td>
+            <th class="table-light">対象年齢</th>
+            <td><%= @facility.target_age %></td>
           </tr>
           <tr>
-            <td>項目</td>
-            <td>内容</td>
+            <th class="table-light">屋内／屋外</th>
+            <td><%= @facility.environment %></td>
           </tr>
           <tr>
-            <td>項目</td>
-            <td>内容</td>
+            <th class="table-light">目的・要望</th>
+            <td><%= @facility.request %></td>
           </tr>
           <tr>
-            <td>項目</td>
-            <td>内容</td>
+            <th class="table-light">お問い合わせ先</th>
+            <td><%= @facility.contact %></td>
           </tr>
           <tr>
-            <td>項目</td>
-            <td>内容</td>
+            <th class="table-light">タグ</th>
+            <td><%# <%= @facility. %></td>
           </tr>
         </table>
       </div>

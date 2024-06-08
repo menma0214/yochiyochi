@@ -91,7 +91,7 @@
       <h5 class="article-title-text">施設情報</h5>
     </div>
     <% if @facilities.present? %>
-      <%= render partial: 'facility', collection: @facilities %>
+      <%= render @facilities%>
     <% else %>
       <div class="mb-3">施設情報がありません</div>
     <% end %>
