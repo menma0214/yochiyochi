@@ -3,12 +3,11 @@ ul li {
 }
 
 .top-container {
-  max-width: 1200px;
+  width: auto;
   height: 100vh;
   margin: auto;
   background-image: url('megu-hi-.JPG');
   background-size: cover;
-  padding-top: 100px;
   background-color: rgba(255, 255, 255, 0.7);
   background-blend-mode: lighten;
 }
@@ -66,19 +65,27 @@ ul li {
   margin-top: 20px;
 }
 
-@media screen and (min-width: 796px) { /* pc用スタイル */
+@media screen and (min-width: 1001px) { /* pc用スタイル */
   .top-container {
     max-width: 1200px;
+    padding-top: 100px;
   }
 
 }
 
-@media screen and (max-width: 795px) { /* sp用スタイル */
+@media screen and (max-width: 1000px) { /* タブレット用スタイル */
   .top-container {
-    max-width: 100%;
+    max-width: 1000px;
+    padding-top: 200px;
   }
 
 }
 .map-wrapper {
   margin-top: 50px;
+}
+
+@media screen and (max-width: 600px) {/*sp用*/
+  .dropdown {
+    display: none;
+  }
 }
