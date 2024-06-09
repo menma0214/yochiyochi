@@ -67,8 +67,12 @@ ul li {
 
 @media screen and (min-width: 1001px) { /* pc用スタイル */
   .top-container {
-    max-width: 1200px;
     padding-top: 100px;
+  }
+
+  .top-wrapper {
+    max-width: 1200px;
+    margin: auto;
   }
 
 }
