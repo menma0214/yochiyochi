@@ -1,29 +1,73 @@
-<div class="header">
-  <div class="logo">
-    <h1>Yochiyochi</h1>
-    <div class="sub-title">
-      <h6 class="sub-title-up">カワイイ<h6>
-      <h6 class="sub-title-down">わが子と<h6>
-      <h6 class="sub-title-up">どこへ<h6>
-      <h6 class="sub-title-down">行こう?<h6>
+<div>
+<nav class="header navbar custom-navbar fixed-top">
+  <div class="header-layout">
+    <div class="logo">
+      <%= link_to image_tag("Yochiyochi_logo.png", class: "title-logo"), tops_path %>
+      <div class="sub-title">
+        <h6 class="sub-title-up">カワイイ</h6>
+        <h6 class="sub-title-down">わが子と</h6>
+        <h6 class="sub-title-up">どこへ</h6>
+        <h6 class="sub-title-down">行こう?</h6>
+      </div>
+      <%= image_tag "yochiyochi.png", alt: "logo", width: "50", height: "50" %>
     </div>
-    <%= image_tag "yochiyochi.png", alt: "logo", width: "50px", height: "50px" %>
+    <div class="btn-wrapper">
+      <% if logged_in? %>
+        <%= link_to "お気に入り一覧", '#', class:"btn btn-success" %>
+        <%= link_to "マイページ", '#', class:"btn btn-success" %>
+        <%= link_to "ログアウト", logout_path, class:"btn btn-success", data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to "ログイン", login_path, class:"btn btn-success" %>
+        <%= link_to "新規会員登録", new_user_path, class:"btn btn-success" %>
+      <% end %>
+      <%= link_to "施設一覧", facilities_path, class:"btn btn-success" %>
+      <%= link_to "イベント一覧", "#", class:"btn btn-success" %>
+    </div>
+    <div class="pc-none">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <%= link_to "トップへ", tops_path, class:"nav-link active" %>
+            <% if logged_in? %>
+              <%= link_to "お気に入り一覧", '#', class:"nav-link active" %>
+              <%= link_to "マイページ", '#', class:"nav-link active" %>
+              <%= link_to "ログアウト", logout_path, class:"nav-link active", data: { turbo_method: :delete } %>
+            <% else %>
+              <%= link_to "ログイン", login_path, class:"nav-link active" %>
+              <%= link_to "新規会員登録", new_user_path, class:"nav-link active" %>
+            <% end %>
+            <%= link_to "施設一覧", facilities_path, class:"nav-link active" %>
+            <%= link_to "イベント一覧", '#', class:"nav-link active" %>
+            <%# <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="tops">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li> %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="btn-wrapper">
-    <% if logged_in? %>
-      <%= link_to "お気に入り一覧", '#', class:"btn btn-success" %>
-      <%= link_to "マイページ", '#', class:"btn btn-success" %>
-      <%= link_to "ログアウト", logout_path, class:"btn btn-success", data: { turbo_method: :delete } %>
-    <% else %>
-      <%= link_to "ログイン", login_path, class:"btn btn-success" %>
-      <%= link_to "新規会員登録", new_user_path, class:"btn btn-success" %>
-    <% end %>
-  </div>
-</div>
-<div class="sp-sub-title">
-  <h6 class="sp-sub-title-up">カワイイ<h6>
-  <h6 class="sp-sub-title-down">わが子と<h6>
-  <h6 class="sp-sub-title-up">どこへ<h6>
-  <h6 class="sp-sub-title-down">行こう?<h6>
-</div>
+</nav>
+
+
 

@@ -1,10 +1,5 @@
 <div class="top-container">
-  <div class="container-fluid m-auto w-25">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="フリーワード検索" aria-label="Search">
-      <button class="search-btn" type="submit">検索</button>
-    </form>
-  </div>
+  <%= render 'shared/search_form', q: @q, url: facilities_path %>
   <div class ='sarch-menu-wrapper d-flex'>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
