@@ -1,19 +1,19 @@
 <% content_for(:title, t('.title')) %>
-<div class='d-flex justify-content-evenly px-2 mt-5' >
-    <div>
-      <div>
+<div class='fasility-show-container' >
+    <div class="fasility-show-wrapper">
+      <div class="fasility-show-wrapper">
         <div>
           <h2><%= @facility.title %></h2>
         </div>
-        <div class="pt-3">
-          <%= image_tag "sample.png", alt: "image", width: "400px", height: "200px" %>
+        <div class="facility-show-image-wrapper pt-3">
+          <%= image_tag "sample.png", alt: "image", class:"facility-show-image" %>
         </div>
       </div>
       <%# <div class="pt-5">
       </div> %>
-      <div class="map-wrapper pt-5">
+      <div class="facility-show-image-wrapper map-wrapper pt-5">
         <h3 class="mb-2">マップ</h3>
-        <%= image_tag "sample.png", alt: "map", width: "400px", height: "200px" %>
+        <%= image_tag "sample.png", alt: "map", class:"facility-show-image" %>
       </div>
       <div>
         <div></div>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div>
-      <div>
+      <div class="table-wrapper" >
         <table class="table table-bordered rounded">
           <tr>
             <th class="table-light">施設名(かな)</th>

@@ -1,13 +1,33 @@
+.facilities-container {
+  padding-top: 100px;
+}
+
 .facility_container {
   display: flex;
   justify-content: center;
 }
 
 .facility_wrapper {
-  border-radius: 10px;
-  border-style: solid;
   max-width: 550px;
   align-items: center;
+  border: #777 solid;
+  border-radius: 10px;
+}
+
+.facility-show-image {
+  max-width: 500px;
+  height: 200px;
+}
+
+.left-wrapper{
+  max-width: 100%;
+}
+
+
+
+.table-wrapper {
+  max-width: 100%;
+
 }
 
 .table {
@@ -41,4 +61,22 @@
 }
 .table tr:last-child td {
   border-radius: 0 0 10px 0;
+}
+
+@media screen and (min-width: 796px) {
+.fasility-show-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 100px;
+  margin:auto;
+  }
+
+
+}
+@media screen and (max-width: 795px) {
+  .fasility-show-wrapper{
+    text-align: center
+  }
 }

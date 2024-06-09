@@ -1,65 +1,102 @@
 .header {
-  display: flex;
-  justify-content: space-between;
   padding: 10px;
-  margin: auto;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  border-bottom: 3px #ccc solid;
+  background-color: #fff;
 }
 
 .logo {
   display: flex;
 }
 
+.title-logo {
+  max-width: 300px;
+  height: 50px;
+}
 
+.header-layout{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 
+.logo{
+  display: flex;
+}
 
-// .btn-wrapper {
-// }
+.sub-title {
+  display: flex;
+  margin-left: 3px;
+}
 
-@media screen and (min-width: 796px) { /* pc用スタイル */
-  .header {
-    width: 1200px;
-  }
-  .sub-title {
-    display: flex;
-    margin-left: 3px;
-  }
+.sub-title-up {
+  line-height: 2.5em;
+  margin-left: 3px;
+}
+
+.sub-title-down {
+  margin-left: 3px;
+  line-height: 3em;
+}
+
+@media screen and (min-width: 1001px) { /* pc用スタイル */
+  // .navbar {
+  //   display: none;
+  // }
+  // .btn-wrapper{
+  //   width: 100%;
+  // }
+
   
-  .sub-title-up {
-    line-height: 2.5em;
-    margin-left: 3px;
-  }
-  
-  .sub-title-down {
-    margin-left: 3px;
-    line-height: 3em;
-  }
 
-  .sp-sub-title {
+
+  .pc-none {
     display: none;
   }
-
-
 
 }
 
-@media screen and (max-width: 795px) { /* sp用スタイル */
-  .sub-title {
+@media screen and (max-width: 1000px) { /* sp用スタイル */
+  .btn-wrapper {
     display: none;
   }
 
-  .sp-sub-title {
-    display: flex;
-    margin: auto;
+  .custom-navbar {
+    background-color: white; /* 背景を白に */
   }
   
-  .sp-sub-title-up {
-    line-height: 2.5em;
-    margin-left: 3px;
+  .custom-navbar .navbar-brand,
+  .custom-navbar .nav-link {
+    color: gray !important; /* 文字をグレーに */
   }
-  
-  .sp-sub-title-down {
-    margin-left: 3px;
-    line-height: 3em;
+
+  .custom-offcanvas {
+    background-color: white; /* Offcanvasの背景を白に */
+  }
+
+  .custom-offcanvas .offcanvas-title,
+  .custom-offcanvas .nav-link,
+  .custom-offcanvas .dropdown-menu,
+  .custom-offcanvas .dropdown-item {
+    color: gray !important; /* Offcanvas内の文字をグレーに */
+  }
+
+  .custom-offcanvas .btn-close {
+    color: gray !important; /* 閉じるボタンを反転して見やすくする */
+  }
+
+  h6 {
+    font-size: 1.5vw;
+  }
+
+  .btn {
+    max-width: 100px;
+  }
+
+  .navbar-toggler {
+    display: block;
   }
 
 }

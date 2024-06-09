@@ -2,6 +2,17 @@ ul li {
   list-style: none;
 }
 
+.top-container {
+  max-width: 1200px;
+  height: 100vh;
+  margin: auto;
+  background-image: url('megu-hi-.JPG');
+  background-size: cover;
+  padding-top: 100px;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-blend-mode: lighten;
+}
+
 
 .sarch-menu-wrapper {
   margin-top: 30px;
@@ -55,22 +66,17 @@ ul li {
   margin-top: 20px;
 }
 
-@media screen and (min-width: 796px) { /* sp用スタイル */
+@media screen and (min-width: 796px) { /* pc用スタイル */
   .top-container {
-    width: 1200px;
-    height: 100vh;
-    margin: auto;
-    background-image: url('megu-hi-.JPG');
-    background-size: cover;
-    padding-top: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
-    background-blend-mode: lighten;
+    max-width: 1200px;
   }
 
 }
 
 @media screen and (max-width: 795px) { /* sp用スタイル */
-
+  .top-container {
+    max-width: 100%;
+  }
 
 }
 .map-wrapper {
