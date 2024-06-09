@@ -2,6 +2,7 @@
   padding-top: 100px;
 }
 
+
 .facility_container {
   display: flex;
   justify-content: center;
@@ -78,5 +79,8 @@
 @media screen and (max-width: 795px) {
   .fasility-show-wrapper{
     text-align: center
+  }
+  .container {
+    padding-top: 150px;
   }
 }
