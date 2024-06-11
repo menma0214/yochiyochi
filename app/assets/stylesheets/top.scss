@@ -2,7 +2,7 @@ ul li {
   list-style: none;
 }
 
-.top-container {
+.container-wrapper {
   width: auto;
   height: 100vh;
   margin: auto;
@@ -65,22 +65,9 @@ ul li {
   margin-top: 20px;
 }
 
-@media screen and (min-width: 1001px) { /* pc用スタイル */
-  .top-container {
-    padding-top: 100px;
-  }
-
-  .top-wrapper {
-    max-width: 1200px;
-    margin: auto;
-  }
-
-}
-
 @media screen and (max-width: 1000px) { /* タブレット用スタイル */
-  .top-container {
+  .container-wrapper {
     max-width: 1000px;
-    padding-top: 200px;
   }
 
 }
