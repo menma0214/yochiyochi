@@ -1,0 +1,5 @@
+<% if @playground_equipments.any? %>
+  <%= render partial: 'playground_equipment', collection: @playground_equipments %>
+<% else %>
+  <p>遊具・設備が見つかりませんでした。</p>
+<% end %>

@@ -1,0 +1,43 @@
+<% content_for(:title, t('.title')) %>
+<div class='container' >
+    <div class="fasility-show-wrapper">
+      <div class="fasility-show-wrapper">
+        <div>
+          <h2><%= @playground_equipment.title %></h2>
+        </div>
+        <div class="facility-show-image-wrapper pt-3">
+          <%= image_tag "sample.png", alt: "image", class:"facility-show-image" %>
+        </div>
+      </div>
+      <div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="playground_equipment-data" >
+      <div>
+        <h4>種類</h4>
+        <div>
+          <%= @playground_equipment.kind %>
+        </div>
+      </div>
+      <div>
+        <h4>対象年齢</h4>
+        <div>
+          <%= @playground_equipment.target_age %>
+        </div>
+      </div>
+      <div>
+        <h4>遊具・設備の数</h4>
+        <div>
+          <%= @playground_equipment.installation %>
+        </div>
+      </div>
+      <div>
+        <h4>備考</h4>
+        <div class='remarks'>
+          <%= @playground_equipment.remarks %>
+        </div>
+      </div>
+    </div>
+  </div>

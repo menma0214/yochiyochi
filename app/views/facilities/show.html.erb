@@ -1,69 +1,69 @@
 <% content_for(:title, t('.title')) %>
 <div class='container' >
-    <div class="fasility-show-wrapper">
-      <div class="fasility-show-wrapper">
-        <div>
-          <h2><%= @facility.title %></h2>
-        </div>
-        <div class="facility-show-image-wrapper pt-3">
-          <%= image_tag "sample.png", alt: "image", class:"facility-show-image" %>
-        </div>
-      </div>
-      <%# <div class="pt-5">
-      </div> %>
-      <div class="facility-show-image-wrapper map-wrapper pt-5">
-        <h3 class="mb-2">マップ</h3>
-        <%= image_tag "sample.png", alt: "map", class:"facility-show-image" %>
-      </div>
-      <div>
-        <div></div>
-        <div></div>
-      </div>
+  <div class="fasility-show-wrapper">
+    <div>
+      <h2><%= @facility.title %></h2>
+    </div>
+    <div class="facility-show-image-wrapper pt-3">
+      <%= image_tag "sample.png", alt: "image", class:"facility-show-image" %>
+    </div>
+    <%# <div class="pt-5">
+    </div> %>
+    <div class="facility-show-image-wrapper map-wrapper pt-5">
+      <h3 class="mb-2">マップ</h3>
+      <%= image_tag "sample.png", alt: "map", class:"facility-show-image" %>
     </div>
     <div>
-      <div class="table-wrapper" >
-        <table class="table table-bordered rounded">
-          <tr>
-            <th class="table-light">施設名(かな)</th>
-            <td class="table-decription"><%= @facility.furigana %></td>
-          </tr>
-          <tr>
-            <th class="table-light">施設名</th>
-            <td><%= @facility.name %></td>
-          </tr>
-          <tr>
-            <th class="table-light">施設住所</th>
-            <td><%= @facility.address %></td>
-          </tr>
-          <tr>
-            <th class="table-light">営業時間</th>
-            <td><%= @facility.business_hours %></td>
-          </tr>
-          <tr>
-            <th class="table-light">料金</th>
-            <td><%= @facility.fee %></td>
-          </tr>
-          <tr>
-            <th class="table-light">対象年齢</th>
-            <td><%= @facility.target_age %></td>
-          </tr>
-          <tr>
-            <th class="table-light">屋内／屋外</th>
-            <td><%= @facility.environment %></td>
-          </tr>
-          <tr>
-            <th class="table-light">目的・要望</th>
-            <td><%= @facility.request %></td>
-          </tr>
-          <tr>
-            <th class="table-light">お問い合わせ先</th>
-            <td><%= @facility.contact %></td>
-          </tr>
-          <tr>
-            <th class="table-light">タグ</th>
-            <td><%# <%= @facility. %></td>
-          </tr>
-        </table>
+      <div>
+        <%= link_to "遊具・設備情報", facility_playground_equipments_path(@facility) %>
       </div>
+      <div></div>
     </div>
   </div>
+  <div>
+    <div class="table-wrapper" >
+      <table class="table table-bordered rounded">
+        <tr>
+          <th class="table-light">施設名(かな)</th>
+          <td class="table-decription"><%= @facility.furigana %></td>
+        </tr>
+        <tr>
+          <th class="table-light">施設名</th>
+          <td><%= @facility.name %></td>
+        </tr>
+        <tr>
+          <th class="table-light">施設住所</th>
+          <td><%= @facility.address %></td>
+        </tr>
+        <tr>
+          <th class="table-light">営業時間</th>
+          <td><%= @facility.business_hours %></td>
+        </tr>
+        <tr>
+          <th class="table-light">料金</th>
+          <td><%= @facility.fee %></td>
+        </tr>
+        <tr>
+          <th class="table-light">対象年齢</th>
+          <td><%= @facility.target_age %></td>
+        </tr>
+        <tr>
+          <th class="table-light">屋内／屋外</th>
+          <td><%= @facility.environment %></td>
+        </tr>
+        <tr>
+          <th class="table-light">目的・要望</th>
+          <td><%= @facility.request %></td>
+        </tr>
+        <tr>
+          <th class="table-light">お問い合わせ先</th>
+          <td><%= @facility.contact %></td>
+        </tr>
+        <tr>
+          <th class="table-light">タグ</th>
+          <td><%# <%= @facility. %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
