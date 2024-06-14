@@ -11,7 +11,7 @@ module Myapp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
-  #i18nで日本語変換できるように設定
+      #i18nで日本語変換できるように設定
   config.i18n.default_locale = :ja
   #標準時間を日本の時刻に設定
   config.time_zone = 'Tokyo'
@@ -28,6 +28,5 @@ module Myapp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    # デプロイするサービスのホストを追加する
   end
 end

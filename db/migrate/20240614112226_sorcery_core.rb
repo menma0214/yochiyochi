@@ -5,7 +5,7 @@ class SorceryCore < ActiveRecord::Migration[7.1]
       t.string :email,            null: false, index: { unique: true }
       t.string :crypted_password
       t.string :child_age
-      t.string :child_sex
+      t.string :child_sexgit
       t.string :child_personality
       t.string :child_trend
       t.string :like
