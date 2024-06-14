@@ -1,0 +1,2 @@
+module PlaygroundEquipmentsHelper
+end

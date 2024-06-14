@@ -64,8 +64,8 @@
   border-radius: 0 0 10px 0;
 }
 
-@media screen and (min-width: 796px) {
-.fasility-show-container {
+@media screen and (min-width: 1001px) {
+.container {
   max-width: 1200px;
   width: 100%;
   display: flex;
@@ -76,7 +76,7 @@
 
 
 }
-@media screen and (max-width: 795px) {
+@media screen and (max-width: 1000px) {
   .fasility-show-wrapper{
     text-align: center
   }
