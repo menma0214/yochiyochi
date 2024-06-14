@@ -97,4 +97,17 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.hosts<<"vast-wildwood-91903-3615740d4c68.herokuapp.com"
+
+  Rails.application.configure do
+    # Other configuration settings...
+
+    # Ensure SECRET_KEY_BASE is set
+    config.after_initialize do
+      unless ENV['SECRET_KEY_BASE'].present?
+        Rails.logger.error "SECRET_KEY_BASE is not set in production environment!"
+      else
+        Rails.logger.info "SECRET_KEY_BASE is set correctly in production environment."
+      end
+    end
+  end
 end
