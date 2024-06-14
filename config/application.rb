@@ -29,16 +29,5 @@ module Myapp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     # デプロイするサービスのホストを追加する
-
-    # Other configuration settings...
-
-    # Ensure SECRET_KEY_BASE is set
-    config.after_initialize do
-      unless ENV['SECRET_KEY_BASE'].present?
-        Rails.logger.error "SECRET_KEY_BASE is not set!"
-      else
-        Rails.logger.info "SECRET_KEY_BASE is set correctly."
-      end
-    end
   end
 end
