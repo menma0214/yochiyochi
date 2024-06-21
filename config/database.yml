@@ -81,11 +81,15 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV["MYAPP_DATABASE"] %>
-  username: <%= ENV["MYAPP_DATABASE_USERNAME"] %>
-  password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
-  host: <%= ENV["MYAPP_DATABASE_HOST"] %>
-  url: <%= ENV['MYAPP_DATABASE_URL'] %>
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  # database: <%= ENV["MYAPP_DATABASE"] %>
+  # username: <%= ENV["MYAPP_DATABASE_USERNAME"] %>
+  # password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
+  # host: <%= ENV["MYAPP_DATABASE_HOST"] %>
+  # url: <%= ENV['MYAPP_DATABASE_URL'] %>
+  # adapter: postgresql
+  # encoding: unicode
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # port: 5432
+  database: app_production
+  username: app
+  password: <%= ENV["APP_DATABASE_PASSWORD"] %>
