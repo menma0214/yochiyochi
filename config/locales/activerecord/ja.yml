@@ -13,3 +13,6 @@ ja:
           success: ログインしました
         destroy:
           succes: ログアウトしました
+      review:
+        title: タイトル
+        body: 内容

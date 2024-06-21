@@ -1,0 +1,12 @@
+<div class="row mb-3" id="comment-form">
+  <div class="col-lg-8 offset-lg-2">
+    <%= form_with(model: [@facility, @review]) do |f| %>
+      <%= f.label :title %>
+      <%= f.text_area :title, class: "form-control" %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :body %>
+      <%= f.text_area :body, class: "form-control mb-3", row: "10", style: "height: 200px", placeholder: Review.human_attribute_name(:body) %>
+      <%= f.submit t("defaults.post"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

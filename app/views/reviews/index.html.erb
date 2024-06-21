@@ -1,0 +1,7 @@
+<div class="reviews-wrapper">
+  <% if @reviews.any? %>
+    <%= render partial: 'review', collection: @reviews %>
+  <% else %>
+    <p>レビューが見つかりませんでした。</p>
+  <% end %>
+</div>
