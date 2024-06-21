@@ -1,0 +1,16 @@
+<% content_for(:title, t('.title')) %>
+<div>
+  <div>
+    <h3>レビュー一覧</h3>
+    <div>
+      <h4><%= @review.title %></h4>
+      <div>
+        <%= image_tag "sample.png", alt: "sample", width: "150px", height: "100px" %>
+      </div>
+      <div>
+        <%= @review.body %>
+      </div>
+      <%= link_to "レビューを削除", review_path(@review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
+    </div>
+  </div>
+</div>

@@ -7,9 +7,26 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  defaults:
+    create: 作成
+    post: 投稿
+    edit: 編集
+    show: 詳細
+    delete: 削除
+    password_reset: パスワードリセット
+    delete_confirm: 削除しますか？
+    unspecified: 指定なし
+    flash_messages:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新出来ませんでした"
+      deleted: "%{item}を削除しました"
+      require_login: ログインしてください
+      not_authorized: 権限がありません
   shared:
     search_form:
-      search_word: フリー検索
+      search_word: フリーワードで検索
   user_sessions:
     create:
       success: ログインしました。

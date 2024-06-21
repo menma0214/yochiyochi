@@ -1,0 +1,31 @@
+<div id="comment-<%= review.id %>" class="facility_container m-auto">
+  <div class="facility_wrapper d-flex mt-5 p-3">
+    <div class="image_wrapper ms-3">
+      <%= image_tag "sample.png", alt: "sample", width: "150px", height: "100px" %>
+    </div>
+    <div class="ms-3">
+      <h3><%= link_to review.title, review_path(review) %></h3>
+      <div>
+        <p><%= review.user.name %></p>
+        <p><%= review.body %></p>
+        <%# <p></p> 削除検討中%>
+      </div>
+      <% if review.user.own?(@current_user) %>
+    <td class="action">
+      <ul class="list-inline justify-content-center" style="float: right;">
+        <li class="list-inline-item">
+          <%= link_to "#", class: "edit-comment-link" do %>
+            <i class='bi bi-pencil-fill'></i>
+          <% end %>
+        </li>
+        <li class="list-inline-item">
+          <%= link_to review_path(review), class: "delete-review-#{review.id}", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} do %>
+              <i class="bi bi-trash-fill"></i>
+          <% end %>
+        </li>
+      </ul>
+    </td>
+  <% end %>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'playground_equipments/index'
-  get 'playground_equipments/show'
-  get 'facilities/index'
-  get 'facilities/show'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   # get '/logout', to: 'user_sessions#destroy'
@@ -23,5 +19,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :facilities, only: %i[index show] do
     resources :playground_equipments, only: %i[index show],shallow: true
+    resources :reviews, shallow: true
   end
 end
