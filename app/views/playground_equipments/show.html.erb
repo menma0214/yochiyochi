@@ -1,12 +1,12 @@
 <% content_for(:title, t('.title')) %>
-<div class='container' >
-    <div class="fasility-show-wrapper">
-      <div class="fasility-show-wrapper">
+<div class='playground_equipment-show-container' >
+    <div class="playground_equipment-show-wrapper">
+      <div class="playground_equipment-show-left-wrapper">
         <div>
           <h2><%= @playground_equipment.title %></h2>
         </div>
         <div class="facility-show-image-wrapper pt-3">
-          <%= image_tag "sample.png", alt: "image", class:"facility-show-image" %>
+          <%= image_tag "sample.png", alt: "image", class:"playground_equipment-show-image" %>
         </div>
       </div>
       <div>
@@ -14,29 +14,31 @@
         <div></div>
       </div>
     </div>
-    <div class="playground_equipment-data" >
-      <div>
-        <h4>種類</h4>
+    <div class="playground_equipment-item-list-wrapper">
+      <div class="playground_equipment-item-list" >
         <div>
-          <%= @playground_equipment.kind %>
+          <h4>種類</h4>
+          <div class="playground_equipment-item align-middle">
+            <%= @playground_equipment.kind %>
+          </div>
         </div>
-      </div>
-      <div>
-        <h4>対象年齢</h4>
-        <div>
-          <%= @playground_equipment.target_age %>
+        <div class="playground_equipment-item-wrapper">
+          <h4>対象年齢</h4>
+          <div class="playground_equipment-item">
+            <%= @playground_equipment.target_age %>
+          </div>
         </div>
-      </div>
-      <div>
-        <h4>遊具・設備の数</h4>
-        <div>
-          <%= @playground_equipment.installation %>
+        <div class="playground_equipment-item-wrapper">
+          <h4>遊具・設備の数</h4>
+          <div class="playground_equipment-item">
+            <%= @playground_equipment.installation %>
+          </div>
         </div>
-      </div>
-      <div>
-        <h4>備考</h4>
-        <div class='remarks'>
-          <%= @playground_equipment.remarks %>
+        <div class="playground_equipment-item-wrapper">
+          <h4>備考</h4>
+          <div class='remarks'>
+            <%= @playground_equipment.remarks %>
+          </div>
         </div>
       </div>
     </div>

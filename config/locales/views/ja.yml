@@ -50,4 +50,9 @@ ja:
       title: 施設一覧
     show:
       title: 施設詳細
+  reviews:
+    new:
+      title: タイトル
+    show:
+      title: レビュー詳細
 
