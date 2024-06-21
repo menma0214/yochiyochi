@@ -1,6 +1,6 @@
 <div class="row mb-3" id="comment-form">
   <div class="col-lg-8 offset-lg-2">
-    <%= form_with(model: [@facility, @review]) do |f| %>
+    <%= form_with(model: @review, url: @review.new_record? ? facility_reviews_path(@facility) : review_path(@review)) do |f| %>
       <%= f.label :title %>
       <%= f.text_area :title, class: "form-control" %>
       <%= render 'shared/error_messages', object: f.object %>

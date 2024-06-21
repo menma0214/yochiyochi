@@ -1,4 +1,66 @@
-.playground_equipment-data {
+
+
+.playground_equipment-show-wrapper{
+  text-align: center
+
+}
+
+.playground_equipment-item-list-wrapper{
+  text-align: center;
+}
+
+.playground_equipment-item-list {
   border: #777 solid 3px;
   border-radius: 5px;
+  padding: 10px;
+}
+
+.playground_equipment-item-wrapper {
+  margin-top: 10px;
+}
+
+.playground_equipment-item{
+  border-bottom: #777 solid 3px;
+  height: 1.5rem;
+}
+
+.playground_equipment-show-image {
+  max-width: 500px;
+  height: 200px;
+}
+
+.remarks{
+  border: #777 solid 3px;
+  border-radius: 5px;
+  height: 150px;
+}
+
+@media screen and (min-width: 1001px) { /* pc用スタイル */
+  .playground_equipment-show-container {
+    width: 100%;
+    display: flex;
+    justify-content:space-around ;
+  }
+
+  .remarks{
+  min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .playground_equipment-show-left-wrapper{
+    text-align: center;
+    padding-top: 150px;
+  }
+
+  .playground_equipment-item-list {
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 500px;
+  }
+
+  .playground_equipment-show-container {
+    margin: 0;
+  }
 }

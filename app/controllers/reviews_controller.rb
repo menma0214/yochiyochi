@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_facility, only: %i[index new create]
-  before_action :set_review, only: %i[show destroy]
-  before_action :set_facility_from_review, only: %i[destroy]
+  before_action :set_review, only: %i[show destroy edit update]
+  before_action :set_facility_from_review, only: %i[edit destroy update]
 
   def index
     @reviews = @facility.reviews.includes(:user).order(created_at: :desc).page(params[:page])
@@ -15,6 +15,10 @@ class ReviewsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+
   def create
     @review = @facility.reviews.build(review_params)
     @review.user = current_user
@@ -25,6 +29,16 @@ class ReviewsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def update
+    if @review.update(review_params)
+      redirect_to facility_reviews_path(@facility), success: t('defaults.flash_messages.updated', item: Review.model_name.human)
+    else
+      flash.now[:danger] = t('defaults.flash_messages.not_updated', item: Review.model_name.human)
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
 
   def destroy
     # ビューに関わらず、サーバーサイドからもセキュリティの観点からユーザー認証

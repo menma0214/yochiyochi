@@ -1,16 +1,26 @@
 <% content_for(:title, t('.title')) %>
-<div>
-  <div>
-    <h3>レビュー一覧</h3>
+<div class="review-show-container">
+  <h3><%= t('.title') %></h3>
+  <div class="review-show-wrapper">
     <div>
-      <h4><%= @review.title %></h4>
+      <div class="d-flex justify-content-between">
+        <h4 class="review-title"><%= @review.title %></h4>
+        <div><%= l @review.created_at, format: :long %></div>
+      </div>
       <div>
         <%= image_tag "sample.png", alt: "sample", width: "150px", height: "100px" %>
       </div>
-      <div>
+      <div class="review-body">
         <%= @review.body %>
       </div>
-      <%= link_to "レビューを削除", review_path(@review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
+    </div>
+  </div>
+  <div class="review-btn-wrapper">
+    <div>
+      <%= link_to "編集", edit_review_path(@review), class: "edit-review-#{@review.id} btn btn-success" %>
+    </div>
+    <div class="ms-2">
+      <%= link_to "削除", review_path(@review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
     </div>
   </div>
 </div>
