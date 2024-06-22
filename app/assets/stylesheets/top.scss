@@ -12,6 +12,10 @@ ul li {
 //   background-blend-mode: lighten;
 // }
 
+.top-container{
+  padding-top: 100px;
+  width: 100%;
+}
 
 .sarch-menu-wrapper {
   margin-top: 30px;
@@ -76,7 +80,7 @@ ul li {
 }
 
 @media screen and (max-width: 600px) {/*sp用*/
-  .dropdown {
-    display: none;
-  }
+  // .dropdown {
+  //   display: none;
+  // }
 }

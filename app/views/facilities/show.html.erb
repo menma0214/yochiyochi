@@ -1,5 +1,5 @@
 <% content_for(:title, t('.title')) %>
-<div class='container' >
+<div class='facility-container' >
   <div class="fasility-show-wrapper">
     <div>
       <h2><%= @facility.title %></h2>
@@ -12,14 +12,6 @@
     <div class="facility-show-image-wrapper map-wrapper pt-5">
       <h3 class="mb-2">マップ</h3>
       <%= image_tag "sample.png", alt: "map", class:"facility-show-image" %>
-    </div>
-    <div class="d-flex justify-content-around">
-      <div>
-        <%= link_to "遊具・設備情報", facility_playground_equipments_path(@facility) %>
-      </div>
-      <div>
-          <%= link_to "レビュー一覧", facility_reviews_path(@facility) %>
-      </div>
     </div>
   </div>
   <div>
@@ -67,6 +59,16 @@
         </tr>
       </table>
     </div>
-    <%= link_to 'レビューを投稿する', new_facility_review_path(@facility) %>
+    <div class="link-item-list">
+      <div class="link-item">
+        <%= link_to "遊具・設備情報", facility_playground_equipments_path(@facility) %>
+      </div>
+      <div class="link-item">
+          <%= link_to "レビュー一覧", facility_reviews_path(@facility) %>
+      </div>
+      <div class="link-item">
+        <%= link_to 'レビューを投稿する', new_facility_review_path(@facility) %>
+      </div>
+    </div>
   </div>
 </div>

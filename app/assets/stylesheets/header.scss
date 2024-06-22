@@ -38,25 +38,45 @@
   line-height: 3em;
 }
 
+.custom-navbar {
+  background-color: white; /* 背景を白に */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: gray !important; /* 文字をグレーに */
+}
+
+.custom-offcanvas {
+  background-color: white; /* Offcanvasの背景を白に */
+}
+
+.custom-offcanvas .offcanvas-title,
+.custom-offcanvas .nav-link,
+.custom-offcanvas .dropdown-menu,
+.custom-offcanvas .dropdown-item {
+  color: gray !important; /* Offcanvas内の文字をグレーに */
+}
+
+.custom-offcanvas .btn-close {
+  color: gray !important; /* 閉じるボタンを反転して見やすくする */
+}
+
+
 @media screen and (min-width: 1150px) { /* pc用スタイル */
-  // .navbar {
-  //   display: none;
-  // }
-  //   max-width: 500px;
-  // .btn-wrapper{
-  // }
+
   .title-logo {
     max-width: 300px;
   }
-  
+
   .logo{
     display: flex;
   }
 
-
   .pc-none {
-    display: none;
+    display:none;
   }
+
 
 }
 
@@ -66,37 +86,11 @@
     height: 50px;
   }
 
-  .btn-wrapper {
+  .sp-none {
     display: none;
   }
 
-  .custom-navbar {
-    background-color: white; /* 背景を白に */
-  }
-  
-  .custom-navbar .navbar-brand,
-  .custom-navbar .nav-link {
-    color: gray !important; /* 文字をグレーに */
-  }
 
-  .custom-offcanvas {
-    background-color: white; /* Offcanvasの背景を白に */
-  }
-
-  .custom-offcanvas .offcanvas-title,
-  .custom-offcanvas .nav-link,
-  .custom-offcanvas .dropdown-menu,
-  .custom-offcanvas .dropdown-item {
-    color: gray !important; /* Offcanvas内の文字をグレーに */
-  }
-
-  .custom-offcanvas .btn-close {
-    color: gray !important; /* 閉じるボタンを反転して見やすくする */
-  }
-
-  .btn {
-    max-width: 100px;
-  }
 
 }
 
@@ -108,33 +102,6 @@
 }
 
 @media screen and (max-width: 600px) { /* sp用スタイル */
-  .btn-wrapper {
-    display: none;
-  }
-
-  .custom-navbar {
-    background-color: white; /* 背景を白に */
-  }
-  
-  .custom-navbar .navbar-brand,
-  .custom-navbar .nav-link {
-    color: gray !important; /* 文字をグレーに */
-  }
-
-  .custom-offcanvas {
-    background-color: white; /* Offcanvasの背景を白に */
-  }
-
-  .custom-offcanvas .offcanvas-title,
-  .custom-offcanvas .nav-link,
-  .custom-offcanvas .dropdown-menu,
-  .custom-offcanvas .dropdown-item {
-    color: gray !important; /* Offcanvas内の文字をグレーに */
-  }
-
-  .custom-offcanvas .btn-close {
-    color: gray !important; /* 閉じるボタンを反転して見やすくする */
-  }
 
   h6 {
     font-size: 3vw;
@@ -144,5 +111,8 @@
     max-width: 100px;
   }
 
+  .sp-none {
+    display: none;
+  }
 
 }

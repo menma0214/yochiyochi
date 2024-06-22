@@ -1,108 +1,107 @@
-<div class="container-wrapper">
-  <div class="container-md">
-    <%= render 'shared/search_form', q: @q, url: facilities_path %>
-    <%# <div class ='sarch-menu-wrapper d-flex'>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          都道府県
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">東京</a></li>
-          <li><a class="dropdown-item" href="#">千葉</a></li>
-          <li><a class="dropdown-item" href="#">埼玉</a></li>
-          <li><a class="dropdown-item" href="#">神奈川</a></li>
-        </ul>
-      </div>
-      <div class="dropdown ms-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          最寄駅
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">東京</a></li>
-          <li><a class="dropdown-item" href="#">千葉</a></li>
-          <li><a class="dropdown-item" href="#">大宮</a></li>
-        </ul>
-      </div>
-      <div class="dropdown ms-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          タグ
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">アスレチック</a></li>
-          <li><a class="dropdown-item" href="#">屋内遊具</a></li>
-          <li><a class="dropdown-item" href="#">読みきかせ</a></li>
-        </ul>
-      </div>
-      <div class="dropdown ms-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          料金
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">¥0</a></li>
-          <li><a class="dropdown-item" href="#">¥1〜1000</a></li>
-          <li><a class="dropdown-item" href="#">¥1001〜2000</a></li>
-        </ul>
-      </div>
-      <div class="dropdown ms-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          目 的
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">遊び</a></li>
-          <li><a class="dropdown-item" href="#">見学</a></li>
-          <li><a class="dropdown-item" href="#">面会交流</a></li>
-        </ul>
-      </div>
-      <div class="dropdown ms-3">
-        <button class="btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          屋内or屋外
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">屋内</a></li>
-          <li><a class="dropdown-item" href="#">屋外</a></li>
-        </ul>
-      </div> %>
-      <%# <button>
-        <span></span>
+<% content_for(:title, t('.title')) %>
+<div class="container-md">
+  <%= render 'shared/search_form', q: @q, url: facilities_path %>
+  <%# <div class ='sarch-menu-wrapper d-flex'>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        都道府県
       </button>
-      <button>
-        <span></span>
-      </button>
-      <button>
-        <span></span>
-      </button>
-      <button>
-        <span></span>
-      </button>
-      <button>
-        <span></span>
-      </button>
-      <button>
-        <span></span>
-      </button> %>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">東京</a></li>
+        <li><a class="dropdown-item" href="#">千葉</a></li>
+        <li><a class="dropdown-item" href="#">埼玉</a></li>
+        <li><a class="dropdown-item" href="#">神奈川</a></li>
+      </ul>
     </div>
+    <div class="dropdown ms-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        最寄駅
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">東京</a></li>
+        <li><a class="dropdown-item" href="#">千葉</a></li>
+        <li><a class="dropdown-item" href="#">大宮</a></li>
+      </ul>
+    </div>
+    <div class="dropdown ms-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        タグ
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">アスレチック</a></li>
+        <li><a class="dropdown-item" href="#">屋内遊具</a></li>
+        <li><a class="dropdown-item" href="#">読みきかせ</a></li>
+      </ul>
+    </div>
+    <div class="dropdown ms-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        料金
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">¥0</a></li>
+        <li><a class="dropdown-item" href="#">¥1〜1000</a></li>
+        <li><a class="dropdown-item" href="#">¥1001〜2000</a></li>
+      </ul>
+    </div>
+    <div class="dropdown ms-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        目 的
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">遊び</a></li>
+        <li><a class="dropdown-item" href="#">見学</a></li>
+        <li><a class="dropdown-item" href="#">面会交流</a></li>
+      </ul>
+    </div>
+    <div class="dropdown ms-3">
+      <button class="btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        屋内or屋外
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">屋内</a></li>
+        <li><a class="dropdown-item" href="#">屋外</a></li>
+      </ul>
+    </div> %>
+    <%# <button>
+      <span></span>
+    </button>
+    <button>
+      <span></span>
+    </button>
+    <button>
+      <span></span>
+    </button>
+    <button>
+      <span></span>
+    </button>
+    <button>
+      <span></span>
+    </button>
+    <button>
+      <span></span>
+    </button>
+  </div> %>
 
-    <div class="article-wrapper">
-      <div class="article-title">
-        <h5 class="article-title-text">施設情報</h5>
-      </div>
-      <% if @facilities.present? %>
-        <%= render @facilities%>
-      <% else %>
-        <div class="mb-3">施設情報がありません</div>
-      <% end %>
-      <%# <div class="card" style="width: 18rem;"> %>
-        <%# <img src="..." class="card-img-top" alt="..."> %>
-        <%# <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-        </ul>
-      </div> %>
+  <div class="article-wrapper">
+    <div class="article-title">
+      <h5 class="article-title-text">施設情報</h5>
     </div>
+    <% if @facilities.present? %>
+      <%= render @facilities%>
+    <% else %>
+      <div class="mb-3">施設情報がありません</div>
+    <% end %>
+    <%# <div class="card" style="width: 18rem;"> %>
+      <%# <img src="..." class="card-img-top" alt="..."> %>
+      <%# <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+      </ul>
+    </div> %>
   </div>
 </div>

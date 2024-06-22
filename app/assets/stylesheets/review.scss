@@ -1,9 +1,13 @@
-.review_container {
+.reviews-container{
+  padding-top: 150px;
+}
+
+.review-container {
   display: flex;
   justify-content: center;
 }
 
-.review_wrapper {
+.review-wrapper {
   max-width: 550px;
   align-items: center;
   border: #777 solid;
@@ -11,9 +15,7 @@
 }
 
 
-.reviews-wrapper{
-  padding-top: 150px;
-}
+
 
 .review-wrapper{
   padding-top: 300px;
@@ -46,4 +48,11 @@
   display: flex;
   justify-content: end;
   margin-top: 10px;
+}
+
+@media screen and (max-width: 600px){
+  .reviews-container{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

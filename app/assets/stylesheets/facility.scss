@@ -1,5 +1,6 @@
-.container {
+.facility-container {
   padding-top: 100px;
+  width: 100%;
 }
 
 
@@ -67,7 +68,7 @@
 }
 
 @media screen and (min-width: 1001px) {
-.container {
+.facility-container {
   max-width: 1200px;
   width: 100%;
   display: flex;
@@ -76,13 +77,35 @@
   margin:auto;
   }
 
-
 }
+
+@media screen and (min-width: 600px) {
+
+  .link-item-list {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+}
+
+
+
 @media screen and (max-width: 1000px) {
   .fasility-show-wrapper{
     text-align: center
   }
-  .container {
+
+  .facility-container {
     padding-top: 150px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
+
+  .link-item-list {
+    text-align: center;
+  }
+
+  .link-item{
+    margin-top: 10px;
 }
+  }

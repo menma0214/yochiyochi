@@ -16,11 +16,13 @@
     </div>
   </div>
   <div class="review-btn-wrapper">
-    <div>
-      <%= link_to "編集", edit_review_path(@review), class: "edit-review-#{@review.id} btn btn-success" %>
-    </div>
-    <div class="ms-2">
-      <%= link_to "削除", review_path(@review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
-    </div>
+    <% if @review.user.own?(@current_user) %>
+      <div>
+        <%= link_to "編集", edit_review_path(@review), class: "edit-review-#{@review.id} btn btn-success" %>
+      </div>
+      <div class="ms-2">
+        <%= link_to "削除", review_path(@review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
+      </div>
+    <% end %>
   </div>
 </div>
