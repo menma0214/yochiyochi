@@ -1,5 +1,5 @@
 <% content_for(:title, t('.title')) %>
-<div class='facility-show-container ps-1 pe-1' >
+<div class='facility-show-container ps-2 pe-2' >
   <div class="fasility-show-wrapper">
     <div>
       <h2><%= @facility.title %></h2>
@@ -52,6 +52,10 @@
         <tr>
           <th class="table-light">お問い合わせ先</th>
           <td><%= @facility.contact %></td>
+        </tr>
+        <tr>
+          <th class="table-light">施設URL</th>
+          <td> <%= @facility.facility_url %></td>
         </tr>
         <tr>
           <th class="table-light">タグ</th>
