@@ -1,3 +1,14 @@
+.playground_equipment-container{
+  display: flex;
+  justify-content: center;
+}
+
+.playground_equipment-wrapper {
+  max-width: 550px;
+  align-items: center;
+  border: #777 solid;
+  border-radius: 10px;
+}
 
 
 .playground_equipment-show-wrapper{

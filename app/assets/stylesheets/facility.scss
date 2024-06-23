@@ -1,15 +1,16 @@
-.facility-container {
+.facility-show-container {
   padding-top: 100px;
   width: 100%;
+  height: 125vh;
 }
 
 
-.facility_container {
+.facility-container {
   display: flex;
   justify-content: center;
 }
 
-.facility_wrapper {
+.facility-wrapper {
   max-width: 550px;
   align-items: center;
   border: #777 solid;
