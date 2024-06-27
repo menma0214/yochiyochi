@@ -63,12 +63,13 @@ gem 'carrierwave', '~> 2.0'
 gem 'mini_magick', '~> 4.9'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+gem 'dotenv-rails', groups: [:development, :test, :production]
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
   gem 'sqlite3', '~> 1.4'
-  gem 'dotenv-rails'
 end
 
 group :development do
