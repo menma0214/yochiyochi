@@ -5,10 +5,10 @@ require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-# Dotenv::Railtie.load　# ローカルの設定
-if defined?(Dotenv) #本番の設定
-  Dotenv::Railtie.load
-end
+Dotenv::Rails.load # ローカルの設定
+# if defined?(Dotenv) #本番の設定
+#   Dotenv::rails.load
+# end
 
 module Myapp
   class Application < Rails::Application
