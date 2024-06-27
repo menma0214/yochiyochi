@@ -5,7 +5,7 @@
       <h2><%= @facility.title %></h2>
     </div>
     <div class="facility-show-image-wrapper pt-3">
-      <%= image_tag "sample.png", alt: "image", class:"facility-show-image" %>
+      <%= image_tag(@facility.image.present? ? @facility.image.url : 'sample.png', class:"facility-show-image" ) %>
     </div>
     <%# <div class="pt-5">
     </div> %>

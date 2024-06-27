@@ -78,6 +78,11 @@
   margin:auto;
   }
 
+  .facility-show-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
 }
 
 @media screen and (min-width: 600px) {
