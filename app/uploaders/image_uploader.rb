@@ -15,7 +15,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # include CarrierWave::MiniMagick
   # process resize_to_limit: [500, 500]
-
+  def extension_whitelist
+    %w[jpg jpeg gif png]
+  end
 
   def filename
     original_filename if original_filename

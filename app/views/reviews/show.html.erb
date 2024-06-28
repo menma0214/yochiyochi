@@ -2,13 +2,13 @@
 <div class="review-show-container">
   <h3><%= t('.title') %></h3>
   <div class="review-show-wrapper">
-    <div>
+    <div class="review-show">
       <div class="d-flex justify-content-between">
         <h4 class="review-title"><%= @review.title %></h4>
         <div><%= l @review.created_at, format: :long %></div>
       </div>
       <div>
-        <%= image_tag(@review.image.present? ? @review.image.url : 'sample.png', alt: "sample", width: "250px", height: "150px") %>
+        <%= image_tag(@review.image.present? ? @review.image.url : 'sample.png', alt: "sample", width: "250px", height: "150px", class: "review-image") %>
       </div>
       <div class="review-body">
         <%= @review.body %>

@@ -7,23 +7,23 @@
   justify-content: center;
 }
 
-.review-wrapper {
-  max-width: 550px;
-  align-items: center;
-  border: #777 solid;
-  border-radius: 10px;
-}
+// .review-wrapper {
+//   max-width: 550px;
+//   align-items: center;
+//   border: #777 solid;
+//   border-radius: 10px;
+// }
 
 
 
 
-.review-wrapper{
-  padding-top: 300px;
-}
+// .review-wrapper{
+//   padding-top: 300px;
+// }
 
 .review-show-container {
   margin: auto;
-  padding: 50px;
+  padding: 10px;
   max-width: 1200px;
 }
 
@@ -35,6 +35,10 @@
   border-radius: 10px;
   max-width: 550px;
   padding: 20px;
+}
+
+.review-show {
+  // text-align: center;
 }
 
 .review-body{
@@ -54,5 +58,10 @@
   .reviews-container{
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .review-image {
+    max-width: 200px;
+    
   }
 }
