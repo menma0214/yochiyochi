@@ -24,6 +24,9 @@ ja:
       deleted: "%{item}を削除しました"
       require_login: ログインしてください
       not_authorized: 権限がありません
+    errors:
+      messages:
+        mini_magick_processing_error: 画像を投稿できませんでした。
   shared:
     search_form:
       search_word: フリーワードで検索
