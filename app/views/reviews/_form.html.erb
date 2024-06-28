@@ -4,6 +4,8 @@
       <%= f.label :title %>
       <%= f.text_area :title, class: "form-control" %>
       <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :image %>
+      <%= f.file_field :image, class: "form-control" %>
       <%= f.label :body %>
       <%= f.text_area :body, class: "form-control mb-3", row: "10", style: "height: 200px", placeholder: Review.human_attribute_name(:body) %>
       <%= f.submit t("defaults.post"), class: "btn btn-primary" %>

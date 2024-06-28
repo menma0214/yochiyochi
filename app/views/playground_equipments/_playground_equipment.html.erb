@@ -1,7 +1,7 @@
 <div class="playground_equipment-container m-auto">
   <div class="playground_equipment-wrapper d-flex mt-5 p-3">
     <div class="image-wrapper ms-3">
-      <%= image_tag "sample.png", alt: "sample", width: "150px", height: "100px" %>
+      <%= image_tag(playground_equipment.image.present? ? playground_equipment.image.url : 'sample.png', alt: "image",  width: "200px", height: "150px" ) %>
       <%# <%= image_tag facility.image_url, class: "", width: "300", height:"200" %>
     </div>
     <div class="ms-3">

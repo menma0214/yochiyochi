@@ -6,7 +6,7 @@
           <h2><%= @playground_equipment.title %></h2>
         </div>
         <div class="playground_equipment-show-image-wrapper pt-3">
-          <%= image_tag "sample.png", alt: "image", class:"playground_equipment-show-image" %>
+          <%= image_tag(@playground_equipment.image.present? ? @playground_equipment.image.url : 'sample.png', alt: "image", class:"playground_equipment-show-image") %>
         </div>
       </div>
       <div>
