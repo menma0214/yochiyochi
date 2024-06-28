@@ -18,7 +18,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   def filename
-    "#{SecureRandom.uuid}.#{file.extension}" if original_filename.present?
+    original_filename if original_filename
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
