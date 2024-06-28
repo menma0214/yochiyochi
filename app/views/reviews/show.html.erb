@@ -8,7 +8,7 @@
         <div><%= l @review.created_at, format: :long %></div>
       </div>
       <div>
-        <%= image_tag "sample.png", alt: "sample", width: "150px", height: "100px" %>
+        <%= image_tag(@review.image.present? ? @review.image.url : 'sample.png', alt: "sample", width: "250px", height: "150px") %>
       </div>
       <div class="review-body">
         <%= @review.body %>

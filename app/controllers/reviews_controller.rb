@@ -54,7 +54,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :body)
+    params.require(:review).permit(:title, :body, :image)
   end
 
   def set_facility
