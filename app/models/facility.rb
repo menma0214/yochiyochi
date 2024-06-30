@@ -1,6 +1,7 @@
 class Facility < ApplicationRecord
   has_many :playground_equipments
   has_many :reviews
+  has_one :place
 
   mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader

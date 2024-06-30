@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_15_091845) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_30_102358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_091845) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "video"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.bigint "facility_id", null: false
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["facility_id"], name: "index_places_on_facility_id"
   end
 
   create_table "playground_equipments", force: :cascade do |t|
@@ -75,6 +85,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_091845) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "places", "facilities"
   add_foreign_key "playground_equipments", "facilities"
   add_foreign_key "reviews", "facilities"
   add_foreign_key "reviews", "users"

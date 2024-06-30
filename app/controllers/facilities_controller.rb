@@ -7,5 +7,6 @@ class FacilitiesController < ApplicationController
 
   def show
     @facility = Facility.find(params[:id])
+    @place = @facility.place
   end
 end

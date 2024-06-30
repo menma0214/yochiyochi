@@ -2,19 +2,18 @@
 <div class='facility-show-container ps-2 pe-2' >
   <div class="fasility-show-wrapper">
     <div>
-      <h2><%= @facility.title %></h2>
+      <h1><%= @facility.title %></h1>
     </div>
-    <div class="facility-show-image-wrapper pt-3">
+    <div class="facility-show-image-wrapper">
       <%= image_tag(@facility.image.present? ? @facility.image.url : 'sample.png', class:"facility-show-image" ) %>
     </div>
-    <%# <div class="pt-5">
-    </div> %>
-    <div class="facility-show-image-wrapper map-wrapper pt-5">
+    <div id="map" class="map" style="height: 300px; width: 500px;"></div>
+    <%# <div class="facility-show-image-wrapper map-wrapper pt-5">
       <h3 class="mb-2">マップ</h3>
       <%= image_tag "sample.png", alt: "map", class:"facility-show-image" %>
-    </div>
+    <%# </div>  %>
   </div>
-  <div>
+  <div class="facility-show-article">
     <div class="table-wrapper" >
       <table class="table table-bordered rounded">
         <tr>
@@ -76,3 +75,17 @@
     </div>
   </div>
 </div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
+<script type="text/javascript">
+  function initMap() {
+    var facilityLocation = { lat: <%= @place.latitude %>, lng: <%= @place.longitude %> };
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: facilityLocation
+    });
+    var marker = new google.maps.Marker({
+      position: facilityLocation,
+      map: map
+    });
+  }
+</script>
