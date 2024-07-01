@@ -8,17 +8,21 @@
           <%= f.label :email %>
           <%= f.email_field :email, class: 'form-control' %>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
           <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control' %>
         </div>
-        <div class="actions">
+        <div class="actions mt-3">
           <%= f.submit t('.login'), class: 'btn btn-primary' %>
         </div>
       <% end %>
-      <div class='text-center'>
-        <%# <%= link_to t('.to_register_page'), new_user_path %>
-        <%= link_to t('.password_forget'), '#' %>
+      <div class='text-center mt-5'>
+        <div>
+          <%= link_to t('.to_register_page'), new_user_path %>
+        </div>
+        <div class='mt-1'>
+          <%= link_to t('.password_forget'), '#' %>
+        </div>
       </div>
     </div>
   </div>
