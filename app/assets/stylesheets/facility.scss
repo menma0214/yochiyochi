@@ -18,24 +18,25 @@
 
 .facility-show-image-wrapper{
   margin-top: 100px;
+  text-align: center;
 }
 
 .facility-show-image {
+  width: 100%;
   max-width: 500px;
   height: 300px;
 }
 
+.facility-show-article {
+  width: 100%;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 .left-wrapper{
   max-width: 10%;
-}
-
-
-
-.table-wrapper {
-  max-width: 100%;
-
 }
 
 .table {
@@ -72,6 +73,7 @@
 }
 
 .map {
+  max-width: 500px;
   margin-top: 100px;
 }
 
@@ -109,8 +111,8 @@
 
 
 @media screen and (max-width: 1000px) {
-  .fasility-show-wrapper{
-    text-align: center
+  .facility-show-wrapper {
+    text-align: center;
   }
 
   .facility-container {
@@ -127,7 +129,6 @@
 }
 
 .map {
-  max-width: 200px;
   margin-left: auto;
   margin-right: auto;
 }

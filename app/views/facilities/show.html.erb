@@ -1,6 +1,6 @@
 <% content_for(:title, t('.title')) %>
 <div class='facility-show-container ps-2 pe-2' >
-  <div class="fasility-show-wrapper">
+  <div class="facility-show-wrapper">
     <div>
       <h1><%= @facility.title %></h1>
     </div>
@@ -8,7 +8,7 @@
       <%= image_tag(@facility.image.present? ? @facility.image.url : 'sample.png', class:"facility-show-image" ) %>
     </div>
     <% if @place && @place.latitude.present? && @place.longitude.present? %>
-      <div id="map" class="map" style="height: 300px; width: 500px;"></div>
+      <div id="map" class="map" style="height: 300px; width: 100%;"></div>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
       <script type="text/javascript">
         function initMap() {
