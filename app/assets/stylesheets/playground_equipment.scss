@@ -1,17 +1,26 @@
+.playground_equipments-container {
+  width: 100%;
+  margin: auto;
+  display: inline-block;
+  justify-content: space-around;
+
+}
+
 .playground_equipment-container{
-  display: flex;
-  justify-content: center;
+
 }
 
 .playground_equipment-wrapper {
-  max-width: 550px;
+  min-width: 300px;
   align-items: center;
   border: #777 solid;
   border-radius: 10px;
+  margin: auto;
 }
 
 
-.playground_equipment-show-wrapper{
+
+.playground_equipment-show-left-wrapper{
   text-align: center
 
 }
@@ -40,6 +49,12 @@
   height: 200px;
 }
 
+.playground_equipment-image {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 10px;
+}
+
 .remarks{
   border: #777 solid 3px;
   border-radius: 5px;
@@ -47,10 +62,15 @@
 }
 
 @media screen and (min-width: 1001px) { /* pc用スタイル */
-  .playground_equipment-show-container {
-    width: 100%;
+  .playground_equipment-show-wrapper{
     display: flex;
-    justify-content:space-around ;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 100px;
+  }
+
+  .playground_equipment-wrapper {
+    max-width: 800px;
   }
 
   .remarks{
@@ -58,7 +78,19 @@
   }
 }
 
+@media screen and (min-width: 601px) {
+  .playground_equipment-body {
+    display: flex;
+    justify-content: start;
+  }
+
+  .playground_equipment-wrapper {
+    max-width: 550px;
+  }
+}
+
 @media screen and (max-width: 1000px) {
+
   .playground_equipment-show-left-wrapper{
     text-align: center;
     padding-top: 150px;
@@ -72,6 +104,19 @@
   }
 
   .playground_equipment-show-container {
-    margin: 0;
+    margin: auto;
   }
 }
+
+@media screen and (max-width: 600px) {
+  // スマホサイズは対象のdivを削除してスタイル調整
+  .ms-3 {
+    display: contents;
+  }
+
+  .playground_equipment-wrapper {
+    max-width: 300px;
+  }
+
+}
+

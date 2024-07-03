@@ -1,7 +1,7 @@
 class Facility < ApplicationRecord
-  has_many :playground_equipments
-  has_many :reviews
-  has_one :place
+  has_many :playground_equipments, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_one :place, dependent: :destroy
 
   mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader

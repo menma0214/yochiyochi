@@ -40,35 +40,36 @@
         </tr>
         <tr>
           <th class="table-light">施設住所</th>
-          <td><%= @facility.address %></td>
+          <%# simple_formatで\nで改行させる %>
+          <td><%= simple_format(@facility.address) %></td>
         </tr>
         <tr>
           <th class="table-light">営業時間</th>
-          <td><%= @facility.business_hours %></td>
+          <td><%= simple_format(@facility.business_hours) %></td>
         </tr>
         <tr>
           <th class="table-light">料金</th>
-          <td><%= @facility.fee %></td>
+          <td><%= simple_format(@facility.fee) %></td>
         </tr>
         <tr>
           <th class="table-light">対象年齢</th>
-          <td><%= @facility.target_age %></td>
+          <td><%= simple_format(@facility.target_age) %></td>
         </tr>
         <tr>
           <th class="table-light">屋内／屋外</th>
-          <td><%= @facility.environment %></td>
+          <td><%= simple_format(@facility.environment) %></td>
         </tr>
         <tr>
           <th class="table-light">目的・要望</th>
-          <td><%= @facility.request %></td>
+          <td><%= simple_format(@facility.request) %></td>
         </tr>
         <tr>
           <th class="table-light">お問い合わせ先</th>
-          <td><%= @facility.contact %></td>
+          <td><%= simple_format(@facility.contact) %></td>
         </tr>
         <tr>
           <th class="table-light">施設URL</th>
-          <td> <%= @facility.facility_url %></td>
+          <td> <%= simple_format(@facility.facility_url) %></td>
         </tr>
         <tr>
           <th class="table-light">タグ</th>
