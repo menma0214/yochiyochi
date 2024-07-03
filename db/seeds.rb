@@ -12,7 +12,7 @@ Facility.create(
   title: '東京タワー（ダミー）',
   name: '某所１',
   furigana: 'ボウショ',
-  address: '〒105-0011 東京都港区芝公園４丁目２−８',
+  address: %Q{〒105-0011\n東京都港区芝公園4丁目2-8},
   business_hours: '9:00~17:00',
   fee: '無料',
   target_age: '0歳〜3歳',
@@ -28,7 +28,7 @@ Facility.create(
   title: 'スカイツリー（ダミー）',
   name: '某所２',
   furigana: 'ボウショ',
-  address: '〒131-0045 東京都墨田区押上１丁目１−２',
+  address: %Q{〒131-0045\n東京都墨田区押上1丁目1-2'},
   business_hours: '9:00~17:00',
   fee: '無料',
   target_age: '1歳〜3歳',
@@ -43,18 +43,18 @@ Facility.create(
 PlaygroundEquipment.create(
   facility_id: 1,
   title: 'サンプル小さな子供向けの遊具があるよ',
-  kind: '滑り台 玩具 本',
+  kind: %Q{滑り台\n玩具\n本},
   target_age: '0歳〜3歳',
-  installation: '滑り台２台/玩具、本複数',
+  installation: %Q{滑り台２台\n玩具\n本複数},
   remarks: 'はいはいを始めたぐらいのお子様から遊べます！'
 )
 
 PlaygroundEquipment.create(
   facility_id: 2,
   title: 'サンプル小さな子供向けの玩具があるよ',
-  kind: 'ボールプール 玩具 本',
+  kind: %Q{ボールプール\n玩具\n本},
   target_age: '1歳〜3歳',
-  installation: 'ボールプール/玩具、本複数',
+  installation: %Q{ボールプール\n玩具\n複数},
   remarks: '歩き始めたぐらいのお子様から遊べます！'
 )
 
