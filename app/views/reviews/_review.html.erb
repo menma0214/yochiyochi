@@ -1,31 +1,31 @@
-<div id="comment-<%= review.id %>" class="review-container m-auto">
-  <div class="review-show-wrapper d-flex mt-5 p-3">
-    <div class="image-wrapper ms-3">
-      <%= image_tag(review.image.present? ? review.image.url : 'sample.png', alt: "sample",  width: "200px", height: "150px") %>
-    </div>
-    <div class="ms-3">
-      <h3><%= link_to review.title, review_path(review) %></h3>
-      <div>
-        <p><%= review.user.name %></p>
-        <p><%= review.body %></p>
-        <%# <p></p> 削除検討中%>
+<div id="review-<%= review.id %>" class="review-container">
+  <div class="review-show-wrapper mt-5 p-3">
+    <h3><%= link_to review.title.truncate(10, omission: '...'), review_path(review) %></h3>
+    <div class="reviews-body">
+      <div class="review-image-wrapper">
+        <%= image_tag(review.image.present? ? review.image.url : 'sample.png', alt: "sample", class:"review-image", height: "150px") %>
       </div>
-      <% if review.user.own?(@current_user) %>
-        <td class="action">
-          <ul class="list-inline justify-content-center" style="float: right;">
-            <li class="list-inline-item">
-              <%= link_to edit_review_path(review), class: "edit-review-#{review.id}" do %>
-                <i class='bi bi-pencil-fill'></i>
-              <% end %>
-            </li>
-            <li class="list-inline-item">
-              <%= link_to review_path(review), class: "delete-review-#{review.id}", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} do %>
-                  <i class="bi bi-trash-fill"></i>
-              <% end %>
-            </li>
-          </ul>
-        </td>
-      <% end %>
+      <div class="ms-3">
+          <p><%= review.user.name.truncate(10, omission: '...') %></p>
+          <p><%= review.body.truncate(30, omission: '...') %></p>
+          <%# <p></p> 削除検討中%>
+        <% if review.user.own?(@current_user) %>
+          <td class="action">
+            <ul class="list-inline justify-content-center" style="float: right;">
+              <li class="list-inline-item">
+                <%= link_to edit_review_path(review), class: "edit-review-#{review.id}" do %>
+                  <i class='bi bi-pencil-fill'></i>
+                <% end %>
+              </li>
+              <li class="list-inline-item">
+                <%= link_to review_path(review), class: "delete-review-#{review.id}", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} do %>
+                    <i class="bi bi-trash-fill"></i>
+                <% end %>
+              </li>
+            </ul>
+          </td>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

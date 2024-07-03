@@ -10,10 +10,10 @@
 }
 
 .facility-wrapper {
-  max-width: 550px;
   align-items: center;
   border: #777 solid;
   border-radius: 10px;
+  min-width: 300px;
 }
 
 .facility-show-image-wrapper{
@@ -25,12 +25,27 @@
   width: 100%;
   max-width: 500px;
   height: 300px;
+  border-radius: 10px;
 }
 
 .facility-show-article {
   width: 100%;
   max-width: 650px;
 }
+
+.facilities-image {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+// .facility-title-text {
+//   font-size: 5vw;
+// }
+
+// .facility-body-text {
+//   font-size: 4vw;
+// }
 
 .table {
   table-layout: fixed;
@@ -55,6 +70,13 @@
 .table tr:first-child th {
   border-radius: 10px 0 0 0;
 }
+
+.table td {
+  width:100%;
+  word-wrap: break-all;
+  word-break: break-all;
+}
+
 .table tr:first-child td {
   border-radius: 0 10px 0 0;
 }
@@ -71,7 +93,7 @@
 }
 
 @media screen and (min-width: 1001px) {
-.facility-container {
+  .facility-container {
   max-width: 1200px;
   width: 100%;
   display: flex;
@@ -91,11 +113,19 @@
 
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
+  .facility-wrapper {
+    min-width: 550px;
+  }
 
   .link-item-list {
     display: flex;
     justify-content: space-around;
+  }
+
+  .facility-body {
+    display: flex;
+    justify-content: start;
   }
 
 }
@@ -108,6 +138,7 @@
     margin-left: auto;
     margin-right: auto;
   }
+
 
   .facility-show-wrapper {
     text-align: center;
@@ -126,9 +157,21 @@
     margin-top: 10px;
 }
 
-.map {
-  margin-left: auto;
-  margin-right: auto;
+  .map {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
+@media screen and (max-width: 600px) {
+  // スマホサイズは対象のdivを削除してスタイル調整
+  .ms-3 {
+    display: contents;
   }
+
+  .facility-wrapper {
+    max-width: 300px;
+  }
+
+}

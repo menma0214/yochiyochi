@@ -55,7 +55,29 @@ ja:
       title: 施設詳細
   reviews:
     new:
-      title: タイトル
+      title: レビュー作成
+      review: レビュー
+    edit:
+      title: レビュー編集
     show:
       title: レビュー詳細
+    flash_messages:
+      created: "レビューを作成しました"
+      not_created: "レビューを作成出来ませんでした"
+      updated: "レビューを更新しました"
+      not_updated: "レビューを更新出来ませんでした"
+      deleted: "レビューを削除しました"
+  password_resets:
+    new:
+      title: パスワード再設定
+      decription: ご登録のメールアドレスをご入力ください。
+      submit: 送信
+    edit:
+      title: パスワード再設定
+      decription: 新しく登録するパスワードを入力してください。
+  playground_equipments:
+    index:
+      title: 遊具・設備一覧
+    show:
+      title: 施設・設備詳細
 

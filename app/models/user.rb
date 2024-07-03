@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   authenticates_with_sorcery!
 
   validates :email, uniqueness: true
@@ -8,9 +8,9 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :name, presence: true, length: { maximum: 255 }
+  validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
 
   def own?(user)
     self == user
   end
-
 end
