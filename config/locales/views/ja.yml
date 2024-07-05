@@ -80,4 +80,6 @@ ja:
       title: 遊具・設備一覧
     show:
       title: 施設・設備詳細
-
+  user_mailer:
+    reset_password_email:
+      title: yochiyochiパスワードリセットのご連絡

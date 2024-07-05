@@ -12,10 +12,10 @@ module Myapp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
-      #i18nで日本語変換できるように設定
-  config.i18n.default_locale = :ja
-  #標準時間を日本の時刻に設定
-  config.time_zone = 'Tokyo'
+    #i18nで日本語変換できるように設定
+    config.i18n.default_locale = :ja
+    #標準時間を日本の時刻に設定
+    config.time_zone = 'Tokyo'
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
