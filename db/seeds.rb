@@ -95,11 +95,11 @@ s3_image_urls = [
     playground_equipment.save!
   end
 
-  user =
+  users = User.all
 
-  6.times do
-    review = Review.new(
-      user_id: user.id,
+  10.times do
+  review = Review.new(
+    user: users.sample,
       facility_id: facility.id,
       title: Faker::Lorem.sentence,
       body: Faker::Lorem.paragraph,
