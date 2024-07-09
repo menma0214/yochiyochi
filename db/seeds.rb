@@ -27,22 +27,17 @@
 require 'faker'
 require 'open-uri'# 概要: open-uri ライブラリは、URLを開いてデータを読み込むためのシンプルなインターフェースを提供します。これにより、HTTPやFTPを通じてリモートのデータにアクセスし、ファイルをダウンロードすることが可能です。(S3の読み込みに使う)
 
-
-User.destroy_all
 Facility.destroy_all
-Place.destroy_all
 PlaygroundEquipment.destroy_all
-Review.destroy_all
 
-
-10.times do
-  User.create!(
-    name: Faker::Name.unique.name,
-    email: Faker::Internet.unique.email,
-    password: 'password',
-    password_confirmation: 'password'
-  )
-end
+# 10.times do
+#   User.create!(
+#     name: Faker::Name.unique.name,
+#     email: Faker::Internet.unique.email,
+#     password: 'password',
+#     password_confirmation: 'password'
+#   )
+# end
 
 # S3の画像URLリスト
 s3_image_urls = [
@@ -69,23 +64,21 @@ s3_image_urls = [
   )
   # S3から画像をダウンロードして添付
   image_url = s3_image_urls[i % s3_image_urls.length]
-  downloaded_image = URI.open(image_url)
-  facility.image = downloaded_image
+  downloaded_image = image_url
+  facility.remote_image_url = downloaded_image
   facility.save!
-  PlaygroundEquipment
-
   # Placesのダミーデータを生成
   Place.create!(
-    facility: facility,
+    facility_id: facility.id,
     address: Faker::Address.full_address,
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude
   )
 
   # PlaygroundEquipmentsのダミーデータを生成
-  5.times do |j|
+  6.times do |j|
     playground_equipment = PlaygroundEquipment.new(
-      facility: facility,
+      facility_id: facility.id,
       title: Faker::Lorem.word,
       kind: Faker::Lorem.word,
       target_age: "All ages",
@@ -95,29 +88,9 @@ s3_image_urls = [
     # S3から画像をダウンロードして添付
     # 施設１(i)の施設遊具(j)を利用し計算。
     # 例：施設1の遊具1: (1 * 5 + 0) % 3 = 5 % 3 = 2 (s3_image_urls[2])
-    image_url = s3_image_urls[(i * 5 + j) % s3_image_urls.length]
-    downloaded_image = URI.open(image_url)
-    playground_equipment.image = downloaded_image
+    image_url = s3_image_urls[i % s3_image_urls.length]
+    downloaded_image = image_url
+    playground_equipment.remote_image_url = downloaded_image
     playground_equipment.save!
   end
-
-  # レビューのダミーデータを生成
-  users = User.all
-
-  10.times do
-    Review.create!(
-      user: users.sample,
-      facility: facility,
-      title: Faker::Lorem.sentence,
-      body: Faker::Lorem.paragraph,
-      rate: rand(1.0..5.0).round(1),
-      image: Faker::LoremFlickr.image
-    )
-
-    image_url = s3_image_urls.sample
-    downloaded_image = URI.open(image_url)
-    review.image = downloaded_image
-    review.save!
-  end
 end
-puts "Dummy data with images created successfully!"
