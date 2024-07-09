@@ -24,6 +24,10 @@
 # )
 # MVPリリース時ダミーデータ
 
+require 'faker'
+require 'open-uri'# 概要: open-uri ライブラリは、URLを開いてデータを読み込むためのシンプルなインターフェースを提供します。これにより、HTTPやFTPを通じてリモートのデータにアクセスし、ファイルをダウンロードすることが可能です。(S3の読み込みに使う)
+
+
 User.destroy_all
 Facility.destroy_all
 Place.destroy_all
