@@ -58,6 +58,7 @@ s3_image_urls = [
     fee: Faker::Number.between(from: 300, to: 5000).to_s,# 利用料金を生成
     target_age: "1歳〜3歳",
     environment: "屋内",
+    request: Faker::Lorem.word,
     contact: Faker::PhoneNumber.phone_number,
     facility_url: Faker::Internet.url
 
