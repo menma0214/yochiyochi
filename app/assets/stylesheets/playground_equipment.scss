@@ -1,8 +1,8 @@
 .playground_equipments-container {
-  width: 100%;
-  margin: auto;
-  display: inline-block;
-  justify-content: space-around;
+  // width: 100%;
+  // margin: auto;
+  // display: inline-block;
+  // justify-content: space-around;
 
 }
 
@@ -12,7 +12,7 @@
 
 .playground_equipment-wrapper {
   min-width: 300px;
-  align-items: center;
+  // align-items: center;
   border: #777 solid;
   border-radius: 10px;
   margin: auto;
@@ -76,6 +76,7 @@
   .remarks{
   min-width: 300px;
   }
+
 }
 
 @media screen and (min-width: 601px) {
@@ -86,6 +87,10 @@
 
   .playground_equipment-wrapper {
     max-width: 550px;
+  }
+
+  .playground_equipment-body-text {
+    margin-left: 20px;
   }
 }
 
@@ -110,7 +115,7 @@
 
 @media screen and (max-width: 600px) {
   // スマホサイズは対象のdivを削除してスタイル調整
-  .ms-3 {
+  .playground_equipment-body-text {
     display: contents;
   }
 

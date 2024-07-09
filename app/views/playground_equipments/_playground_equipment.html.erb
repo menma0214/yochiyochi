@@ -3,9 +3,9 @@
     <h4 class="playground_equipment-title"><%= link_to playground_equipment.title.truncate(10, omission: '...'), playground_equipment_path(playground_equipment) %></h4>
     <div class="playground_equipment-body">
       <%= image_tag(playground_equipment.image.present? ? playground_equipment.image.url : 'sample.png', alt: "image", class: "playground_equipment-image", height: "150px" ) %>
-      <div class="ms-3">
-        <p class="playground_equipment-bod-text"><%= playground_equipment.kind.truncate(10, omission: '...') %></p>
-        <p class="playground_equipment-body-text"><%= playground_equipment.target_age.truncate(10, omission: '...') %></p>
+      <div class="playground_equipment-body-text">
+        <p><%= playground_equipment.kind.truncate(10, omission: '...') %></p>
+        <p><%= playground_equipment.target_age.truncate(10, omission: '...') %></p>
         <%# <p></p> 削除検討中%>
       </div>
     </div>
