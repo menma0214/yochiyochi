@@ -1,5 +1,6 @@
 <% content_for(:title, t('.title')) %>
-<div class="reviews-container">
+<div class="container">
+  <h3><%= t('.title') %></h3>
   <% if @reviews.any? %>
     <%= render partial: 'review', collection: @reviews %>
   <% else %>

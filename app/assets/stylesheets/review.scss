@@ -1,5 +1,4 @@
 .reviews-container{
-  padding: 150px 10px 0px 10px;
 }
 
 .review-container {
@@ -21,19 +20,25 @@
 //   border-radius: 10px;
 // }
 
-
+.reviews-wrapper {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: #777 solid;
+  border-radius: 10px;
+  max-width: 500px;
+  min-width: 300px;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+}
 
 
 // .review-wrapper{
 //   padding-top: 300px;
 // }
 
-.review-show-container {
-  margin: auto;
-  padding: auto 200px auto 200px;
-  max-width: 1200px;
-  width: 100%;
-}
+
 
 .review-form-wrapper {
   padding: 15px;
@@ -50,6 +55,7 @@
   border-radius: 10px;
   min-width: 300px;
   padding: 20px;
+  width: 100%;
 }
 
 .review-image {
@@ -77,7 +83,14 @@
   margin-left: 20px;
 }
 
-@media screen and (min-width: 601px){
+@media screen and (min-width: 751px){
+  .review-show-container {
+  padding: 100px 50px 100px 50px;
+    margin: auto;
+    max-width: 800px;
+    width: 100%;
+  }
+
   .review-btn-wrapper{
     display: flex;
     justify-content: end
@@ -94,18 +107,19 @@
   .reviews-body {
     display: flex;
     justify-content: start;
+
   }
   .back-reviews-wrapper{
     margin-left: 15px;
   }
 
   .review-image {
-    max-width: 150px;
+    max-width: 250px;
   }
 
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 750px){
   .reviews-container{
     padding-left: 10px;
     padding-right: 10px;
@@ -133,13 +147,19 @@
 
   .back-reviews-btn{
     padding: 10px 20px 10px 20px;
-    background-color: #777;
-    color: #fff;
+    // background-color: #777;
+    // color: #fff;
     border-radius: 10px;
   }
 
   .ms-3 {
     display: contents;
+  }
+
+  .reviews-wrapper {
+    max-width: 300px;
+    margin: auto;
+    padding: 30px;
   }
 
   .review-show-wrapper {

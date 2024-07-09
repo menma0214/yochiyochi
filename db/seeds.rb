@@ -30,14 +30,14 @@ require 'open-uri'# 概要: open-uri ライブラリは、URLを開いてデー�
 Facility.destroy_all
 PlaygroundEquipment.destroy_all
 
-# 10.times do
-#   User.create!(
-#     name: Faker::Name.unique.name,
-#     email: Faker::Internet.unique.email,
-#     password: 'password',
-#     password_confirmation: 'password'
-#   )
-# end
+10.times do
+  User.create!(
+    name: Faker::Name.unique.name,
+    email: Faker::Internet.unique.email,
+    password: 'password',
+    password_confirmation: 'password'
+  )
+end
 
 # S3の画像URLリスト
 s3_image_urls = [
@@ -93,5 +93,22 @@ s3_image_urls = [
     downloaded_image = image_url
     playground_equipment.remote_image_url = downloaded_image
     playground_equipment.save!
+  end
+
+  user =
+
+  6.times do
+    review = Review.new(
+      user_id: user.id,
+      facility_id: facility.id,
+      title: Faker::Lorem.sentence,
+      body: Faker::Lorem.paragraph,
+      rate: rand(1.0..5.0).round(1)
+    )
+    # S3から画像をダウンロードして添付
+    image_url = s3_image_urls[i % s3_image_urls.length]
+    downloaded_image = image_url
+    review.remote_image_url = downloaded_image
+    review.save!
   end
 end

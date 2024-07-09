@@ -4,6 +4,13 @@
   padding-bottom: 100px;
 }
 
+.facility-show-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* 子要素を垂直方向に中央寄せ */
+  text-align: center;   /* テキストを中央寄せ */
+}
+
 
 .facility-container {
   display: flex;
@@ -20,10 +27,12 @@
 .facility-show-image-wrapper{
   margin-top: 100px;
   text-align: center;
+  width: 100%;
 }
 
 .facility-show-image {
   width: 100%;
+  min-width: 250px;
   max-width: 500px;
   height: 300px;
   border-radius: 10px;
@@ -111,6 +120,10 @@
 
   .facility-show-article {
     padding-top: 150px;
+  }
+
+  .facility-show-image {
+    max-width: 500px;
   }
 
 }
