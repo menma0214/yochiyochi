@@ -51,7 +51,7 @@ s3_image_urls = [
 # 施設のダミーデータを生成
 10.times do |i|
   facility = Facility.new(
-    title: Faker::Company.catch_pherase,
+    title: Faker::Company.catch_phrase,
     name: Faker::Company.name,
     furigana: "ダミーシセツ",
     address: Faker::Address.full_address,
