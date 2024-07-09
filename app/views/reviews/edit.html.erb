@@ -6,7 +6,7 @@
       <%= render 'form', review: @review, facility: @facility %>
     </div>
     <div class="text-center">
-      <%= link_to "戻る", review_path(@review) %>
+      <%= link_to "戻る", review_path(@review) if @review %>
     </div>
   </div>
 </div>

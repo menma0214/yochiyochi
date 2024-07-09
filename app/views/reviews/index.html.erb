@@ -7,7 +7,7 @@
     <p>レビューが見つかりませんでした。</p>
   <% end %>
   <div class="text-center mt-3">
-    <%= link_to "施設詳細ページへ戻る", facility_path(@facility) %>
+    <%= link_to "施設詳細ページへ戻る", facility_path(@facility) if @facility %>
   </div>
   <%= paginate @reviews %>
 </div>

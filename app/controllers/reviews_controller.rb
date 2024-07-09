@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     if @facility
       @reviews = @facility.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
     else
-      redirect_to facility_reviews_path(@review.facility), alert: "Facility not found"
+      redirect_to root_path, alert: "施設情報が見つかりませんでした"
     end
   end
 
@@ -65,7 +65,7 @@ class ReviewsController < ApplicationController
   def set_facility
     @facility = Facility.find_by(id: params[:facility_id])
     unless @facility
-      redirect_to facility_reviews_path(@review.facility)
+      redirect_to root_path, alert: "施設情報が見つかりませんでした"
     end
   end
 
@@ -77,6 +77,9 @@ class ReviewsController < ApplicationController
   # このメソッドをdestroyアクションの前に呼び出すようにする。
   # set_facility_from_reviewをしないと削除はできても削除完了後にfacility_reviews_path(@facility)が見つからないというエラーが発生する。
   def set_facility_from_review
-    @facility = @review.facility
+    @facility = @review&.facility
+    unless @facility
+      redirect_to root_path, alert: "施設情報が見つかりませんでした"
+    end
   end
 end
