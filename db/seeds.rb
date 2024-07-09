@@ -8,72 +8,112 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Facility.create(
-  title: '東京タワー（ダミー）',
-  name: '某所１',
-  furigana: 'ボウショ',
-  address: %Q{〒105-0011\n東京都港区芝公園4丁目2-8},
-  business_hours: '9:00~17:00',
-  fee: '無料',
-  target_age: '0歳〜3歳',
-  fee: "無料",
-  environment: '屋内',
-  request: '近くに駐車場有',
-  contact: 'TEL:000-000-0000',
-  facility_url: 'https://xxx.example.com',
-  image:"https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/Tokyo_Tower.jpeg"
-)
+# 本番データ
+# Facility.create(
+#   title: 'アスレチックに水遊び、ものづくり体験もできる！お散歩コースも充実♪',
+#   name: 'ふなばしアンデルセン公園',
+#   furigana: 'フナバシアンデルセンコウエン',
+#   address: %Q{〒274-0054\n千葉県船橋市金堀町525番},
+#   business_hours: %Q{9:00~16:30 ※時期によっては17:00まで\n休園日あり\n詳細は公式HPのカレンダーをご覧ください。},
+#   fee: %Q{一般:900円\n高校生(入園時、生徒証の提示必要あり):600円\n小・中学生:200円\n幼児(4歳以上):100円\n別途施設により施設利用料金あり},
+#   target_age: '0歳〜3歳',
+#   environment: '屋外(一部屋内施設あり)',
+#   request: %Q{有料駐車場有\n普通車:500円\n大型車(要予約):2000円},
+#   contact: 'TEL:047-457-6627',
+#   facility_url: 'https://www.park-funabashi.or.jp/and/',
+# )
+# MVPリリース時ダミーデータ
 
-Facility.create(
-  title: 'スカイツリー（ダミー）',
-  name: '某所２',
-  furigana: 'ボウショ',
-  address: %Q{〒131-0045\n東京都墨田区押上1丁目1-2'},
-  business_hours: '9:00~17:00',
-  fee: '無料',
-  target_age: '1歳〜3歳',
-  fee: "100円",
-  environment: '屋内',
-  request: '施設敷地内に駐車場有',
-  contact: 'TEL:000-000-0000',
-  facility_url: 'https://xxx.example.com',
-  image:"https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/Skytree.jpeg"
-)
+User.destroy_all
+Facility.destroy_all
+Place.destroy_all
+PlaygroundEquipment.destroy_all
+Review.destroy_all
 
-PlaygroundEquipment.create(
-  facility_id: 1,
-  title: 'サンプル小さな子供向けの遊具があるよ',
-  kind: %Q{滑り台\n玩具\n本},
-  target_age: '0歳〜3歳',
-  installation: %Q{滑り台２台\n玩具\n本複数},
-  remarks: 'はいはいを始めたぐらいのお子様から遊べます！'
-)
 
-PlaygroundEquipment.create(
-  facility_id: 2,
-  title: 'サンプル小さな子供向けの玩具があるよ',
-  kind: %Q{ボールプール\n玩具\n本},
-  target_age: '1歳〜3歳',
-  installation: %Q{ボールプール\n玩具\n複数},
-  remarks: '歩き始めたぐらいのお子様から遊べます！'
-)
+10.times do
+  User.create!(
+    name: Faker::Name.unique.name,
+    email: Faker::Internet.unique.email,
+    password: 'password',
+    password_confirmation: 'password'
+  )
+end
 
-Place.create(facility_id: 1,
-  address: "〒105-0011 東京都港区芝公園４丁目２−８",
-  latitude: 35.65879840305099,
-  longitude: 139.74546508293085
-)
+# S3の画像URLリスト
+s3_image_urls = [
+  "https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/Tokyo_Tower.jpeg",
+  "https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/Skytree.jpeg",
+  "https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/uploads/review/image/2/yochiyochi.png",
+  # 他の画像URLを追加
+]
 
-Place.create(facility_id: 2,
-  address: "〒131-0045 東京都墨田区押上１丁目１−２",
-  latitude: 35.710286256466425,
-  longitude: 139.8107105479794
-)
+# 施設のダミーデータを生成
+10.times do |i|
+  facility = Facility.new(
+    title: Faker::Company.catch_pherase,
+    name: Faker::Company.name,
+    furigana: "ダミーシセツ",
+    address: Faker::Address.full_address,
+    business_hours: "09:00 - 17:00",
+    fee: Faker::Number.between(from: 300, to: 5000).to_s,# 利用料金を生成
+    target_age: "1歳〜3歳",
+    environment: "屋内",
+    contact: Faker::PhoneNumber.phone_number,
+    facility_url: Faker::Internet.url
 
-facility = Facility.find(1)
-facility.remote_image_url="https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/Tokyo_Tower.jpeg"
-facility.save
+  )
+  # S3から画像をダウンロードして添付
+  image_url = s3_image_urls[i % s3_image_urls.length]
+  downloaded_image = URI.open(image_url)
+  facility.image = downloaded_image
+  facility.save!
+  PlaygroundEquipment
 
-facility2 = Facility.find(2)
-facility2.remote_image_url="https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/Skytree.jpeg"
-facility2.save
+  # Placesのダミーデータを生成
+  Place.create!(
+    facility: facility,
+    address: Faker::Address.full_address,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude
+  )
+
+  # PlaygroundEquipmentsのダミーデータを生成
+  5.times do |j|
+    playground_equipment = PlaygroundEquipment.new(
+      facility: facility,
+      title: Faker::Lorem.word,
+      kind: Faker::Lorem.word,
+      target_age: "All ages",
+      installation: Faker::Lorem.word,
+      remarks: Faker::Lorem.sentence
+    )
+    # S3から画像をダウンロードして添付
+    # 施設１(i)の施設遊具(j)を利用し計算。
+    # 例：施設1の遊具1: (1 * 5 + 0) % 3 = 5 % 3 = 2 (s3_image_urls[2])
+    image_url = s3_image_urls[(i * 5 + j) % s3_image_urls.length]
+    downloaded_image = URI.open(image_url)
+    playground_equipment.image = downloaded_image
+    playground_equipment.save!
+  end
+
+  # レビューのダミーデータを生成
+  users = User.all
+
+  10.times do
+    Review.create!(
+      user: users.sample,
+      facility: facility,
+      title: Faker::Lorem.sentence,
+      body: Faker::Lorem.paragraph,
+      rate: rand(1.0..5.0).round(1),
+      image: Faker::LoremFlickr.image
+    )
+
+    image_url = s3_image_urls.sample
+    downloaded_image = URI.open(image_url)
+    review.image = downloaded_image
+    review.save!
+  end
+end
+puts "Dummy data with images created successfully!"
