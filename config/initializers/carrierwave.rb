@@ -11,4 +11,5 @@ CarrierWave.configure do |config|
   }
   config.fog_directory  = ENV['AWS_S3_BUCKET']
   config.fog_attributes = {'x-amz-acl' => nil} # ACLを設定しない
+  config.cache_dir = Rails.root.join('tmp', 'uploads')
 end
