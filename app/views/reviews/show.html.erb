@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="review-btn-wrapper mt-3">
-    <% if @review.user.own?(@current_user) %>
+    <% if @review.user&.own?(@current_user) %>
     <div class="review-btns">
       <div class="review-edit">
         <%= link_to "編集", edit_review_path(@review), class: "edit-review-#{@review.id} btn btn-success" %>
