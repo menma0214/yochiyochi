@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_03_035200) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_10_194712) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "facility_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["facility_id"], name: "index_bookmarks_on_facility_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "facilities", force: :cascade do |t|
     t.string "title"
@@ -90,6 +99,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_03_035200) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
+  add_foreign_key "bookmarks", "facilities"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "places", "facilities"
   add_foreign_key "playground_equipments", "facilities"
   add_foreign_key "reviews", "facilities"

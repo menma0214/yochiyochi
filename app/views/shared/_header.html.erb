@@ -25,7 +25,7 @@
           <div class="offcanvas-body">
             <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <%= link_to "トップへ", tops_path, class:"nav-link active" %>
-              <%= link_to "お気に入り一覧", '#', class:"nav-link active" %>
+              <%= link_to "お気に入り一覧", bookmarks_facilities_path, class:"nav-link active" %>
               <%= link_to "マイページ", '#', class:"nav-link active" %>
               <%= link_to "ログアウト", logout_path, class:"nav-link active", data: { turbo_method: :delete } %>
               <%= link_to "施設一覧", facilities_path, class:"nav-link active" %>

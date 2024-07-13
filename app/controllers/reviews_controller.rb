@@ -4,11 +4,7 @@ class ReviewsController < ApplicationController
   before_action :set_facility_from_review, only: %i[edit destroy update]
 
   def index
-    if @facility
-      @reviews = @facility.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
-    else
-      redirect_to root_path, alert: "施設情報が見つかりませんでした"
-    end
+    @reviews = @facility.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -65,7 +61,7 @@ class ReviewsController < ApplicationController
   def set_facility
     @facility = Facility.find_by(id: params[:facility_id])
     unless @facility
-      redirect_to root_path, alert: "施設情報が見つかりませんでした"
+      redirect_to root_path, success: "施設情報が見つかりませんでした"
     end
   end
 
@@ -79,7 +75,7 @@ class ReviewsController < ApplicationController
   def set_facility_from_review
     @facility = @review&.facility
     unless @facility
-      redirect_to root_path, alert: "施設情報が見つかりませんでした"
+      redirect_to root_path
     end
   end
 end

@@ -6,6 +6,11 @@
       <div class="ms-3">
         <p class="facility-body-text fs-5"><%= simple_format(facility.business_hours.truncate(15, omission: '...')) %></p>
         <p class="facility-body-text fs-5"><%= simple_format(facility.address.presence.truncate(15, omission: '...')) %></p>
+        <% if logged_in? %>
+        <div class="text-end">
+          <%= render 'facilities/bookmark_buttons', { facility: facility } %>
+        </div>
+        <% end %>
         <%# <p></p> 削除検討中%>
       </div>
     </div>

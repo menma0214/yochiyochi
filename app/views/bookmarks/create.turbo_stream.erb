@@ -1,0 +1,5 @@
+<%# htmlにしないこと %>
+<%= turbo_stream.replace "bookmark-button-for-facility-#{@facility.id}" do %>
+<%# クリック先がブックマーク後のページ後 %>
+  <%= render 'facilities/unbookmark', facility: @facility %>
+<% end %>

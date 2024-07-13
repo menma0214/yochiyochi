@@ -23,9 +23,13 @@ Rails.application.routes.draw do
   resources :tops, only: %i[index]
   resources :users, only: %i[new create]
   resources :facilities, only: %i[index show] do
+    collection do
+      get :bookmarks
+    end
     resources :playground_equipments, only: %i[index show],shallow: true
     resources :reviews, shallow: true
   end
+  resources :bookmarks, only: [:create, :destroy]
   resources :password_resets, only: %i[new create edit update]
 
 end

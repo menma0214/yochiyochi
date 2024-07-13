@@ -53,6 +53,8 @@ ja:
       title: 施設一覧
     show:
       title: 施設詳細
+    bookmarks:
+      no_result: お気に入り登録情報はありません。
   reviews:
     index:
       title: レビュー一覧
