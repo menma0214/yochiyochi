@@ -3,12 +3,12 @@
     <h3 class="facility-title-text"><%= link_to facility.title.truncate(10, omission: '...'), facility_path(facility) %></h3>
     <div class="facility-body">
       <%= image_tag(facility.image.present? ? facility.image.url : 'sample.png', class: "facilities-image") %>
-      <div class="ms-3">
+      <div class="ms-3 facility-sp">
         <p class="facility-body-text fs-5"><%= simple_format(facility.business_hours.truncate(15, omission: '...')) %></p>
         <p class="facility-body-text fs-5"><%= simple_format(facility.address.presence.truncate(15, omission: '...')) %></p>
         <% if logged_in? %>
         <div class="text-end">
-          <%= render 'facilities/bookmark_buttons', { facility: facility } %>
+          <%= render 'bookmarks/bookmark_buttons', bookmarkable: facility %>
         </div>
         <% end %>
         <%# <p></p> 削除検討中%>

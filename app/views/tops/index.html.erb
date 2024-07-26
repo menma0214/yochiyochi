@@ -86,11 +86,11 @@
     <div class="article-title">
       <h5 class="article-title-text">施設情報</h5>
     </div>
-    <% if @facilities.present? %>
-      <%= render @facilities%>
+    <% if @results.present? %>
+      <%= render @results%>
     <% else %>
       <div class="mb-3">施設情報がありません</div>
     <% end %>
   </div>
-  <%= paginate @facilities %>
+  <%= paginate @paginated_results %>
 </div>

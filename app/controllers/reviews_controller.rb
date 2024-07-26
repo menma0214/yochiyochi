@@ -1,81 +1,96 @@
 class ReviewsController < ApplicationController
-  before_action :set_facility, only: %i[index new create]
-  before_action :set_review, only: %i[show destroy edit update]
-  before_action :set_facility_from_review, only: %i[edit destroy update]
+  before_action :set_facility_or_event, only: %i[index new show create edit update destroy]
+  before_action :set_review, only: %i[show edit update destroy]
 
   def index
-    @reviews = @facility.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
-  end
+    Rails.logger.debug "params[:facility_id]: #{params[:facility_id]}"
+    Rails.logger.debug "params[:event_id]: #{params[:event_id]}"
 
-  def new
-    #初期化
-    @review = @facility.reviews.new
+    @facility_reviews = @facility.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(5) if @facility
+    @event_reviews = @event.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(5) if @event
+
+    Rails.logger.debug "@facility_reviews: #{@facility_reviews.inspect}"
+    Rails.logger.debug "@event_reviews: #{@event_reviews.inspect}"
   end
 
   def show
   end
 
-  def edit
 
+  def new
+    @review = @reviewable.reviews.build
   end
 
-
   def create
-    @review = @facility.reviews.build(review_params)
+    @review = @reviewable.reviews.build(review_params)
     @review.user = current_user
     if @review.save
-      redirect_to facility_reviews_path, success: t('reviews.flash_messages.created', item: Review.model_name.human)
+      if @reviewable.is_a?(Facility)
+        flash[:success] = t('reviews.flash_messages.created', item: Review.model_name.human)
+        redirect_to facility_reviews_path(@reviewable)
+      elsif @reviewable.is_a?(Event)
+        flash[:success] = t('reviews.flash_messages.created', item: Review.model_name.human)
+        redirect_to event_reviews_path(@reviewable)
+      end
     else
-      flash.now[:danger] = t('reviews.flash_messages.not_created', item: Review.model_name.human)
-      render :new, status: :unprocessable_entity
+      # ここはおそらく到達しないはずですが、念のためエラーハンドリングを追加
+      flash[:danger] = t('reviews.flash_messages.not_created', item: Review.model_name.human)
+      redirect_to root_path
     end
+  end
+
+  def edit
   end
 
   def update
     if @review.update(review_params)
-      redirect_to facility_reviews_path(@facility), success: t('reviews.flash_messages.updated', item: Review.model_name.human)
+      if @reviewable.is_a?(Facility)
+        flash[:success] = t('reviews.flash_messages.updated', item: Review.model_name.human)
+        redirect_to facility_reviews_path(@reviewable)
+      elsif @reviewable.is_a?(Event)
+        flash[:success] = t('reviews.flash_messages.updated', item: Review.model_name.human)
+        redirect_to event_reviews_path(@reviewable)
+      end
     else
-      flash.now[:danger] = t('reviews.flash_messages.not_updated', item: Review.model_name.human)
+      flash[:danger] = t('reviews.flash_messages.not_updated', item: Review.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
 
-
   def destroy
-    # ビューに関わらず、サーバーサイドからもセキュリティの観点からユーザー認証
     if @review.user == current_user
       @review.destroy!
-      redirect_to facility_reviews_path(@facility), success: t('reviews.flash_messages.deleted', item: Review.model_name.human), status: :see_other
+      if @reviewable.is_a?(Facility)
+        flash[:success] = t('reviews.flash_messages.deleted', item: Review.model_name.human)
+        redirect_to facility_reviews_path(@reviewable)
+      elsif @reviewable.is_a?(Event)
+        flash[:success] = t('reviews.flash_messages.deleted', item: Review.model_name.human)
+        redirect_to event_reviews_path(@reviewable)
+      end
     else
-      redirect_to facility_reviews_path(@facility), status: :forbidden
+      flash[:success] = t('reviews.flash_messages.deleted', item: Review.model_name.human)
+      redirect_to root_path, status: :forbidden
     end
   end
-
 
   private
 
   def review_params
-    params.require(:review).permit(:title, :body, :image)
+    params.require(:review).permit(:title, :body, :rate, :image)
   end
 
-  def set_facility
-    @facility = Facility.find_by(id: params[:facility_id])
-    unless @facility
-      redirect_to root_path, success: "施設情報が見つかりませんでした"
+  def set_facility_or_event
+    if params[:facility_id]
+      @reviewable = Facility.find(params[:facility_id])
+      @facility = @reviewable
+    elsif params[:event_id]
+      @reviewable = Event.find(params[:event_id])
+      @event = @reviewable
     end
+    Rails.logger.debug "@reviewable: #{@reviewable.inspect}"
   end
 
   def set_review
-    @review = Review.find(params[:id])
-  end
-
-  # destroyアクションで@reviewから@facilityを取得するために、set_facility_from_reviewというプライベートメソッドを追加。
-  # このメソッドをdestroyアクションの前に呼び出すようにする。
-  # set_facility_from_reviewをしないと削除はできても削除完了後にfacility_reviews_path(@facility)が見つからないというエラーが発生する。
-  def set_facility_from_review
-    @facility = @review&.facility
-    unless @facility
-      redirect_to root_path
-    end
+    @review = @reviewable.reviews.find(params[:id])
   end
 end

@@ -1,6 +1,12 @@
 
   <div id="review-<%= review.id %>" class="reviews-wrapper mt-5">
-    <h3><%= link_to review.title.truncate(10, omission: '...'), review_path(review) %></h3>
+    <h3>
+      <% if review.reviewable_type == 'Facility' %>
+        <%= link_to review.title.truncate(10, omission: '...'), facility_review_path(review.reviewable, review) %>
+      <% elsif review.reviewable_type == 'Event' %>
+        <%= link_to review.title.truncate(10, omission: '...'), event_review_path(review.reviewable, review) %>
+      <% end %>
+    </h3>
     <div class="reviews-body">
       <div class="review-image-wrapper">
         <%= image_tag(review.image.present? ? review.image.url : 'sample.png', alt: "sample", class:"review-image rounded") %>
@@ -13,13 +19,26 @@
           <td class="action">
             <ul class="list-inline justify-content-center" style="float: right;">
               <li class="list-inline-item">
-                <%= link_to edit_review_path(review), class: "edit-review-#{review.id}" do %>
-                  <i class='bi bi-pencil-fill'></i>
+                <% if review.reviewable_type == 'Facility' %>
+                  <%= link_to edit_facility_review_path(review.reviewable, review), class: "edit-review-#{review.id}" do %>
+                    <i class='bi bi-pencil-fill'></i>
+                  <% end %>
+                <% elsif review.reviewable_type == 'Event' %>
+                  <%= link_to edit_event_review_path(review.reviewable, review), class: "edit-review-#{review.id}" do %>
+                    <i class='bi bi-pencil-fill'></i>
+                  <% end %>
                 <% end %>
               </li>
+
               <li class="list-inline-item">
-                <%= link_to review_path(review), class: "delete-review-#{review.id}", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} do %>
+                <% if review.reviewable_type == 'Facility' %>
+                  <%= link_to facility_review_path(review.reviewable, review), class: "delete-review-#{review.id}", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} do %>
                     <i class="bi bi-trash-fill"></i>
+                  <% end %>
+                <% elsif review.reviewable_type == 'Event' %>
+                  <%= link_to event_review_path(review.reviewable, review), class: "delete-review-#{review.id}", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} do %>
+                    <i class="bi bi-trash-fill"></i>
+                  <% end %>
                 <% end %>
               </li>
             </ul>

@@ -1,21 +1,15 @@
-class Facility < ApplicationRecord
-  has_many :playground_equipments, dependent: :destroy
+class Event < ApplicationRecord
+  mount_uploader :image, ImageUploader
+  belongs_to :facility
   has_many :reviews, :as => :reviewable, dependent: :destroy
   has_many :bookmarks, :as => :bookmarkable, dependent: :destroy
-  has_many :users, through: :bookmarks
-  has_many :events, dependent: :destroy
-  # has_many :bookmarked_by_users, through: :bookmarks, source: :user
-  has_one :place, dependent: :destroy
-
-  mount_uploader :image, ImageUploader
-  mount_uploader :video, VideoUploader
 
   def self.ransackable_attributes(auth_object = nil)
-    ["address", "business_hours", "contact", "created_at", "environment", "facility_url", "fee", "furigana", "id", "id_value", "image", "video", "name", "request", "target_age", "title", "updated_at"]
+    ["address", "business_hours", "contact", "created_at", "environment", "facility_id", "fee", "furigana", "id", "id_value", "image", "name", "request", "target_age", "title", "updated_at", "video"]
   end
 
   def self.ransackable_associations(auth_object = nil)
-    []
+    ["facility"]
   end
 
   validates :title, presence: true, length: {maximum: 255}
@@ -28,5 +22,4 @@ class Facility < ApplicationRecord
   validates :environment, presence: true
   validates :request, presence: true, length: {maximum: 65_535}
   validates :contact, presence: true
-  validates :facility_url, presence: true
 end
