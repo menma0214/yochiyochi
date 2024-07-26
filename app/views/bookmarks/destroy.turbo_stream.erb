@@ -1,6 +1,7 @@
-<%# htmlにしないこと %>
-<%= turbo_stream.replace "unbookmark-button-for-facility-#{@facility.id}" do %>
-<%# クリック先がブックマーク解除後のページ後 %>
-  <%= render 'facilities/bookmark', facility: @facility %>
+<%= turbo_stream.replace "unbookmark-button-for-#{bookmarkable_type.downcase}-#{bookmarkable_id}" do %>
+  <% if bookmarkable_type == 'Facility' %>
+    <%= render 'facilities/bookmark', facility: @bookmark.bookmarkable %>
+  <% elsif bookmarkable_type == 'Event' %>
+    <%= render 'events/bookmark', event: @bookmark.bookmarkable %>
+  <% end %>
 <% end %>
-

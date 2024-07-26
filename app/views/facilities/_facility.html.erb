@@ -8,7 +8,7 @@
         <p class="facility-body-text fs-5"><%= simple_format(facility.address.presence.truncate(15, omission: '...')) %></p>
         <% if logged_in? %>
         <div class="text-end">
-          <%= render 'facilities/bookmark_buttons', { facility: facility } %>
+          <%= render 'bookmarks/bookmark_buttons', bookmarkable: facility %>
         </div>
         <% end %>
         <%# <p></p> 削除検討中%>

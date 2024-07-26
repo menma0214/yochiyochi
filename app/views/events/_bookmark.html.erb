@@ -1,0 +1,3 @@
+<%= link_to bookmarks_path(bookmarkable_id: bookmarkable.id, bookmarkable_type: bookmarkable.class.name), id: "bookmark-button-for-bookmark-button-for-#{bookmarkable_type.downcase}-#{bookmarkable_id}", data: { turbo_method: :post } do %>
+  <i class="bi bi-star"></i>
+<% end %>

@@ -1,19 +1,21 @@
 class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  has_many :bookmark_facilities, through: :bookmarks, source: :facility
+  has_many :bookmark_facilities, through: :bookmarks, source: :bookmarkable, source_type: 'Facility'
+  has_many :bookmark_events, through: :bookmarks, source: :bookmarkable, source_type: 'Event'
+
   authenticates_with_sorcery!
 
-  def bookmark(facility)
-    bookmark_facilities << facility
+  def bookmark(bookmarkable)
+    bookmarks.create!(bookmarkable: bookmarkable)
   end
 
-  def unbookmark(facility)
-    bookmark_facilities.destroy(facility)
+  def unbookmark(bookmarkable)
+    bookmarks.destroy(bookmarkable: bookmarkable)
   end
 
-  def bookmark?(facility)
-    bookmark_facilities.include?(facility)
+  def bookmark?(bookmarkable)
+    bookmarks.include?(bookmarkable: bookmarkable)
   end
 
   validates :email, uniqueness: true

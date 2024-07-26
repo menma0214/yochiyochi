@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'events/index'
+  get 'events/show'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
   get 'password_resets/create'
@@ -21,15 +23,23 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :tops, only: %i[index]
+    resources :bookmarks, only: %i[index create destroy]
   resources :users, only: %i[new create]
-  resources :facilities, only: %i[index show] do
+  resources :bookmarks, only: %i[index create destroy]
+  resources :events do
+    resources :reviews, only: %i[index show new create update destroy edit update]  # 必要なアクションのみを指定する
     collection do
-      get :bookmarks
+      get :bookmarks, only: %i[index create destroy]
+    end
+  end
+  resources :facilities, only: %i[index show new create update destroy] do
+    collection do
+      get :bookmarks, only: %i[index create destroy]
     end
     resources :playground_equipments, only: %i[index show],shallow: true
-    resources :reviews, shallow: true
+    resources :reviews, only: %i[index new show create destroy edit update]  # 必要なアクションのみを指定する
   end
-  resources :bookmarks, only: [:create, :destroy]
+  resources :bookmarks, only: %i[create destroy]
   resources :password_resets, only: %i[new create edit update]
 
 end

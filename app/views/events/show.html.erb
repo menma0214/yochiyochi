@@ -1,0 +1,65 @@
+<% content_for(:title, t('.title')) %>
+<div class='facility-show-container ps-2 pe-2' >
+  <div class="facility-show-wrapper">
+    <div>
+      <h1><%= @event.title %></h1>
+    </div>
+    <div class="facility-show-image-wrapper">
+      <%= image_tag(@event.image.present? ? @event.image.url : 'sample.png', class:"facility-show-image" ) %>
+    </div>
+  </div>
+  <div class="facility-show-article">
+    <div class="table-wrapper" >
+      <table class="table table-bordered rounded">
+        <tr>
+          <th class="table-light">施設名(かな)</th>
+          <td class="table-decription"><%= @event.furigana %></td>
+        </tr>
+        <tr>
+          <th class="table-light">施設名</th>
+          <td><%= @event.name %></td>
+        </tr>
+        <tr>
+          <th class="table-light">施設住所</th>
+          <%# simple_formatで\nで改行させる %>
+          <td><%= simple_format(@event.address) %></td>
+        </tr>
+        <tr>
+          <th class="table-light">営業時間</th>
+          <td><%= simple_format(@event.business_hours) %></td>
+        </tr>
+        <tr>
+          <th class="table-light">料金</th>
+          <td><%= simple_format(@event.fee) %></td>
+        </tr>
+        <tr>
+          <th class="table-light">対象年齢</th>
+          <td><%= simple_format(@event.target_age) %></td>
+        </tr>
+        <tr>
+          <th class="table-light">屋内／屋外</th>
+          <td><%= simple_format(@event.environment) %></td>
+        </tr>
+        <tr>
+          <th class="table-light">目的・要望</th>
+          <td><%= simple_format(@event.request) %></td>
+        </tr>
+        <tr>
+          <th class="table-light">お問い合わせ先</th>
+          <td><%= simple_format(@event.contact) %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="link-item-list">
+      <div class="link-item">
+          <%= link_to "レビュー一覧", event_reviews_path(@event) %>
+      </div>
+      <div class="link-item">
+        <%= link_to 'レビューを投稿する', new_event_review_path(@event) %>
+      </div>
+      <div class="link-item">
+        <%= link_to '戻る', events_path %>
+      </div>
+    </div>
+  </div>
+</div>

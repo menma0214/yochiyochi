@@ -1,0 +1,20 @@
+<% content_for(:title, t('.title')) %>
+<div class="ps-2 pe-2">
+  <%= render 'shared/search_form', q: @q, url: events_path %>
+  <div class="article-wrapper">
+    <div class="article-title">
+      <h5 class="article-title-text">イベント情報</h5>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <% if @events.present? %>
+            <%= render partial: 'event', collection: @events %>
+          <% else %>
+            <div class="mb-3">イベント情報がありません</div>
+          <% end %>
+        </div>
+      <%= paginate @events %>
+    </div>
+  </div>
+</div>

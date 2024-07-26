@@ -3,10 +3,18 @@
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <h1><%= t('.title') %></h1>
-      <%= render 'form', review: @review, facility: @facility %>
+      <% if @review.reviewable_type == 'Facility' %>
+        <%= render 'form', review: @review, facility: @facility %>
+      <% elsif @review.reviewable_type == 'Event' %>
+        <%= render 'form', review: @review, facility: @event %>
+      <% end %>
     </div>
     <div class="text-center">
-      <%= link_to "戻る", review_path(@review) if @review %>
+      <% if @review.reviewable_type = 'Facility' %>
+        <%= link_to "戻る", facility_reviews_path(@review.reviewable, @review) %>
+      <% elsif %>
+        <%= link_to "戻る", event_reviews_path(@review.reviewable, @review) %>
+      <% end %>
     </div>
   </div>
 </div>

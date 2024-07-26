@@ -1,0 +1,17 @@
+<div class='ms-auto'>
+<%# app/views/bookmarks/_bookmark_button.html.erb %>
+<% bookmarkable_type = bookmarkable.class.name %>
+<% bookmarkable_id = bookmarkable.id %>
+<% bookmark = current_user.bookmarks.find_by(bookmarkable: bookmarkable) %>
+
+<% if bookmark.present? %>
+  <%= link_to bookmark_path(bookmark, current_url: request.url), method: :delete, id: "unbookmark-button-for-#{bookmarkable_type.downcase}-#{bookmarkable_id}", data: { turbo_method: :delete } do %>
+    <i class="bi bi-star-fill"></i>
+  <% end %>
+<% else %>
+  <%= link_to bookmarks_path(bookmarkable_type: bookmarkable_type, bookmarkable_id: bookmarkable_id, current_url: request.url), method: :post, id: "bookmark-button-for-#{bookmarkable_type.downcase}-#{bookmarkable_id}", data: { turbo_method: :post } do %>
+    <i class="bi bi-star"></i>
+  <% end %>
+<% end %>
+
+</div>

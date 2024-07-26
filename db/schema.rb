@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_10_194712) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_21_154141) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,8 +19,32 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_194712) do
     t.bigint "facility_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "event_id"
+    t.string "bookmarkable_type"
+    t.bigint "bookmarkable_id"
+    t.index ["bookmarkable_type", "bookmarkable_id"], name: "index_bookmarks_on_bookmarkable"
+    t.index ["event_id"], name: "index_bookmarks_on_event_id"
     t.index ["facility_id"], name: "index_bookmarks_on_facility_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "facility_id", null: false
+    t.string "title"
+    t.string "name"
+    t.string "furigana"
+    t.string "address"
+    t.string "business_hours"
+    t.string "fee"
+    t.string "target_age"
+    t.string "environment"
+    t.text "request"
+    t.string "contact"
+    t.string "image"
+    t.string "video"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["facility_id"], name: "index_events_on_facility_id"
   end
 
   create_table "facilities", force: :cascade do |t|
@@ -67,14 +91,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_194712) do
 
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "facility_id", null: false
     t.string "title"
     t.text "body"
     t.float "rate"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["facility_id"], name: "index_reviews_on_facility_id"
+    t.string "reviewable_type", null: false
+    t.bigint "reviewable_id", null: false
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -99,10 +124,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_194712) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
+  add_foreign_key "bookmarks", "events"
   add_foreign_key "bookmarks", "facilities"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "events", "facilities"
   add_foreign_key "places", "facilities"
   add_foreign_key "playground_equipments", "facilities"
-  add_foreign_key "reviews", "facilities"
   add_foreign_key "reviews", "users"
 end

@@ -1,56 +1,82 @@
 class ReviewsController < ApplicationController
   before_action :set_facility, only: %i[index new create]
+  # before_action :set_event, only: %i[index new create]
   before_action :set_review, only: %i[show destroy edit update]
   before_action :set_facility_from_review, only: %i[edit destroy update]
 
+
   def index
-    @reviews = @facility.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
+    Rails.logger.debug "params[:facility_id]: #{params[:facility_id]}"
+    Rails.logger.debug "params[:event_id]: #{params[:event_id]}"
+
+    @facility_reviews = @facility.reviews.includes(:user).order(created_at: :desc) if @facility
+    @event_reviews = @event.reviews.includes(:user).order(created_at: :desc) if @event
+
+    all_reviews = (@facility_reviews || []) + (@event_reviews || [])
+
+    # Kaminari のページネーションを適用
+    @reviews = Kaminari.paginate_array(all_reviews).page(params[:page]).per(5)
+
+    Rails.logger.debug "@reviews: #{@reviews.inspect}"
   end
 
-  def new
-    #初期化
+def new
+  if @facility
     @review = @facility.reviews.new
+  elsif @event
+    @review = @event.reviews.new
+  else
+    redirect_to facilities_path, alert: "Facility or Event not found"
   end
-
-  def show
   end
-
-  def edit
-
-  end
-
 
   def create
-    @review = @facility.reviews.build(review_params)
+    if @facility
+      @review = @facility.reviews.build(review_params)
+    elsif @event
+      @review = @event.reviews.build(review_params)
+    end
     @review.user = current_user
     if @review.save
-      redirect_to facility_reviews_path, success: t('reviews.flash_messages.created', item: Review.model_name.human)
+      if @facility
+        redirect_to facility_reviews_path(@facility), success: t('reviews.flash_messages.created', item: Review.model_name.human)
+      elsif @event
+        redirect_to event_reviews_path(@event), success: t('reviews.flash_messages.created', item: Review.model_name.human)
+      end
     else
       flash.now[:danger] = t('reviews.flash_messages.not_created', item: Review.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
 
+  def edit
+  end
+
   def update
     if @review.update(review_params)
-      redirect_to facility_reviews_path(@facility), success: t('reviews.flash_messages.updated', item: Review.model_name.human)
+      if @review.reviewable_type == 'Facility'
+        redirect_to facility_reviews_path(@review.reviewable, @review), success: t('reviews.flash_messages.deleted', item: Review.model_name.human), status: :see_other
+      elsif @review.reviewable_type == 'Event'
+        redirect_to event_reviews_path(@review.reviewable, @review), success: t('reviews.flash_messages.deleted', item: Review.model_name.human), status: :see_other
+      end
     else
       flash.now[:danger] = t('reviews.flash_messages.not_updated', item: Review.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
 
-
   def destroy
-    # ビューに関わらず、サーバーサイドからもセキュリティの観点からユーザー認証
     if @review.user == current_user
       @review.destroy!
-      redirect_to facility_reviews_path(@facility), success: t('reviews.flash_messages.deleted', item: Review.model_name.human), status: :see_other
+      if @review.reviewable_type == 'Facility'
+        redirect_to facility_reviews_path(@review.reviewable, @review), success: t('reviews.flash_messages.deleted', item: Review.model_name.human), status: :see_other
+      elsif @review.reviewable_type == 'Event'
+        redirect_to event_reviews_path(@review.reviewable, @review), success: t('reviews.flash_messages.deleted', item: Review.model_name.human), status: :see_other
+      end
     else
-      redirect_to facility_reviews_path(@facility), status: :forbidden
+      redirect_to facility_reviews_path(@review.reviewable, @review), status: :forbidden
     end
   end
-
 
   private
 
@@ -59,23 +85,22 @@ class ReviewsController < ApplicationController
   end
 
   def set_facility
-    @facility = Facility.find_by(id: params[:facility_id])
-    unless @facility
-      redirect_to root_path, success: "施設情報が見つかりませんでした"
+    if params[:facility_id]
+      @facility = Facility.find_by(id: params[:facility_id])
+    elsif params[:event_id]
+      @event = Event.find_by(id: params[:event_id])
+      @facility = @event.facility if @event
     end
+    Rails.logger.debug "@facility: #{@facility.inspect}"
   end
 
   def set_review
     @review = Review.find(params[:id])
   end
 
-  # destroyアクションで@reviewから@facilityを取得するために、set_facility_from_reviewというプライベートメソッドを追加。
-  # このメソッドをdestroyアクションの前に呼び出すようにする。
-  # set_facility_from_reviewをしないと削除はできても削除完了後にfacility_reviews_path(@facility)が見つからないというエラーが発生する。
   def set_facility_from_review
-    @facility = @review&.facility
-    unless @facility
-      redirect_to root_path
-    end
+    @review = Review.find(params[:id])
+    @facility = @review.reviewable if @review.reviewable_type == 'Facility'
+    @event = @review.reviewable if @review.reviewable_type == 'Event'
   end
 end

@@ -27,9 +27,14 @@
 require 'faker'
 require 'open-uri'# 概要: open-uri ライブラリは、URLを開いてデータを読み込むためのシンプルなインターフェースを提供します。これにより、HTTPやFTPを通じてリモートのデータにアクセスし、ファイルをダウンロードすることが可能です。(S3の読み込みに使う)
 
-Facility.destroy_all
+Review.destroy_all
 PlaygroundEquipment.destroy_all
+Place.destroy_all
+Event.destroy_all
+Facility.destroy_all
+User.destroy_all
 
+# ユーザーデータの生成
 10.times do
   User.create!(
     name: Faker::Name.unique.name,
@@ -39,6 +44,13 @@ PlaygroundEquipment.destroy_all
   )
 end
 
+User.create!(
+  name: "テスト",
+  email: "test@test.com",
+  password: "test",
+  password_confirmation: "test"
+)
+
 # S3の画像URLリスト
 s3_image_urls = [
   "https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/Tokyo_Tower.jpeg",
@@ -47,68 +59,68 @@ s3_image_urls = [
   # 他の画像URLを追加
 ]
 
-# 施設のダミーデータを生成
+# 施設と関連データの生成
 10.times do |i|
-  facility = Facility.new(
+  facility = Facility.create!(
     title: Faker::Company.catch_phrase,
     name: Faker::Company.name,
     furigana: "ダミーシセツ",
     address: Faker::Address.full_address,
     business_hours: "09:00 - 17:00",
-    fee: Faker::Number.between(from: 300, to: 5000).to_s,# 利用料金を生成
+    fee: Faker::Number.between(from: 300, to: 5000).to_s,
     target_age: "1歳〜3歳",
     environment: "屋内",
     request: Faker::Lorem.word,
     contact: Faker::PhoneNumber.phone_number,
-    facility_url: Faker::Internet.url
-
+    facility_url: Faker::Internet.url,
+    remote_image_url: s3_image_urls[i % s3_image_urls.length]
   )
-  # S3から画像をダウンロードして添付
-  image_url = s3_image_urls[i % s3_image_urls.length]
-  downloaded_image = image_url
-  facility.remote_image_url = downloaded_image
-  facility.save!
-  # Placesのダミーデータを生成
+
   Place.create!(
-    facility_id: facility.id,
+    facility: facility,
     address: Faker::Address.full_address,
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude
   )
 
-  # PlaygroundEquipmentsのダミーデータを生成
   6.times do |j|
-    playground_equipment = PlaygroundEquipment.new(
-      facility_id: facility.id,
+    PlaygroundEquipment.create!(
+      facility: facility,
       title: Faker::Lorem.word,
       kind: Faker::Lorem.word,
       target_age: "All ages",
       installation: Faker::Lorem.word,
-      remarks: Faker::Lorem.sentence
+      remarks: Faker::Lorem.sentence,
+      remote_image_url: s3_image_urls[j % s3_image_urls.length]
     )
-    # S3から画像をダウンロードして添付
-    # 施設１(i)の施設遊具(j)を利用し計算。
-    # 例：施設1の遊具1: (1 * 5 + 0) % 3 = 5 % 3 = 2 (s3_image_urls[2])
-    image_url = s3_image_urls[i % s3_image_urls.length]
-    downloaded_image = image_url
-    playground_equipment.remote_image_url = downloaded_image
-    playground_equipment.save!
   end
 
-  users = User.all
-
-  10.times do
-  review = Review.new(
-    user: users.sample,
-      facility_id: facility.id,
-      title: Faker::Lorem.sentence,
-      body: Faker::Lorem.paragraph,
-      rate: rand(1.0..5.0).round(1)
+  3.times do
+    event = Event.create!(
+      facility: facility,
+      title: Faker::Company.catch_phrase,
+      name: Faker::Lorem.word,
+      furigana: "ダミーイベント",
+      address: Faker::Address.full_address,
+      business_hours: "09:00 - 17:00",
+      fee: Faker::Number.between(from: 300, to: 5000).to_s,
+      target_age: "All ages",
+      environment: "屋外",
+      request: Faker::Lorem.word,
+      contact: Faker::PhoneNumber.phone_number,
+      remote_image_url: s3_image_urls.sample
     )
-    # S3から画像をダウンロードして添付
-    image_url = s3_image_urls[i % s3_image_urls.length]
-    downloaded_image = image_url
-    review.remote_image_url = downloaded_image
-    review.save!
+
+    users = User.all
+    10.times do
+      review = Review.create!(
+        user: users.sample,
+        reviewable: [facility, event].sample,  # ランダムにfacilityかeventを設定
+        title: Faker::Lorem.sentence,
+        body: Faker::Lorem.paragraph,
+        rate: rand(1.0..5.0).round(1),
+        remote_image_url: s3_image_urls.sample
+      )
+    end
   end
 end

@@ -19,15 +19,27 @@
     <% if @review.user&.own?(@current_user) %>
     <div class="review-btns">
       <div class="review-edit">
-        <%= link_to "編集", edit_review_path(@review), class: "edit-review-#{@review.id} btn btn-success" %>
+        <% if @review.reviewable_type == 'Facility' %>
+          <%= link_to "編集", edit_facility_review_path(@review.reviewable, @review), class: "edit-review-#{@review.id} btn btn-success" %>
+        <% elsif @review.reviewable_type == 'Event' %>
+          <%= link_to "編集", edit_event_review_path(@review.reviewable, @review), class: "edit-review-#{@review.id} btn btn-success" %>
+        <% end %>
       </div>
       <div class="review-delete">
-        <%= link_to "削除", review_path(@review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
+        <% if @review.reviewable_type == 'Facility' %>
+          <%= link_to "削除", facility_review_path(@review.reviewable, @review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
+        <% elsif @review.reviewable_type == 'Event' %>
+          <%= link_to "削除", event_review_path(@review.reviewable, @review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
+        <% end %>
       </div>
     </div>
     <% end %>
   </div>
   <div class="back-reviews-wrapper">
-      <%= link_to "レビュー一覧へ", facility_reviews_path(@review.facility),class: "back-reviews-btn" %>
+      <% if @review.reviewable_type == 'Facility' %>
+        <%= link_to "レビュー一覧へ", facility_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
+      <% elsif @review.reviewable_type == 'Event' %>
+        <%= link_to "レビュー一覧へ", event_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
+      <% end %>
   </div>
 </div>
