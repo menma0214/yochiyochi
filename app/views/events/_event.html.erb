@@ -1,11 +1,11 @@
-<div class="facility-container m-auto">
-  <div class="facility-wrapper mt-5 p-3">
-    <h3 class="facility-title-text"><%= link_to event.title.truncate(10, omission: '...'), event_path(event) %></h3>
-    <div class="facility-body">
-      <%= image_tag(event.image.present? ? event.image.url : 'sample.png', class: "facilities-image") %>
-      <div class="ms-3">
-        <p class="facility-body-text fs-5"><%= simple_format(event.business_hours.truncate(15, omission: '...')) %></p>
-        <p class="facility-body-text fs-5"><%= simple_format(event.address.presence.truncate(15, omission: '...')) %></p>
+<div class="event-container m-auto">
+  <div class="event-wrapper mt-5 p-3">
+    <h3 class="event-title-text"><%= link_to event.title.truncate(10, omission: '...'), event_path(event) %></h3>
+    <div class="event-body">
+      <%= image_tag(event.image.present? ? event.image.url : 'sample.png', class: "events-image") %>
+      <div class="ms-3 event-sp">
+        <p class="event-body-text fs-5"><%= simple_format(event.business_hours.truncate(15, omission: '...')) %></p>
+        <p class="event-body-text fs-5"><%= simple_format(event.address.presence.truncate(15, omission: '...')) %></p>
         <% if logged_in? %>
         <div class="text-end">
           <%= render 'bookmarks/bookmark_buttons', bookmarkable: event %>

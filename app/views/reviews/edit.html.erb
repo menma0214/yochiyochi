@@ -6,14 +6,14 @@
       <% if @review.reviewable_type == 'Facility' %>
         <%= render 'form', review: @review, facility: @facility %>
       <% elsif @review.reviewable_type == 'Event' %>
-        <%= render 'form', review: @review, facility: @event %>
+        <%= render 'form', review: @review, event: @event %>
       <% end %>
     </div>
     <div class="text-center">
-      <% if @review.reviewable_type = 'Facility' %>
-        <%= link_to "戻る", facility_reviews_path(@review.reviewable, @review) %>
+      <% if @review.reviewable_type == 'Facility' %>
+        <%= link_to t('.back'), facility_review_path(@review.reviewable, @review) %>
       <% elsif %>
-        <%= link_to "戻る", event_reviews_path(@review.reviewable, @review) %>
+        <%= link_to t('.back'), event_review_path(@review.reviewable, @review) %>
       <% end %>
     </div>
   </div>

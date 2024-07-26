@@ -63,6 +63,7 @@ ja:
       review: レビュー
     edit:
       title: レビュー編集
+      back: 戻る
     show:
       title: レビュー詳細
     flash_messages:
@@ -71,6 +72,7 @@ ja:
       updated: "レビューを更新しました"
       not_updated: "レビューを更新出来ませんでした"
       deleted: "レビューを削除しました"
+      not_deleted: レビューを削除できませんでした
   password_resets:
     new:
       title: パスワード再設定

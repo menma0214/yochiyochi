@@ -1,42 +1,29 @@
-.facility-show-container {
-  width: 100%;
-  height: 125vh;
-  padding-bottom: 100px;
-}
-
-.facility-show-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-
-.facility-container {
+.event-container {
   display: flex;
   justify-content: center;
 }
 
-.article-wrapper {
+.event-article-wrapper {
   z-index: 2;
   margin-top: 50px;
 }
 
-.article-title {
+.event-article-title {
   text-align: center;
   margin: auto;
   width: 200px;
-  background-color: #01c6fd;
+  background-color: #f8d804;
   border-radius: 10px;
+  align-items: center;
 }
 
-.article-title-text {
+.event-article-title-text {
   padding: 3px;
   color: #fff;
   font-weight: bold;
 }
 
-.facility-wrapper {
+.event-wrapper {
   align-items: center;
   background-color: #fff;
   border-radius: 10px;
@@ -46,42 +33,48 @@
   border-bottom: 0.3em solid #ccc;
 }
 
-.facility-wrapper:hover {
+.event-wrapper:hover {
 	border-bottom-color: transparent;
 	transform: translateY(0.3em);
 }
 
-.facility-show-image-wrapper{
+.event-show-container {
+  width: 100%;
+  height: 125vh;
+  padding-bottom: 100px;
+}
+
+.event-show-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* 子要素を垂直方向に中央寄せ */
+  text-align: center;   /* テキストを中央寄せ */
+}
+
+.event-show-image-wrapper{
   margin-top: 100px;
   text-align: center;
   width: 100%;
 }
 
-.facility-show-image {
-  width: 100%;
-  min-width: 250px;
-  max-width: 500px;
-  height: 300px;
-  border-radius: 10px;
-}
-
-.facility-show-article {
+.event-show-article {
   width: 100%;
   max-width: 650px;
 }
 
-.facilities-image {
+.events-image {
   max-width: 300px;
   width: 100%;
   height: 150px;
   border-radius: 10px;
 }
 
-.table {
+.event-table {
   table-layout: fixed;
   width: 100%;
   max-width: 500px;
   margin: 50px auto;
+  background-color: #fff;
   border-spacing: 0;
   border-collapse: separate;
   border-radius: 13px;
@@ -91,129 +84,98 @@
   border-bottom: 3px solid #ccc;
 }
 
-.table th, .table td {
+.event-table th, .event-table td {
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
 
-.table th {
+.event-table th {
   width: 200px;
   text-align: center;
   border-right: 1px solid #ccc;
 }
 
-.table tr:first-child th {
+.event-table tr:first-child th {
   border-radius: 10px 0 0 0;
 }
 
-.table td {
+.event-table td {
   width:100%;
   word-wrap: break-all;
   word-break: break-all;
 }
 
-.table tr:first-child td {
+.event-table tr:first-child td {
   border-radius: 0 10px 0 0;
 }
-.table tr:last-child th {
+.event-table tr:last-child th {
   border-radius: 0 0 0 10px;
-}
-.table tr:last-child td {
-  border-radius: 0 0 10px 0;
-}
 
-.table tr:last-child td, .table tr:last-child th {
+}
+.event-table tr:last-child td, .event-table tr:last-child th {
+  border-radius: 0 0 10px 0;
   border-bottom: none;
 }
 
 
-.map {
-  max-width: 500px;
-  margin-top: 100px;
-}
-
 @media screen and (min-width: 1001px) {
-  .facility-container {
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  margin:auto;
+  .event-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
   }
 
-  .facility-show-container {
+  .event-show-container {
     display: flex;
     justify-content: space-around;
   }
 
-  .facility-show-article {
+  .event-show-article {
     padding-top: 150px;
-  }
-
-  .facility-show-image {
-    max-width: 500px;
   }
 
 }
 
 @media screen and (min-width: 601px) {
-  .facility-wrapper {
+  .event-wrapper {
     min-width: 550px;
   }
 
-  .link-item-list {
+  .event-link-item-list {
     display: flex;
     justify-content: space-around;
   }
 
-  .facility-body {
+  .event-body {
     display: flex;
     justify-content: start;
   }
-
 }
-
-
-
 
 @media screen and (max-width: 1000px) {
-  .facility-show-article {
+  .event-show-article {
     margin-left: auto;
     margin-right: auto;
   }
 
-
-  .facility-show-wrapper {
+  .event-show-wrapper {
     text-align: center;
   }
 
-  .facility-container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .link-item-list {
-    text-align: center;
-  }
-
-  .link-item{
+  .event-link-item{
     margin-top: 10px;
-}
-
-  .map {
-    margin-left: auto;
-    margin-right: auto;
   }
-
 }
 
 @media screen and (max-width: 600px) {
   // スマホサイズは対象のdivを削除してスタイル調整
-  .facility-sp {
+  .event-sp {
     display: contents;
   }
 
-  .facility-wrapper {
+  .event-wrapper {
     max-width: 300px;
   }
 

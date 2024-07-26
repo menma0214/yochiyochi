@@ -3,6 +3,7 @@
 @import '../stylesheets/top.scss';
 @import '../stylesheets/header.scss';
 @import '../stylesheets/facility.scss';
+@import '../stylesheets/event.scss';
 @import'../stylesheets/search_form.scss';
 @import'../stylesheets/users.scss';
 @import'../stylesheets/user_sessions.scss';
@@ -12,9 +13,9 @@
 .conteiner-shared{
   padding-top: 150px;
   width: auto;
-  height: 200vh;
   margin: auto;
   background-image: url('megu-hi-.JPG');
+  background-position:center center;
   background-size: cover;
   background-color: rgba(255, 255, 255, 0.7);
   background-blend-mode: lighten;
