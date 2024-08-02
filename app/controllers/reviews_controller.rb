@@ -1,16 +1,20 @@
 class ReviewsController < ApplicationController
-  before_action :set_facility_or_event, only: %i[index new show create edit update destroy]
+  before_action :set_facility_or_event, only: %i[index user_reviews new show create edit update destroy]
   before_action :set_review, only: %i[show edit update destroy]
 
   def index
-    Rails.logger.debug "params[:facility_id]: #{params[:facility_id]}"
-    Rails.logger.debug "params[:event_id]: #{params[:event_id]}"
+    # Rails.logger.debug "params[:facility_id]: #{params[:facility_id]}"
+    # Rails.logger.debug "params[:event_id]: #{params[:event_id]}"
 
     @facility_reviews = @facility.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(5) if @facility
     @event_reviews = @event.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(5) if @event
+    # Rails.logger.debug "@facility_reviews: #{@facility_reviews.inspect}"
+    # Rails.logger.debug "@event_reviews: #{@event_reviews.inspect}"
+  end
 
-    Rails.logger.debug "@facility_reviews: #{@facility_reviews.inspect}"
-    Rails.logger.debug "@event_reviews: #{@event_reviews.inspect}"
+  def user_reviews
+    @user = User.find(params[:id])
+    @all_reviews = @user.reviews.includes(:reviewable).order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show

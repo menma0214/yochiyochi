@@ -1,0 +1,36 @@
+<% content_for(:title, t('.title')) %>
+<div class="facility-show-article">
+  <div class="table-wrapper" >
+    <table class="table">
+      <tr>
+        <th class="table-light">ニックネーム</th>
+        <td class="table-decription"><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th class="table-light">メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th class="table-light">パスワード</th>
+        <td><%= @user.password %></td>
+      </tr>
+      <tr>
+        <th class="table-light">お子様の年齢</th>
+        <td><%= @user.child_age %>歳</td>
+      </tr>
+      <tr>
+        <th class="table-light">お子様の性別</th>
+        <td><%= @user.child_sex %></td>
+      </tr>
+      <tr>
+        <th class="table-light">お子様の性格</th>
+        <td><%= @user.child_personality %></td>
+      </tr>
+      <tr>
+        <th class="table-light">お子様が好きな遊び</th>
+        <td><%= @user.child_trend %></td>
+      </tr>
+    </table>
+    <%= link_to "編集", edit_mypage_path %>
+  </div>
+</div>
