@@ -1,6 +1,5 @@
 class Admin::SessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
-  layout 'admin/layouts/application'
 
   def new
   end
