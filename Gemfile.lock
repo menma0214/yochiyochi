@@ -131,9 +131,8 @@ GEM
     cssbundling-rails (1.4.0)
       railties (>= 6.0.0)
     csv (3.3.0)
-    dartsass-rails (0.5.1)
+    dartsass-rails (0.4.1)
       railties (>= 6.0.0)
-      sass-embedded (~> 1.63)
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
@@ -186,24 +185,6 @@ GEM
       csv (>= 3.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-protobuf (4.27.3)
-      bigdecimal
-      rake (>= 13)
-    google-protobuf (4.27.3-aarch64-linux)
-      bigdecimal
-      rake (>= 13)
-    google-protobuf (4.27.3-arm64-darwin)
-      bigdecimal
-      rake (>= 13)
-    google-protobuf (4.27.3-x86-linux)
-      bigdecimal
-      rake (>= 13)
-    google-protobuf (4.27.3-x86_64-darwin)
-      bigdecimal
-      rake (>= 13)
-    google-protobuf (4.27.3-x86_64-linux)
-      bigdecimal
-      rake (>= 13)
     hashie (5.0.0)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
@@ -375,18 +356,6 @@ GEM
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-    sass-embedded (1.77.8-aarch64-linux-gnu)
-      google-protobuf (~> 4.26)
-    sass-embedded (1.77.8-arm-linux-gnueabihf)
-      google-protobuf (~> 4.26)
-    sass-embedded (1.77.8-arm64-darwin)
-      google-protobuf (~> 4.26)
-    sass-embedded (1.77.8-x86-linux-gnu)
-      google-protobuf (~> 4.26)
-    sass-embedded (1.77.8-x86_64-darwin)
-      google-protobuf (~> 4.26)
-    sass-embedded (1.77.8-x86_64-linux-gnu)
-      google-protobuf (~> 4.26)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -466,7 +435,7 @@ DEPENDENCIES
   carrierwave (~> 2.0)
   config
   cssbundling-rails
-  dartsass-rails
+  dartsass-rails (~> 0.4.0)
   debug
   dotenv-rails
   draper
