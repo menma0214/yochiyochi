@@ -1,0 +1,7 @@
+<% content_for(:title, t('.title')) %>
+<div>
+  <ul>
+    <li><%= link_to "会員登録情報",mypage_path(current_user) %></li>
+    <li><%= link_to "レビュー一覧", user_reviews_path(current_user) %></li>
+  </ul>
+</div>

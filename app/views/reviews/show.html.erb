@@ -42,4 +42,5 @@
         <%= link_to "レビュー一覧へ", event_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
       <% end %>
   </div>
+  <%= link_to "投稿したレビュー一覧", user_reviews_path(current_user) %>
 </div>
