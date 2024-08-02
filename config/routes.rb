@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :sessions, only: %i[new create destroy], path_names: { destroy: 'logout' }
+    get 'login', to: 'sessions#new'
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+  end
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'events/index'
   get 'events/show'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
@@ -13,6 +20,7 @@ Rails.application.routes.draw do
   root 'tops#index'
 
   get 'tops/index'
+  get 'users/:id/reviews', to: 'reviews#user_reviews', as: 'user_reviews'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -22,9 +30,21 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  # namespace :admin do
+  #   get 'dashboard/index'
+  #   root "dashboards#index"
+  #   resource :dashboard, only: %i[index]
+  #   get 'login' => 'user_sessions#new', :as => :login
+  #   post 'login' => "user_sessions#create"
+  #   delete 'logout' => 'user_sessions#destroy', :as => :logout
+  # end
+
   resources :tops, only: %i[index]
     resources :bookmarks, only: %i[index create destroy]
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create show edit update]
+    resources :reviews, only: %i[user_reviews]
+  resources :user_sessions, only: [:new, :create, :destroy], path_names: { destroy: 'logout' }
+  resources :mypages, only: %i[index show edit update]
   resources :bookmarks, only: %i[index create destroy]
   resources :events do
     resources :reviews, only: %i[index show new create update destroy edit update]  # 必要なアクションのみを指定する
