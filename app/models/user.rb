@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   authenticates_with_sorcery!
 
+  enum role: { general: 0, admin: 1 }
+
   def bookmark(bookmarkable)
     bookmarks.create!(bookmarkable: bookmarkable)
   end

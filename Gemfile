@@ -40,6 +40,12 @@ gem "jbuilder"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "sassc-rails"
+gem "dartsass-rails"
+
+#管理者画面
+gem 'rails_admin', '~> 3.0'
+gem 'cancancan'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -94,6 +100,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-group :production do
-  gem "pg", "~> 1.4"
-end
+gem "sassc-rails"

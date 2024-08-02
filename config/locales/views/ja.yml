@@ -30,6 +30,21 @@ ja:
   shared:
     search_form:
       search_word: フリーワードで検索
+  users:
+    new:
+      title: ユーザー登録
+      to_login_page: ログインページへ
+    create:
+      success: ユーザー登録が完了しました。
+      failure: ユーザー登録に失敗しました。
+    flash_messages:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新出来ませんでした"
+      deleted: "%{item}を削除しました"
+      require_login: ログインしてください
+      not_authorized: 権限がありません
   user_sessions:
     create:
       success: ログインしました。
@@ -41,13 +56,19 @@ ja:
       login: ログイン
       to_register_page: 新規会員登録ページへ
       password_forget: パスワードをお忘れの方はこちら
-  users:
-    new:
-      title: ユーザー登録
-      to_login_page: ログインページへ
-    create:
-      success: ユーザー登録が完了しました。
-      failure: ユーザー登録に失敗しました。
+  mypages:
+    flash_messages:
+      updated: お客様情報を更新しました。
+      not_updated: 更新できませんでした。
+    form:
+      title: "%{user_name}さんの登録情報"
+      password_confirmation: パスワードの確認(同じパスワードを入力してください)
+      child_age: お子様の年齢
+      child_sex: お子様の性別
+      child_personality: お子様の性格
+      child_trend: お子様が好きな遊び
+      update: 更新する
+      back: 戻る
   facilities:
     index:
       title: 施設一覧
@@ -90,8 +111,11 @@ ja:
     reset_password_email:
       title: yochiyochiパスワードリセットのご連絡
   bookmarks:
+    index:
+      no_result: お気に入り登録情報がありません。
     create:
       success: お気に入り登録しました。
       denger: お気に入り登録できませんでした。
     destroy:
       success: お気に入り登録を解除しました。
+    

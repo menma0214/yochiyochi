@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_21_154141) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_01_094618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -107,8 +107,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_21_154141) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "crypted_password"
-    t.string "child_age"
-    t.string "child_sexgit"
+    t.integer "child_age"
+    t.string "child_sex"
     t.string "child_personality"
     t.string "child_trend"
     t.string "like"
