@@ -40,8 +40,8 @@ gem "jbuilder"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem "sassc-rails"
-gem "dartsass-rails", "~> 0.4.0"
+# gem "sassc-rails"
+# gem "dartsass-rails", "~> 0.4.0"
 
 #管理者画面
 gem 'rails_admin', '~> 3.0'

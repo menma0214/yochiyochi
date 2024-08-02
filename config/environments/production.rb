@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets')
+  # config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets')
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
@@ -27,8 +27,8 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
-  # config.assets.compile = false
-  config.assets.compile = true
+  config.assets.compile = false
+  # config.assets.compile = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
