@@ -101,3 +101,7 @@ group :test do
   gem "selenium-webdriver"
 end
 gem "sassc-rails"
+
+group :production do
+  gem "pg", "~> 1.4"
+end
