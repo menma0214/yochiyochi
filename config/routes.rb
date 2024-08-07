@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'diagnostics/new'
+  get 'diagnostics/create'
   namespace :admin do
-    resources :sessions, only: %i[new create destroy], path_names: { destroy: 'logout' }
+    resources :sessions, only: %i[new create destroy]
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'
@@ -43,7 +45,10 @@ Rails.application.routes.draw do
     resources :bookmarks, only: %i[index create destroy]
   resources :users, only: %i[new create show edit update]
     resources :reviews, only: %i[user_reviews]
-  resources :user_sessions, only: [:new, :create, :destroy], path_names: { destroy: 'logout' }
+  resource :diagnostics, only: %i[new create]do
+    get :complete, on: :collection
+  end
+  resources :user_sessions, only: %i[new create destroy]
   resources :mypages, only: %i[index show edit update]
   resources :bookmarks, only: %i[index create destroy]
   resources :events do
