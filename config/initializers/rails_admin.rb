@@ -13,7 +13,11 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
 
   config.parent_controller = 'ApplicationController' #追記
-
+#Google formの問い合わせフォームリンク
+  config.navigation_static_links = {
+    'Google Form' => 'https://docs.google.com/forms/d/1j4SK6xYxl7rKjwCSlBrN2nVMM3EsJnw_JbX02OIVuGQ/edit?pli=1#question=1652545694&field=1768989908'
+  }
+  config.navigation_static_label = "Links"
 
 
   ### Popular gems integration
