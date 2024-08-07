@@ -1,0 +1,34 @@
+<%= form_with model: current_user, url: diagnostics_path, method: :post do |f| %>
+  <div>
+    <%= f.label :child_age, "Q1. 子供の年齢は？" %><br>
+    <%= f.number_field :child_age %>
+  </div>
+  <div>
+    <%= f.label :child_sex, "Q2. お子様の性別は" %><br>
+    <%= f.radio_button :child_sex, '男の子' %>
+    <%= f.label :child_sex, '男の子' %><br>
+    <%= f.radio_button :child_sex, '女の子' %>
+    <%= f.label :child_sex, '女の子' %><br>
+  </div>
+  <div>
+    <%= f.label :child_personality, "Q3. お子様の性格は" %><br>
+    <%= f.radio_button :child_personality, '活発' %>
+    <%= f.label :child_personality, '活発' %><br>
+    <%= f.radio_button :child_personality, '大人しい' %>
+    <%= f.label :child_personality, '大人しい' %><br>
+  </div>
+  <div>
+    <%= f.label :child_trend, "Q4. お子様の好きな遊びは" %><br>
+    <%= f.radio_button :child_trend, 'ボール遊び' %>
+    <%= f.label :child_trend, 'ボール遊び' %><br>
+    <%= f.radio_button :child_trend, 'かけっこ' %>
+    <%= f.label :child_trend, 'かけっこ' %><br>
+    <%= f.radio_button :child_trend, '読書' %>
+    <%= f.label :child_trend, '読書' %><br>
+  </div>
+  <div>
+    <%= f.submit "診断結果を保存" %>
+  </div>
+<% end %>
+<%= link_to t('.back'), mypage_path(current_user.id) %>
+
