@@ -10,6 +10,10 @@
       <div>
         <%= image_tag(@review.image.present? ? @review.image.url : 'sample.png', alt: "sample", height: "150px", class: "review-image") %>
       </div>
+      <p>
+        <strong>評価:</strong>
+        <%= display_stars(@review.rate) %>
+      </p>
       <div class="review-body">
         <%= simple_format(@review.body) %>
       </div>

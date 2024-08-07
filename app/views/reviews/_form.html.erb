@@ -6,6 +6,13 @@
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :image %>
       <%= f.file_field :image, class: "form-control" %>
+      <%= f.label :rate, "評価" %>
+      <div id="star-rating">
+        <% (1..5).each do |i| %>
+          <i class="far fa-star" data-value="<%= i %>"></i>
+        <% end %>
+      </div>
+      <%= f.hidden_field :rate, id: 'rating-input' %> <!-- ここに星評価を表示 -->
       <%= f.label :body %>
       <%= f.text_area :body, class: "form-control mb-3", row: "10", style: "height: 200px", placeholder: Review.human_attribute_name(:body) %>
       <%= f.submit t("defaults.post"), class: "btn btn-primary" %>

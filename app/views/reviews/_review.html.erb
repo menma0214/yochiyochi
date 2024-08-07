@@ -11,6 +11,10 @@
       <div class="review-image-wrapper">
         <%= image_tag(review.image.present? ? review.image.url : 'sample.png', alt: "sample", class:"review-image rounded") %>
       </div>
+      <p>
+        <strong>評価:</strong>
+        <%= display_stars(review.rate) %>
+      </p>
       <div class="ms-3 w-100">
           <p><%= review.user.name.truncate(10, omission: '...') %></p>
           <p><%= review.body.truncate(30, omission: '...') %></p>
