@@ -4,6 +4,9 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 
 //レビューの星
+// Font Awesome のインポート
+import "@fortawesome/fontawesome-free/js/all";
+// jQueryのインポート
 import $ from 'jquery';
 
 $(document).on('turbo:load', function() {
