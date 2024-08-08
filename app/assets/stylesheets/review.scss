@@ -83,6 +83,25 @@
   margin-left: 20px;
 }
 
+#star-rating {
+  font-size: 24px;
+  color: gold;
+  cursor: pointer;
+}
+
+#star-rating .fa-star {
+  margin-right: 5px;
+}
+
+#star-rating .fas {
+  color: gold;
+}
+
+#star-rating .far {
+  color: lightgray;
+}
+
+
 @media screen and (min-width: 751px){
   .review-show-container {
   padding: 100px 50px 100px 50px;
