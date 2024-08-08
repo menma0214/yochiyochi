@@ -11,7 +11,15 @@ class MypagesController < ApplicationController
   def edit
   end
 
-
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to mypage_path, notice: 'ユーザー情報が更新されました。'
+    else
+      flash[:alert] = 'ユーザー情報の更新に失敗しました。'
+      render :show, status: :unprocessable_entity
+    end
+  end
 
   private
 
