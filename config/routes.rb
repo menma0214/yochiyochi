@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  # 退会確認ページ
+  get 'users/withdraw', to: 'users#withdraw'
+  # 退会処理
+  delete 'users/withdraw', to: 'users#destroy'
+
   get 'diagnostics/new'
   get 'diagnostics/create'
   namespace :admin do
@@ -43,7 +48,7 @@ Rails.application.routes.draw do
 
   resources :tops, only: %i[index]
     resources :bookmarks, only: %i[index create destroy]
-  resources :users, only: %i[new create show edit update]
+  resources :users, only: %i[new create show destroy withdraw]
     resources :reviews, only: %i[user_reviews]
   resource :diagnostics, only: %i[new create]do
     get :complete, on: :collection

@@ -94,4 +94,7 @@
   </div>
   <%= link_to '問い合わせ','https://docs.google.com/forms/d/e/1FAIpQLSeMWLzuaz2_GmcI_bxL3rbYwFuRaLuLA1M-fI-TImID8-RQOw/viewform?embedded=true' %>
   <%= paginate @paginated_results %>
+  <% if logged_in? %>
+  <%= link_to '退会申請', users_withdraw_path %>
+  <% end %>
 </div>
