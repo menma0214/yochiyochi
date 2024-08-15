@@ -28,5 +28,5 @@ class Facility < ApplicationRecord
   validates :environment, presence: true
   validates :request, presence: true, length: {maximum: 65_535}
   validates :contact, presence: true
-  validates :facility_url, presence: true
+  validates :facility_url, format: {with: URI::DEFAULT_PARSER.make_regexp(%w[http https]), message:'URLが正しくありません'}, allow_blank: true, presence: true
 end
