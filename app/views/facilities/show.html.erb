@@ -69,7 +69,7 @@
         </tr>
         <tr>
           <th class="table-light">施設URL</th>
-          <td> <%= simple_format(@facility.facility_url) %></td>
+          <td><%= link_to @facility.facility_url, @facility.facility_url, target: "_blank", rel: "noopener" %></td>
         </tr>
         <tr>
           <th class="table-light">タグ</th>
