@@ -20,3 +20,23 @@
   background-color: rgba(255, 255, 255, 0.7);
   background-blend-mode: lighten;
 }
+
+.autocomplete-results {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 1000;
+}
+
+.autocomplete-results li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.autocomplete-results li:hover {
+  background-color: #f0f0f0;
+}
