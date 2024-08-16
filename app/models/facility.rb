@@ -11,7 +11,7 @@ class Facility < ApplicationRecord
   mount_uploader :video, VideoUploader
 
   def self.ransackable_attributes(auth_object = nil)
-    ["address", "business_hours", "contact", "created_at", "environment", "facility_url", "fee", "furigana", "id", "id_value", "image", "video", "name", "request", "target_age", "title", "updated_at"]
+    ["address", "business_hours", "contact", "created_at", "environment", "fee", "furigana", "id", "id_value", "image", "video", "name", "request", "target_age", "title", "updated_at"]
   end
 
   def self.ransackable_associations(auth_object = nil)

@@ -60,15 +60,18 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[index show new create update destroy edit update]  # 必要なアクションのみを指定する
     collection do
       get :bookmarks, only: %i[index create destroy]
+      get :autocomplete
     end
   end
   resources :facilities, only: %i[index show new create update destroy] do
     collection do
       get :bookmarks, only: %i[index create destroy]
+      get :autocomplete
     end
     resources :playground_equipments, only: %i[index show],shallow: true
     resources :reviews, only: %i[index new show create destroy edit update]  # 必要なアクションのみを指定する
   end
+  resources :autocomplete, only: %i[index]
   resources :bookmarks, only: %i[create destroy]
   resources :password_resets, only: %i[new create edit update]
 
