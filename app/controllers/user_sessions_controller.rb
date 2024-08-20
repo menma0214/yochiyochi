@@ -28,7 +28,7 @@ class UserSessionsController < ApplicationController
     end
 
     # ログインを試みる
-    @user = login(params[:email], params[:password])
+    @user = login(params[:email], params[:password], params[:remember_me])
 
     if @user
       Rails.logger.debug "Login successful for user: #{@user.inspect}"

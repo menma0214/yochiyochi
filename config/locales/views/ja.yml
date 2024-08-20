@@ -57,6 +57,7 @@ ja:
       login: ログイン
       to_register_page: 新規会員登録ページへ
       password_forget: パスワードをお忘れの方はこちら
+      auto_login: ログイン状態を維持する
   mypages:
     flash_messages:
       updated: お客様情報を更新しました。

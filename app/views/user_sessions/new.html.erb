@@ -12,6 +12,10 @@
           <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control', placeholder: "password" %>
         </div>
+        <div>
+          <%= f.label :remember_me, t('.auto_login') %>
+          <%= f.check_box :remember_me %>
+        </div>
         <div class="actions mt-3">
           <%= f.submit t('.login'), class: 'btn btn-primary' %>
         </div>
