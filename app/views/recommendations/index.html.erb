@@ -1,0 +1,21 @@
+<!-- app/views/recommendations/index.html.erb -->
+<h1>おすすめ一覧</h1>
+
+<h2>おすすめの施設</h2>
+<ul>
+  <% @recommended_facilities.each do |facility| %>
+    <li>
+      <%= link_to facility.name, facility_path(facility) %>
+      (<%= facility.address %>, <%= facility.business_hours %>)
+    </li>
+  <% end %>
+</ul>
+
+<h2>おすすめのイベント</h2>
+<ul>
+  <% @recommended_events.each do |event| %>
+    <li>
+      <%= link_to event.title, event_path(event) %>
+    </li>
+  <% end %>
+</ul>
