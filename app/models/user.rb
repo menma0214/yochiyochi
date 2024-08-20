@@ -40,6 +40,20 @@ class User < ApplicationRecord
     end
   end
 
+  # 施設のおすすめロジック
+  def recommended_facilities
+    Facility.where('min_age <= ? AND max_age >= ?', self.child_age, self.child_age)
+            .where(environment: self.child_sex)
+            .where(request: self.child_personality)
+            .where(request: self.child_trend)
+  end
+
+  # イベントのおすすめロジック
+  def recommended_events
+    Event.where('min_age <= ? AND max_age >= ?', self.child_age, self.child_age)
+          # .or(Event.where('theme LIKE ?', "%#{self.child_personality}%"))
+  end
+
   validates :email, uniqueness: { scope: :deleted_at, message: "メールアドレスはすでに使用されています" }
   validates :email, presence: true
   validates :password, length: { minimum: 4 }, if: -> { new_record? || changes[:crypted_password] }
@@ -48,7 +62,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
 
-  def own?(user)
-    self == user
-  end
+  # def own?(user)
+  #   self == user
+  # end
 end

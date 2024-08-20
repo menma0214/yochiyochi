@@ -1,7 +1,7 @@
 <%= form_with model: current_user, url: diagnostics_path, method: :post do |f| %>
   <div>
     <%= f.label :child_age, "Q1. 子供の年齢は？" %><br>
-    <%= f.number_field :child_age %>
+    <%= f.select :child_age, [0, 1, 2, 3, 4, 5], class: 'form-control' %>
   </div>
   <div>
     <%= f.label :child_sex, "Q2. お子様の性別は" %><br>
