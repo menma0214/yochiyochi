@@ -51,6 +51,14 @@ User.create!(
   password_confirmation: "test"
 )
 
+User.create!(
+  name: "管理者",
+  email: "admin@admin.com",
+  password: "admin",
+  password_confirmation: "admin",
+  role: 1
+)
+
 # S3の画像URLリスト
 s3_image_urls = [
   "https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/Tokyo_Tower.jpeg",

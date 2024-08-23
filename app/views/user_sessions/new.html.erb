@@ -16,6 +16,7 @@
           <%= f.label :remember_me, t('.auto_login') %>
           <%= f.check_box :remember_me %>
         </div>
+        <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
         <div class="actions mt-3">
           <%= f.submit t('.login'), class: 'btn btn-primary' %>
         </div>

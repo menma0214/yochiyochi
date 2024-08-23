@@ -1,11 +1,14 @@
 class User < ApplicationRecord
+  authenticates_with_sorcery!
   has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_facilities, through: :bookmarks, source: :bookmarkable, source_type: 'Facility'
   has_many :bookmark_events, through: :bookmarks, source: :bookmarkable, source_type: 'Event'
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
   scope :active, -> { where(deleted_at: nil) }
 
-  authenticates_with_sorcery!
+
 
   enum role: { general: 0, admin: 1 }
 

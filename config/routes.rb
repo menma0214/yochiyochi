@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+
   # 退会確認ページ
   get 'users/withdraw', to: 'users#withdraw'
   # 退会処理

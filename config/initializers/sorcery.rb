@@ -4,12 +4,12 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:reset_password]
+Rails.application.config.sorcery.submodules = [:external, :reset_password]
 # オートログイン機能
-Rails.application.config.sorcery.submodules = [:remember_me]
-
+Rails.application.config.sorcery.submodules = [:remember_me, :reset_password, :external]
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
+
   # -- core --
   # What controller action to call for non-authenticated users. You can also
   # override the 'not_authenticated' method of course.
@@ -82,7 +82,7 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  # config.external_providers =
+  config.external_providers = %i[google]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -160,10 +160,10 @@ Rails.application.config.sorcery.configure do |config|
   # config.auth0.callback_url = "https://0.0.0.0:3000/oauth/callback?provider=auth0"
   # config.auth0.site = "https://example.auth0.com"
   #
-  # config.google.key = ""
-  # config.google.secret = ""
-  # config.google.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=google"
-  # config.google.user_info_mapping = {:email => "email", :username => "name"}
+  config.google.key = ENV['GOOGLE_CLIENT_ID']
+  config.google.secret = ENV['GOOGLE_CLIENT_SECRET']
+  config.google.callback_url = ENV['GOOGLE_CALLBACK_URL']
+  config.google.user_info_mapping = {:email => "email", :username => "name"}
   # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
   #
   # For Microsoft Graph, the key will be your App ID, and the secret will be your app password/public key.
@@ -248,7 +248,6 @@ Rails.application.config.sorcery.configure do |config|
     # -- core --
     # Specify username attributes, for example: [:username, :email].
     # Default: `[:email]`
-    #
     # user.username_attribute_names =
 
     # Change *virtual* password attribute, the one which is used until an encrypted one is generated.
@@ -403,7 +402,6 @@ Rails.application.config.sorcery.configure do |config|
     # REQUIRED:
     # Password reset mailer class.
     # Default: `nil`
-    #
     # config/initializers/sorcery.rb
     user.reset_password_mailer = UserMailer
 
