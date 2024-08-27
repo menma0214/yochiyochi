@@ -65,7 +65,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
 
-  # def own?(user)
-  #   self == user
-  # end
+  def own?(user)
+    self == user
+  end
 end
