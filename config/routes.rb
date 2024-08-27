@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   post "oauth/callback", to: "oauths#callback"
   get "oauth/callback", to: "oauths#callback"
+  # get "oauth/callback", to: "user_sessions#create"
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
   # 退会確認ページ
