@@ -79,6 +79,9 @@ gem 'faker'
 
 gem 'font-awesome-rails'
 
+#OGP
+gem 'meta-tags'
+
 # gem 'omniauth'
 # gem 'omniauth-google-oauth2'          #GoogleのOAuth
 

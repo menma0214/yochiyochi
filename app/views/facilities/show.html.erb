@@ -89,6 +89,8 @@
       </div>
       <div class="link-item">
         <%= link_to '戻る', facilities_path %>
+                <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.original_url}", title: 'Twitter', target: '_blank', rel: "noopener noreferrer" %>
+        <%= link_to "LINEでシェア", "https://social-plugins.line.me/lineit/share?url=#{request.original_url}", target: "_blank", rel: "noopener noreferrer" %>
       </div>
     </div>
   </div>
