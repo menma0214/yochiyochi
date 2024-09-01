@@ -41,12 +41,12 @@ jobs:
         bundle install
         yarn install
 # デバッグ作成されてから接続されてるかの確認
-    - name: Wait for PostgreSQL to be ready
-      run: |
-        until pg_isready -h db -U postgres; do
-          echo "Waiting for database..."
-          sleep 1
-        done
+    # - name: Wait for PostgreSQL to be ready
+    #   run: |
+    #     until pg_isready -h db -U postgres; do
+    #       echo "Waiting for database..."
+    #       sleep 1
+    #     done
 #traceで詳細なログを確認
     - name: Setup database
       run: |
