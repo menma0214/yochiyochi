@@ -50,7 +50,7 @@ jobs:
 #traceで詳細なログを確認
     - name: Setup database
       run: |
-        cp config/database.ci.yml config/database.yml
+        cp config/database.yml.ci config/database.yml
         bin/rails db:create 
         bin/rails db:schema:load 
 
