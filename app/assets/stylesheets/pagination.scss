@@ -1,0 +1,31 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.pagination .page-item {
+  margin: 0 5px;
+}
+
+.pagination .page-item .page-link {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #ffdfba; /* パステルオレンジ */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #bae1ff; /* パステルブルー */
+}
+
+.pagination .page-item:hover .page-link {
+  background-color: #ffb3ba; /* パステルピンク */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
