@@ -41,3 +41,17 @@
 .autocomplete-results li:hover {
   background-color: #f0f0f0;
 }
+
+body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 500; /* フォントの太さを調整（300は細め、400は標準、500は少し太め） */
+  color: #333; /* 色を柔らかく見せるために、少し淡い色を選ぶと良いです */
+  line-height: 1.6; /* 行間を広げて柔らかい印象に */
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "M PLUS Rounded 1c", sans-serif; /* 見出しに手書き風フォントを使用 */
+  color: #555; /* 見出しの色も柔らかい色合いを選ぶ */
+}
+
