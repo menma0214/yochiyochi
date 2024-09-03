@@ -30,12 +30,12 @@
   min-width: 300px;
   cursor: pointer;
 	transition: all 0.3s ease 0s;
-  border-bottom: 0.3em solid #ccc;
 }
 
 .event-wrapper:hover {
 	border-bottom-color: transparent;
-	transform: translateY(0.3em);
+	transform: translateY(-0.3em);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .event-show-container {
