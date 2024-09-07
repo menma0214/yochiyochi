@@ -1,0 +1,84 @@
+.slider .slick-slide {
+  width: 600px;
+  height: 300px;
+  margin: 0 40px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  text-align: center;
+}
+.slider .slick-slide div {
+  text-align: center;
+}
+// .slider .slick-slide img {
+//   display: block;
+//   width: 100%;
+//   height: auto;
+//   object-fit: cover;
+//   align-items: center;
+//   text-align: center;
+// }
+.slider .slick-slide video {
+  width: 100%;
+}
+.slider .slick-arrow {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 0;
+  position: absolute;
+  top: 180px;
+  z-index: 1;
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
+}
+.slider .slick-arrow::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #09000d;
+  border-width: 3px 3px 0 0;
+  position: absolute;
+  top: 24px;
+  transform: rotate(45deg);
+}
+.slider .slick-next {
+  left: 500px;
+}
+.slider .slick-prev {
+  right: 500px;
+}
+.slider .slick-next::before {
+  left: 20px;
+}
+.slider .slick-prev::before {
+  border-width: 0 0 3px 3px;
+  right: 22px;
+}
+.slick-dots {
+  text-align: center;
+  padding: 0;
+}
+.slick-dots li {
+  display: inline-block;
+}
+.slick-dots button {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 6px;
+  font-size: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  background: #bcbcbc;
+  border-radius: 50%;
+}
+.slick-dots .slick-active button {
+  background: #0a467d;
+}

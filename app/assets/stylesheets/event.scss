@@ -38,35 +38,63 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
+// show
+
 .event-show-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  max-width: 1200px;
   height: 125vh;
   padding-bottom: 100px;
 }
 
 .event-show-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;  /* 子要素を垂直方向に中央寄せ */
-  text-align: center;   /* テキストを中央寄せ */
+  // text-align: center;   /* テキストを中央寄せ */
+  width: 100%;
+}
+
+.event-show-image-list{
+  margin-top: 100px;
+  padding: 0%;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
 }
 
 .event-show-image-wrapper{
-  margin-top: 100px;
-  text-align: center;
   width: 100%;
+  max-width: 350px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* スライダーの横幅を超える画像が表示されないようにする */
+  padding: auto;
+}
+
+.event-show-image{
+  width: 100%;
+  min-width: 250px;
+  max-width: 350px; /* 横幅がスライダーの横幅を超えないようにする */
+  max-height: 100%; /* 縦幅もスライダーの高さを超えないようにする */
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain; /* アスペクト比を保ちながら中央に配置 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 縦横中央に配置するためのトランスフォーム */
 }
 
 .event-show-article {
   width: 100%;
   max-width: 650px;
-}
-
-.events-image {
-  max-width: 300px;
-  width: 100%;
-  height: 150px;
-  border-radius: 10px;
 }
 
 .event-table {
@@ -115,6 +143,14 @@
 .event-table tr:last-child td, .event-table tr:last-child th {
   border-radius: 0 0 10px 0;
   border-bottom: none;
+}
+
+// _events
+.events-image {
+  max-width: 300px;
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
 }
 
 

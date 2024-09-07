@@ -8,6 +8,8 @@ class Facility < ApplicationRecord
   has_one :place, dependent: :destroy
 
   mount_uploader :image, ImageUploader
+  mount_uploader :secondary_image, ImageUploader
+  mount_uploader :tertiary_image, ImageUploader
   mount_uploader :video, VideoUploader
 
   def self.ransackable_attributes(auth_object = nil)

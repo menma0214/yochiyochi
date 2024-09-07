@@ -8,6 +8,7 @@ import * as bootstrap from "bootstrap"
 import "@fortawesome/fontawesome-free/js/all";
 // jQueryのインポート
 import $ from 'jquery';
+import 'slick-carousel';
 
 $(document).on('turbo:load', function() {
   // スター評価の初期化
@@ -23,4 +24,16 @@ $(document).on('turbo:load', function() {
       $(this).toggleClass('far', $(this).data('value') > rating);
     });
   }
+});
+$(document).ready(function(){
+  $('.slider').slick({
+    // autoplay: true,       // 自動再生
+    // autoplaySpeed: 2000,  // 2秒ごとに自動で次のスライドに移動
+    dots: true,           // 下部にドットナビゲーションを表示
+    arrows: true,         // 左右のナビゲーション矢印を表示
+    infinite: true,       // スライドがループするように設定
+    speed: 500,           // スライドの移動速度
+    slidesToShow: 1,      // 一度に表示するスライドの数
+    slidesToScroll: 1     // 一度にスクロールするスライドの数
+  });
 });

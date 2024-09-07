@@ -18,11 +18,57 @@
   margin: auto;
 }
 
-
+.playground_equipment-show-container {
+  max-width: 1200px;
+}
 
 .playground_equipment-show-left-wrapper{
+  display: flex;
+  flex-direction: column;
   text-align: center
 
+}
+
+.playground_equipment-show-image-list-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* 子要素を垂直方向に中央寄せ */
+  width: 100%;
+}
+
+.playground_equipment-show-image-list {
+  margin-top: 100px;
+  padding: 0%;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+.playground_equipment-show-image-wrapper {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* スライダーの横幅を超える画像が表示されないようにする */
+  padding: auto;
+}
+
+.playground_equipment-show-image{
+  width: 100%;
+  min-width: 250px;
+  max-width: 350px; /* 横幅がスライダーの横幅を超えないようにする */
+  max-height: 100%; /* 縦幅もスライダーの高さを超えないようにする */
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain; /* アスペクト比を保ちながら中央に配置 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 縦横中央に配置するためのトランスフォーム */
 }
 
 .playground_equipment-item-list-wrapper{
