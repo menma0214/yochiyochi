@@ -1,11 +1,24 @@
 <% content_for(:title, t('.title')) %>
 <div class='facility-show-container ps-2 pe-2' >
-  <div class="facility-show-wrapper">
+  <div class="d-flex flex-column text-center ms-2 me-2">
     <div>
       <h1><%= @facility.title %></h1>
     </div>
-    <div class="facility-show-image-wrapper">
-      <%= image_tag(@facility.image.present? ? @facility.image.url : 'sample.png', class:"facility-show-image" ) %>
+    <div class="facility-show-wrapper">
+      <ul class="facility-show-image-list slider">
+        <li class="facility-show-image-wrapper">
+          <%= image_tag(@facility.image.present? ? @facility.image.url : 'sample.png', class:"facility-show-image" ) %>
+        </li>
+        <li class="facility-show-image-wrapper">
+          <%= image_tag(@facility.secondary_image.present? ? @facility.secondary_image.url : 'sample.png', class:"facility-show-image" ) %>
+        </li>
+        <li class="facility-show-image-wrapper">
+          <%= image_tag(@facility.tertiary_image.present? ? @facility.tertiary_image.url : 'sample.png', class:"facility-show-image" ) %>
+        </li>
+        <li class="facility-show-image-wrapper">
+          <%= video_tag(@facility.video.present? ? @facility.video.url : 'sample.png', class:"facility-show-image", controls: true, width: 300 ) %>
+        </li>
+      </ul>
     </div>
     <% if @place && @place.latitude.present? && @place.longitude.present? %>
       <div id="map" class="map" style="height: 300px; width: 100%;"></div>

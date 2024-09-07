@@ -1,8 +1,12 @@
 class Event < ApplicationRecord
-  mount_uploader :image, ImageUploader
   belongs_to :facility
   has_many :reviews, :as => :reviewable, dependent: :destroy
   has_many :bookmarks, :as => :bookmarkable, dependent: :destroy
+
+  mount_uploader :image, ImageUploader
+  mount_uploader :secondary_image, ImageUploader
+  mount_uploader :tertiary_image, ImageUploader
+  mount_uploader :video, VideoUploader
 
   def self.ransackable_attributes(auth_object = nil)
     ["address", "business_hours", "contact", "created_at", "environment", "facility_id", "fee", "furigana", "id", "id_value", "image", "name", "request", "target_age", "title", "updated_at", "video"]

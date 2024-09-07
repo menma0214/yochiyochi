@@ -6,8 +6,21 @@
       <div>
         <h2><%= @playground_equipment.title %></h2>
       </div>
-      <div class="playground_equipment-show-image-wrapper pt-3">
-        <%= image_tag(@playground_equipment.image.present? ? @playground_equipment.image.url : 'sample.png', alt: "image", class:"playground_equipment-show-image") %>
+      <div class="playground_equipment-show-image-list-wrapper pt-3">
+        <ul class="playground_equipment-show-image-list slider">
+          <li class="playground_equipment-show-image-wrapper">
+            <%= image_tag(@playground_equipment.image.present? ? @playground_equipment.image.url : 'sample.png', class:"playground_equipment-show-image" ) %>
+          </li>
+          <li class="playground_equipment-show-image-wrapper">
+            <%= image_tag(@playground_equipment.secondary_image.present? ? @playground_equipment.secondary_image.url : 'sample.png', class:"playground_equipment-show-image" ) %>
+          </li>
+          <li class="playground_equipment-show-image-wrapper">
+            <%= image_tag(@playground_equipment.tertiary_image.present? ? @playground_equipment.tertiary_image.url : 'sample.png', class:"playground_equipment-show-image" ) %>
+          </li>
+          <li class="playground_equipment-show-image-wrapper">
+            <%= video_tag(@playground_equipment.video.present? ? @playground_equipment.video.url : 'sample.png', class:"playground_equipment-show-image", controls: true ) %>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="playground_equipment-item-list-wrapper">

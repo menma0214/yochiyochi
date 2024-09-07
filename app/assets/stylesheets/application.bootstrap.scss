@@ -10,6 +10,7 @@
 @import'../stylesheets/playground_equipment.scss';
 @import'../stylesheets/review.scss';
 @import'../stylesheets/pagination.scss';
+@import'../stylesheets/slider.scss';
 
 .conteiner-shared{
   padding-top: 150px;
@@ -48,6 +49,7 @@ body {
   color: #333; /* 色を柔らかく見せるために、少し淡い色を選ぶと良いです */
   line-height: 1.6; /* 行間を広げて柔らかい印象に */
   font-style: normal;
+  list-style: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
