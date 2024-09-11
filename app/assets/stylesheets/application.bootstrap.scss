@@ -1,6 +1,6 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
-@import '../stylesheets/top.scss';
+@import '../stylesheets/static_page.scss';
 @import '../stylesheets/header.scss';
 @import '../stylesheets/facility.scss';
 @import '../stylesheets/event.scss';
@@ -12,16 +12,9 @@
 @import'../stylesheets/pagination.scss';
 @import'../stylesheets/slider.scss';
 
-.conteiner-shared{
-  padding-top: 150px;
-  width: auto;
-  margin: auto;
-  background-image: url('megu-hi-.JPG');
-  background-position:center center;
-  background-size: cover;
-  background-color: rgba(255, 255, 255, 0.7);
-  background-blend-mode: lighten;
-}
+// .conteiner-shared{
+//   max-width: 1200px;
+// }
 
 .autocomplete-results {
   position: absolute;

@@ -29,9 +29,9 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   # get '/logout', to: 'user_sessions#destroy'
   delete 'logout', to: 'user_sessions#destroy'
-  root 'tops#index'
+  root 'static_pages#index'
 
-  get 'tops/index'
+  get 'static_pages/index'
   get 'users/:id/reviews', to: 'reviews#user_reviews', as: 'user_reviews'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -50,9 +50,6 @@ Rails.application.routes.draw do
   #   post 'login' => "user_sessions#create"
   #   delete 'logout' => 'user_sessions#destroy', :as => :logout
   # end
-
-  resources :tops, only: %i[index]
-    resources :bookmarks, only: %i[index create destroy]
   resources :users, only: %i[new create show destroy withdraw]
     resources :reviews, only: %i[user_reviews]
   resource :diagnostics, only: %i[new create]do

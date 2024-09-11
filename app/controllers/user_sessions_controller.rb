@@ -32,7 +32,7 @@ class UserSessionsController < ApplicationController
 
     if @user
       Rails.logger.debug "Login successful for user: #{@user.inspect}"
-      redirect_to tops_path, success: t('user_sessions.create.success')
+      redirect_to root_path, success: t('user_sessions.create.success')
     else
       Rails.logger.debug "Login failed for email: #{params[:email]}"
       flash.now[:danger] = t('user_sessions.create.failure')
