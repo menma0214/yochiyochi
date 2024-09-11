@@ -2,7 +2,7 @@
   <div class="header-layout">
     <div class="logo-wrapper">
       <div class="logo">
-        <%= link_to image_tag("Yochiyochi_logo.png", class: "title-logo"), tops_path %>
+        <%= link_to image_tag("Yochiyochi_logo.png", class: "title-logo"), root_path %>
         <div class="sub-title">
           <h6 class="sub-title-up">カワイイ</h6>
           <h6 class="sub-title-down">わが子と</h6>
@@ -24,7 +24,7 @@
           </div>
           <div class="offcanvas-body">
             <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <%= link_to "トップへ", tops_path, class:"nav-link active" %>
+              <%= link_to "トップへ", root_path, class:"nav-link active" %>
               <%= link_to "お気に入り一覧", bookmarks_path, class:"nav-link active" %>
               <%= link_to "おすすめ一覧", recommendations_path, class:"nav-link active" %>
               <%= link_to "マイページ", mypages_path, class:"nav-link active" %>
@@ -46,7 +46,7 @@
             </div>
             <div class="offcanvas-body">
               <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <%= link_to "トップへ", tops_path, class:"nav-link active" %>
+                <%= link_to "トップへ", root_path, class:"nav-link active" %>
                 <%= link_to "ログイン", login_path, class:"nav-link active" %>
                 <%= link_to "新規会員登録", new_user_path, class:"nav-link active" %>
                 <%= link_to "施設一覧", facilities_path, class:"nav-link active" %>

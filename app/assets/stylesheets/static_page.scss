@@ -1,0 +1,89 @@
+ul li{
+  list-style: none;
+}
+
+/* トップタイトルの中央配置 */
+.top-title {
+  position: relative;
+  z-index: 1; /* 背景の上に表示 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 画面の高さいっぱいに配置 */
+  text-align: center;
+}
+
+.top-title h3 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #5f5f5f;
+}
+
+.top-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* ボタンのスタイル */
+.facility-button {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 30px;
+  background-color: #bde7f9; /* パステルブルー */
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* ボタンの影 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバーアニメーション */
+}
+
+.event-button {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 30px;
+  background-color: #fcefa6; /* パステルイエロー */
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* ボタンの影 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバーアニメーション */
+}
+
+/* ボタンホバー時のアニメーション */
+.facility-button:hover, .event-button:hover {
+  transform: translateY(-5px); /* 少し浮かせる */
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* 影を強調 */
+  background-color: #f67280; /* ホバー時の色変化 */
+}
+
+/* ボタンのフォーカスやクリック時のアニメーション */
+.facility-button:active, .event-button:active {
+  transform: translateY(-2px); /* 少し戻す */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 影を元に戻す */
+}
+
+.image-container {
+  // max-width: 1200px;
+  margin:auto;
+  width: 100%;
+  height: auto;
+  z-index: -1; /* 背景として表示 */
+  position: relative; /* 子要素の位置を相対的に指定 */
+  background-image: url('megu-hi-.JPG');
+  background-position:top center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-blend-mode: lighten;
+  overflow: hidden; /* 子要素がはみ出さないようにする */
+}
+
+.random-image {
+  position: absolute;
+  opacity: 0;
+  transition: all 1.5s ease-in-out;
+  transform-origin: center;
+  z-index: 1; /* 被る際の前後関係を制御 */
+}

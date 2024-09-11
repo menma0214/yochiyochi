@@ -9,3 +9,6 @@ application.register("autocomplete", AutocompleteController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import RandomImageController from "./random_image_controller"
+application.register("random-image", RandomImageController)
