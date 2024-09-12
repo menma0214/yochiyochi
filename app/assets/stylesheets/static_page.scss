@@ -1,11 +1,11 @@
-ul li{
+ul li {
   list-style: none;
 }
 
 /* トップタイトルの中央配置 */
 .top-title {
   position: relative;
-  z-index: 1; /* 背景の上に表示 */
+  z-index: 100; /* 背景の上に表示 */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,7 @@ ul li{
 .top-title h3 {
   font-size: 1.5em;
   margin-bottom: 20px;
-  color: #5f5f5f;
+  color: #333;
 }
 
 .top-button-wrapper {
@@ -38,7 +38,6 @@ ul li{
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* ボタンの影 */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバーアニメーション */
 }
-
 .event-button {
   display: inline-block;
   padding: 12px 24px;
@@ -66,11 +65,9 @@ ul li{
 }
 
 .image-container {
-  // max-width: 1200px;
   margin:auto;
   width: 100%;
   height: auto;
-  z-index: -1; /* 背景として表示 */
   position: relative; /* 子要素の位置を相対的に指定 */
   background-image: url('megu-hi-.JPG');
   background-position:top center;
@@ -85,5 +82,5 @@ ul li{
   opacity: 0;
   transition: all 1.5s ease-in-out;
   transform-origin: center;
-  z-index: 1; /* 被る際の前後関係を制御 */
+  z-index: 1; /* 背景画像と前後関係を制御 */
 }
