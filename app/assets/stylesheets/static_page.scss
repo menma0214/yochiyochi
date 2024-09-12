@@ -17,7 +17,12 @@ ul li {
 .top-title h3 {
   font-size: 1.5em;
   margin-bottom: 20px;
-  color: #333;
+  color: #ffffff;
+  text-shadow:
+    2px 2px 0px rgb(135, 135, 135), /* 右下に黒の影 */
+    -2px 2px 0px rgb(135, 135, 135), /* 左下に黒の影 */
+    2px -2px 0px rgb(135, 135, 135), /* 右上に黒の影 */
+    -2px -2px 0px rgb(135, 135, 135); /* 左上に黒の影 */
 }
 
 .top-button-wrapper {
@@ -43,7 +48,7 @@ ul li {
   padding: 12px 24px;
   margin: 10px;
   border-radius: 30px;
-  background-color: #fcefa6; /* パステルイエロー */
+  background-color: #f8e19b; /* パステルイエロー */
   color: white;
   font-size: 1em;
   text-decoration: none;
