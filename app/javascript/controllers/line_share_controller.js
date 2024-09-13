@@ -7,7 +7,7 @@ export default class extends Controller {
     const currentUrl = window.location.href;
 
     // data-url属性に現在のページURLを設定
-    his.element.setAttribute('data-url', currentUrl);
+    this.element.setAttribute('data-url', currentUrl);
 
     // LINEシェアボタンを表示
     this.element.style.display = "block";
