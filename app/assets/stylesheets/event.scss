@@ -52,7 +52,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;  /* 子要素を垂直方向に中央寄せ */
-  // text-align: center;   /* テキストを中央寄せ */
   width: 100%;
 }
 
@@ -227,10 +226,6 @@
   .event-link-item-list {
     text-align: center;
     flex-direction: column;
-  }
-
-  .event-link-item{
-    margin-top: 10px;
   }
 
   .event-share-item-list {

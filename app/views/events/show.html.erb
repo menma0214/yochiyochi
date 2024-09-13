@@ -8,13 +8,13 @@
       <li class="event-show-image-wrapper">
         <%= image_tag(@event.image.present? ? @event.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"event-show-image" ) %>
       </li>
-      <li class="event-show-image-wrapper slider">
+      <li class="event-show-image-wrapper">
         <%= image_tag(@event.secondary_image.present? ? @event.secondary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"event-show-image" ) %>
       </li>
-      <li class="event-show-image-wrapper slider">
+      <li class="event-show-image-wrapper">
         <%= image_tag(@event.tertiary_image.present? ? @event.tertiary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"event-show-image" ) %>
       </li>
-      <li class="event-show-image-wrapper slider">
+      <li class="event-show-image-wrapper">
         <%= video_tag(@event.video.present? ? @event.video.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"event-show-image", controls: true ) %>
       </li>
     </ul>
