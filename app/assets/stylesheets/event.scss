@@ -152,13 +152,14 @@
 .event-link-item-list{
   display: flex;
   justify-content: center;
-  // justify-content: space-between;で感覚が空かない為にgapで対応。
   gap: 20px;
   padding: 0px;
 }
 
-.event-link-item {
-
+.event-share-item-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 // _events
@@ -219,7 +220,20 @@
     text-align: center;
   }
 
+  .event-link-item-list-wrapper {
+    flex-direction: column;
+  }
+
+  .event-link-item-list {
+    text-align: center;
+    flex-direction: column;
+  }
+
   .event-link-item{
+    margin-top: 10px;
+  }
+
+  .event-share-item-list {
     margin-top: 10px;
   }
 }
@@ -233,9 +247,4 @@
   .event-wrapper {
     max-width: 300px;
   }
-
-  .event-link-item-list-wrapper {
-    flex-direction: column;
-  }
-
 }
