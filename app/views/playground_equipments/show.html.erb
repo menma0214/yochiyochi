@@ -9,16 +9,16 @@
       <div class="playground_equipment-show-image-list-wrapper pt-3">
         <ul class="playground_equipment-show-image-list slider">
           <li class="playground_equipment-show-image-wrapper">
-            <%= image_tag(@playground_equipment.image.present? ? @playground_equipment.image.url : 'sample.png', class:"playground_equipment-show-image" ) %>
+            <%= image_tag(@playground_equipment.image.present? ? @playground_equipment.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image" ) %>
           </li>
           <li class="playground_equipment-show-image-wrapper">
-            <%= image_tag(@playground_equipment.secondary_image.present? ? @playground_equipment.secondary_image.url : 'sample.png', class:"playground_equipment-show-image" ) %>
+            <%= image_tag(@playground_equipment.secondary_image.present? ? @playground_equipment.secondary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image" ) %>
           </li>
           <li class="playground_equipment-show-image-wrapper">
-            <%= image_tag(@playground_equipment.tertiary_image.present? ? @playground_equipment.tertiary_image.url : 'sample.png', class:"playground_equipment-show-image" ) %>
+            <%= image_tag(@playground_equipment.tertiary_image.present? ? @playground_equipment.tertiary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image" ) %>
           </li>
           <li class="playground_equipment-show-image-wrapper">
-            <%= video_tag(@playground_equipment.video.present? ? @playground_equipment.video.url : 'sample.png', class:"playground_equipment-show-image", controls: true ) %>
+            <%= video_tag(@playground_equipment.video.present? ? @playground_equipment.video.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image", controls: true ) %>
           </li>
         </ul>
       </div>

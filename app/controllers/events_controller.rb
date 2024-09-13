@@ -8,7 +8,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @facility = Event.find(params[:id])
+    @facility = @event.facility
   end
 
   def autocomplete

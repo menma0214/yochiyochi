@@ -10,5 +10,11 @@ application.register("autocomplete", AutocompleteController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LineShareController from "./line_share_controller"
+application.register("line-share", LineShareController)
+
 import RandomImageController from "./random_image_controller"
 application.register("random-image", RandomImageController)
+
+import SliderController from "./slider_controller"
+application.register("slider", SliderController)

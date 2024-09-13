@@ -8,7 +8,7 @@
         <div><%= l @review.created_at, format: :long %></div>
       </div>
       <div>
-        <%= image_tag(@review.image.present? ? @review.image.url : 'sample.png', alt: "sample", height: "150px", class: "review-image") %>
+        <%= image_tag(@review.image.present? ? @review.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', alt: "sample", height: "150px", class: "review-image") %>
       </div>
       <p>
         <strong>評価:</strong>

@@ -1,0 +1,9 @@
+.footer {
+  width: 100%;               /* フッターの幅を画面全体に */
+  padding: 20px 0;           /* 上下に20pxのパディングを追加 */
+  background-color: #f4f4f4; /* 背景色を設定 */
+  text-align: center;        /* テキストを中央寄せ */
+  position: relative;        /* 相対位置 */
+  bottom: 0;                 /* ページの最下部に配置 */
+  clear: both;               /* floatをクリア */
+}

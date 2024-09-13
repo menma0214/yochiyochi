@@ -44,14 +44,13 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1200px;
-  height: 125vh;
+  height: auto;
   padding-bottom: 100px;
 }
 
 .event-show-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;  /* 子要素を垂直方向に中央寄せ */
   // text-align: center;   /* テキストを中央寄せ */
   width: 100%;
@@ -145,6 +144,23 @@
   border-bottom: none;
 }
 
+.event-link-item-list-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.event-link-item-list{
+  display: flex;
+  justify-content: center;
+  // justify-content: space-between;で感覚が空かない為にgapで対応。
+  gap: 20px;
+  padding: 0px;
+}
+
+.event-link-item {
+
+}
+
 // _events
 .events-image {
   max-width: 300px;
@@ -175,13 +191,9 @@
 }
 
 @media screen and (min-width: 601px) {
+
   .event-wrapper {
     min-width: 550px;
-  }
-
-  .event-link-item-list {
-    display: flex;
-    justify-content: space-around;
   }
 
   .event-body {
@@ -191,12 +203,19 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .event-show-container {
+    display: flex;
+    flex-direction: column;
+  }
+
   .event-show-article {
     margin-left: auto;
     margin-right: auto;
   }
 
   .event-show-wrapper {
+    display: flex;
+    flex-direction: column;
     text-align: center;
   }
 
@@ -213,6 +232,10 @@
 
   .event-wrapper {
     max-width: 300px;
+  }
+
+  .event-link-item-list-wrapper {
+    flex-direction: column;
   }
 
 }
