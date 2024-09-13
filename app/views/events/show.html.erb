@@ -8,13 +8,13 @@
       <li class="event-show-image-wrapper">
         <%= image_tag(@event.image.present? ? @event.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"event-show-image" ) %>
       </li>
-      <li class="event-show-image-wrapper slider">
+      <li class="event-show-image-wrapper">
         <%= image_tag(@event.secondary_image.present? ? @event.secondary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"event-show-image" ) %>
       </li>
-      <li class="event-show-image-wrapper slider">
+      <li class="event-show-image-wrapper">
         <%= image_tag(@event.tertiary_image.present? ? @event.tertiary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"event-show-image" ) %>
       </li>
-      <li class="event-show-image-wrapper slider">
+      <li class="event-show-image-wrapper">
         <%= video_tag(@event.video.present? ? @event.video.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"event-show-image", controls: true ) %>
       </li>
     </ul>
@@ -65,7 +65,7 @@
   <div class="event-link-item-list-wrapper">
     <ul class="event-link-item-list">
       <li class="event-link-item">
-          <%= link_to "レビュー一覧", event_reviews_path(@event) %>
+        <%= link_to "レビュー一覧", event_reviews_path(@event) %>
       </li>
       <li class="event-link-item">
         <%= link_to 'レビューを投稿する', new_event_review_path(@event) %>
@@ -77,12 +77,12 @@
         <%= link_to 'イベント開催施設へ', facility_path(@facility) %>
       </li>
     </ul>
-    <ul class="event-link-item-list">
-      <li class="event-link-item">
+    <ul class="event-share-item-list">
+      <li class="event-share-item">
         <i class="fa-brands fa-square-x-twitter"></i>
         <%= link_to 'シェア', "https://twitter.com/share?url=#{request.original_url}", title: 'Twitter', target: '_blank', rel: "noopener noreferrer", class: "text-decoration-none" %>
       </li>
-      <li class="event-link-item">
+      <li class="event-share-item">
         <div id="line-share-button" class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-color="default" data-size="small" data-count="true" data-ver="3" style="display: none;"></div>
         <!-- LINEの公式JavaScript -->
         <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
