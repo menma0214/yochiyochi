@@ -2,18 +2,22 @@
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import '../stylesheets/static_page.scss';
 @import '../stylesheets/header.scss';
+@import'../stylesheets/footer.scss';
 @import '../stylesheets/facility.scss';
 @import '../stylesheets/event.scss';
 @import'../stylesheets/search_form.scss';
 @import'../stylesheets/users.scss';
 @import'../stylesheets/user_sessions.scss';
+@import'../stylesheets/mypage.scss';
 @import'../stylesheets/playground_equipment.scss';
 @import'../stylesheets/review.scss';
 @import'../stylesheets/pagination.scss';
 @import'../stylesheets/slider.scss';
 
-// .conteiner-shared{
-//   max-width: 1200px;
+
+// .container-shared{
+//   display: flex;
+//   flex-direction: column;
 // }
 
 .autocomplete-results {

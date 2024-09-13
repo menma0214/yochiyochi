@@ -7,16 +7,16 @@
     <div class="facility-show-wrapper">
       <ul class="facility-show-image-list slider">
         <li class="facility-show-image-wrapper">
-          <%= image_tag(@facility.image.present? ? @facility.image.url : 'sample.png', class:"facility-show-image" ) %>
+          <%= image_tag(@facility.image.present? ? @facility.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image" ) %>
         </li>
         <li class="facility-show-image-wrapper">
-          <%= image_tag(@facility.secondary_image.present? ? @facility.secondary_image.url : 'sample.png', class:"facility-show-image" ) %>
+          <%= image_tag(@facility.secondary_image.present? ? @facility.secondary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image" ) %>
         </li>
         <li class="facility-show-image-wrapper">
-          <%= image_tag(@facility.tertiary_image.present? ? @facility.tertiary_image.url : 'sample.png', class:"facility-show-image" ) %>
+          <%= image_tag(@facility.tertiary_image.present? ? @facility.tertiary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image" ) %>
         </li>
         <li class="facility-show-image-wrapper">
-          <%= video_tag(@facility.video.present? ? @facility.video.url : 'sample.png', class:"facility-show-image", controls: true, width: 300 ) %>
+          <%= video_tag(@facility.video.present? ? @facility.video.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image", controls: true, width: 300 ) %>
         </li>
       </ul>
     </div>

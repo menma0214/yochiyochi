@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ["image"]
 
   connect() {
-    console.log("Stimulus Controller Initialized!");
     this.showRandomImages();
   }
 
