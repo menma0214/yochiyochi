@@ -1,123 +1,125 @@
 <% content_for(:title, t('.title')) %>
-<div class='facility-show-container ps-2 pe-2' >
-  <div class="facility-show-main d-flex justify-content-around">
-    <div class="d-flex flex-column ms-2 me-2">
-      <div>
-        <h1><%= @facility.title %></h1>
+<div class="facility-show-container" >
+  <div class="facility-show-wrapper">
+    <div class="facility-show-main d-flex justify-content-around m-auto">
+      <div class="d-flex flex-column ms-2 me-2">
+        <div>
+          <h1><%= @facility.title %></h1>
+        </div>
+        <div class="facility-show-image-list-wrapper">
+          <ul class="facility-show-image-list slider" data-controller="slider">
+            <li class="facility-show-image-wrapper">
+              <%= image_tag(@facility.image.present? ? @facility.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image" ) %>
+            </li>
+            <li class="facility-show-image-wrapper">
+              <%= image_tag(@facility.secondary_image.present? ? @facility.secondary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image" ) %>
+            </li>
+            <li class="facility-show-image-wrapper">
+              <%= image_tag(@facility.tertiary_image.present? ? @facility.tertiary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image" ) %>
+            </li>
+            <li class="facility-show-image-wrapper">
+              <%= video_tag(@facility.video.present? ? @facility.video.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image", controls: true, width: 300 ) %>
+            </li>
+          </ul>
+        </div>
+        <% if @place && @place.latitude.present? && @place.longitude.present? %>
+          <div id="map" class="map" style="height: 300px; width: 100%;"></div>
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
+          <script type="text/javascript">
+            function initMap() {
+              var facilityLocation = { lat: <%= @place.latitude %>, lng: <%= @place.longitude %> };
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: facilityLocation
+              });
+              var marker = new google.maps.Marker({
+                position: facilityLocation,
+                map: map
+              });
+            }
+          </script>
+        <% else %>
+          <p class="mt-5">地図を表示するための情報がありません。</p>
+        <% end %>
       </div>
-      <div class="facility-show-image-list-wrapper">
-        <ul class="facility-show-image-list slider" data-controller="slider">
-          <li class="facility-show-image-wrapper">
-            <%= image_tag(@facility.image.present? ? @facility.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image" ) %>
-          </li>
-          <li class="facility-show-image-wrapper">
-            <%= image_tag(@facility.secondary_image.present? ? @facility.secondary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image" ) %>
-          </li>
-          <li class="facility-show-image-wrapper">
-            <%= image_tag(@facility.tertiary_image.present? ? @facility.tertiary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image" ) %>
-          </li>
-          <li class="facility-show-image-wrapper">
-            <%= video_tag(@facility.video.present? ? @facility.video.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"facility-show-image", controls: true, width: 300 ) %>
-          </li>
-        </ul>
+      <div class="facility-show-article">
+        <div class="table-wrapper" >
+          <table class="table">
+            <tr>
+              <th class="table-light">施設名(かな)</th>
+              <td class="table-decription"><%= @facility.furigana %></td>
+            </tr>
+            <tr>
+              <th class="table-light">施設名</th>
+              <td><%= @facility.name %></td>
+            </tr>
+            <tr>
+              <th class="table-light">施設住所</th>
+              <%# simple_formatで\nで改行させる %>
+              <td><%= simple_format(@facility.address) %></td>
+            </tr>
+            <tr>
+              <th class="table-light">営業時間</th>
+              <td><%= simple_format(@facility.business_hours) %></td>
+            </tr>
+            <tr>
+              <th class="table-light">料金</th>
+              <td><%= simple_format(@facility.fee) %></td>
+            </tr>
+            <tr>
+              <th class="table-light">対象年齢</th>
+              <td><%= simple_format(@facility.target_age) %></td>
+            </tr>
+            <tr>
+              <th class="table-light">屋内／屋外</th>
+              <td><%= simple_format(@facility.environment) %></td>
+            </tr>
+            <tr>
+              <th class="table-light">目的・要望</th>
+              <td><%= simple_format(@facility.request) %></td>
+            </tr>
+            <tr>
+              <th class="table-light">お問い合わせ先</th>
+              <td><%= simple_format(@facility.contact) %></td>
+            </tr>
+            <tr>
+              <th class="table-light">施設URL</th>
+              <td><%= link_to @facility.facility_url, @facility.facility_url, target: "_blank", rel: "noopener" %></td>
+            </tr>
+            <tr>
+              <th class="table-light">タグ</th>
+              <td><%# <%= @facility. %></td>
+            </tr>
+          </table>
+        </div>
       </div>
-      <% if @place && @place.latitude.present? && @place.longitude.present? %>
-        <div id="map" class="map" style="height: 300px; width: 100%;"></div>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
-        <script type="text/javascript">
-          function initMap() {
-            var facilityLocation = { lat: <%= @place.latitude %>, lng: <%= @place.longitude %> };
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 15,
-              center: facilityLocation
-            });
-            var marker = new google.maps.Marker({
-              position: facilityLocation,
-              map: map
-            });
-          }
-        </script>
-      <% else %>
-        <p class="mt-5">地図を表示するための情報がありません。</p>
-      <% end %>
     </div>
-    <div class="facility-show-article">
-      <div class="table-wrapper" >
-        <table class="table">
-          <tr>
-            <th class="table-light">施設名(かな)</th>
-            <td class="table-decription"><%= @facility.furigana %></td>
-          </tr>
-          <tr>
-            <th class="table-light">施設名</th>
-            <td><%= @facility.name %></td>
-          </tr>
-          <tr>
-            <th class="table-light">施設住所</th>
-            <%# simple_formatで\nで改行させる %>
-            <td><%= simple_format(@facility.address) %></td>
-          </tr>
-          <tr>
-            <th class="table-light">営業時間</th>
-            <td><%= simple_format(@facility.business_hours) %></td>
-          </tr>
-          <tr>
-            <th class="table-light">料金</th>
-            <td><%= simple_format(@facility.fee) %></td>
-          </tr>
-          <tr>
-            <th class="table-light">対象年齢</th>
-            <td><%= simple_format(@facility.target_age) %></td>
-          </tr>
-          <tr>
-            <th class="table-light">屋内／屋外</th>
-            <td><%= simple_format(@facility.environment) %></td>
-          </tr>
-          <tr>
-            <th class="table-light">目的・要望</th>
-            <td><%= simple_format(@facility.request) %></td>
-          </tr>
-          <tr>
-            <th class="table-light">お問い合わせ先</th>
-            <td><%= simple_format(@facility.contact) %></td>
-          </tr>
-          <tr>
-            <th class="table-light">施設URL</th>
-            <td><%= link_to @facility.facility_url, @facility.facility_url, target: "_blank", rel: "noopener" %></td>
-          </tr>
-          <tr>
-            <th class="table-light">タグ</th>
-            <td><%# <%= @facility. %></td>
-          </tr>
-        </table>
-      </div>
+    <div class="facility-list-wrapper">
+      <ul class="facility-link-item-list">
+        <li class="facility-link-item">
+          <%= link_to "遊具・設備情報", facility_playground_equipments_path(@facility) %>
+        </li>
+        <li class="facility-link-item">
+            <%= link_to "レビュー一覧", facility_reviews_path(@facility) %>
+        </li>
+        <li class="facility-link-item">
+          <%= link_to 'レビューを投稿する', new_facility_review_path(@facility) %>
+        </li>
+        <li class="facility-link-item">
+          <%= link_to '施設一覧', facilities_path %>
+        </li>
+      </ul>
+      <ul class="facility-share-item-list">
+        <li class="facility-share-item">
+          <i class="fa-brands fa-square-x-twitter"></i>
+          <%= link_to 'シェア', "https://twitter.com/share?url=#{request.original_url}", title: 'Twitter', target: '_blank', rel: "noopener noreferrer", class: "text-decoration-none" %>
+        </li>
+        <li class="facility-share-item">
+          <div id="line-share-button" class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-color="default" data-size="small" data-count="true" data-ver="3" style="display: none;"></div>
+          <!-- LINEの公式JavaScript -->
+          <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="facility-list-wrapper">
-    <ul class="facility-link-item-list">
-      <li class="facility-link-item">
-        <%= link_to "遊具・設備情報", facility_playground_equipments_path(@facility) %>
-      </li>
-      <li class="facility-link-item">
-          <%= link_to "レビュー一覧", facility_reviews_path(@facility) %>
-      </li>
-      <li class="facility-link-item">
-        <%= link_to 'レビューを投稿する', new_facility_review_path(@facility) %>
-      </li>
-      <li class="facility-link-item">
-        <%= link_to '施設一覧', facilities_path %>
-      </li>
-    </ul>
-    <ul class="facility-share-item-list">
-      <li class="facility-share-item">
-        <i class="fa-brands fa-square-x-twitter"></i>
-        <%= link_to 'シェア', "https://twitter.com/share?url=#{request.original_url}", title: 'Twitter', target: '_blank', rel: "noopener noreferrer", class: "text-decoration-none" %>
-      </li>
-      <li class="facility-share-item">
-        <div id="line-share-button" class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-color="default" data-size="small" data-count="true" data-ver="3" style="display: none;"></div>
-        <!-- LINEの公式JavaScript -->
-        <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-      </li>
-    </ul>
   </div>
 </div>

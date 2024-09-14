@@ -1,3 +1,20 @@
+.events-container {
+  width: 100%;
+  height: auto;
+  padding-top: 150px;
+  overflow: hidden;
+  background-image: url("event.jpg");
+  background-position:top center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-blend-mode: lighten;
+}
+
+.events-main {
+  max-width: 1200px;
+  margin: auto;
+}
+
 .event-container {
   display: flex;
   justify-content: center;
@@ -23,20 +40,7 @@
   font-weight: bold;
 }
 
-.event-wrapper {
-  align-items: center;
-  background-color: #fff;
-  border-radius: 10px;
-  min-width: 300px;
-  cursor: pointer;
-	transition: all 0.3s ease 0s;
-}
 
-.event-wrapper:hover {
-	border-bottom-color: transparent;
-	transform: translateY(-0.3em);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
 
 // show
 
@@ -47,9 +51,19 @@
   height: auto;
   padding-top: 150px;
   padding-bottom: 100px;
+  background-image: url("event.jpg");
+  background-position:top center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-blend-mode: lighten;
 }
 
 .event-show-wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.event-show-main {
   display: flex;
   justify-content: space-around;
   align-items: center;  /* 子要素を垂直方向に中央寄せ */
@@ -137,10 +151,12 @@
 }
 .event-table tr:last-child th {
   border-radius: 0 0 0 10px;
-
 }
-.event-table tr:last-child td, .event-table tr:last-child th {
+.event-table tr:last-child td {
   border-radius: 0 0 10px 0;
+}
+
+.event-table tr:last-child td, .event-table tr:last-child th {
   border-bottom: none;
 }
 
@@ -163,6 +179,23 @@
 }
 
 // _events
+
+.event-wrapper {
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* より柔らかい影 */
+  border-radius: 10px;
+  min-width: 300px;
+  cursor: pointer;
+	transition: all 0.3s ease 0s;
+}
+
+.event-wrapper:hover {
+	border-bottom-color: transparent;
+	transform: translateY(-0.3em);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
 .events-image {
   max-width: 300px;
   width: 100%;
@@ -214,7 +247,7 @@
     margin-right: auto;
   }
 
-  .event-show-wrapper {
+  .event-show-main {
     display: flex;
     flex-direction: column;
     text-align: center;

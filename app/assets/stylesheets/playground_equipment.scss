@@ -1,9 +1,19 @@
 .playground_equipments-container {
-  // width: 100%;
-  // margin: auto;
-  // display: inline-block;
-  // justify-content: space-around;
+  width: 100%;
+  height: auto;
+  padding-top: 150px;
+  overflow: hidden;
+  background-image: url("playground_equipment.jpg");
+  background-position:top center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-blend-mode: lighten;
+}
 
+.playground_equipments-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  height: auto;
 }
 
 .playground_equipment-container{
@@ -12,14 +22,38 @@
 
 .playground_equipment-wrapper {
   min-width: 300px;
-  // align-items: center;
-  border: #777 solid;
-  border-radius: 10px;
+  align-items: center;
+  background-color: #fff;
   margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* より柔らかい影 */
+  border-radius: 10px;
+  min-width: 300px;
+  cursor: pointer;
+	transition: all 0.3s ease 0s;
 }
 
+.playground_equipment-wrapper:hover {
+	border-bottom-color: transparent;
+	transform: translateY(-0.3em);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
 .playground_equipment-show-container {
+  width: 100%;
+  height: auto;
+  padding-top: 150px;
+  overflow: hidden;
+  background-image: url("playground_equipment.jpg");
+  background-position:top center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-blend-mode: lighten;
+}
+
+.playground_equipment-show-wrapper {
   max-width: 1200px;
+  margin: auto;
 }
 
 .playground_equipment-show-left-wrapper{
@@ -37,7 +71,6 @@
 }
 
 .playground_equipment-show-image-list {
-  margin-top: 100px;
   padding: 0%;
   align-items: center;
   width: 100%;
@@ -76,9 +109,10 @@
 }
 
 .playground_equipment-item-list {
-  border: #777 solid 3px;
-  border-radius: 5px;
+  border: #ccc solid 3px;
+  border-radius: 13px;
   padding: 10px;
+  background-color: #fff;
 }
 
 .playground_equipment-item-wrapper {
@@ -86,7 +120,7 @@
 }
 
 .playground_equipment-item{
-  border-bottom: #777 solid 3px;
+  border-bottom: #ccc solid 3px;
   height: 1.5rem;
 }
 
@@ -102,13 +136,19 @@
 }
 
 .remarks{
-  border: #777 solid 3px;
+  border: #ccc solid 3px;
   border-radius: 5px;
   height: 150px;
 }
 
+.playground_equipment-show-link-item {
+  text-align: center;
+  margin-top: 30px;
+  padding-bottom: 30px;
+}
+
 @media screen and (min-width: 1001px) { /* pc用スタイル */
-  .playground_equipment-show-wrapper{
+  .playground_equipment-show-main{
     display: flex;
     justify-content: space-around;
     width: 100%;

@@ -29,3 +29,19 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
+
+@media (max-width: 600px) {
+  .pagination {
+    flex-wrap: wrap; /* 要素が画面内に収まるように折り返し */
+  }
+
+  .pagination.small-screen .page {
+    display: none; /* デフォルトでページリンクを非表示 */
+  }
+
+  .pagination.small-screen .page.active, /* 現在のページ */
+  .pagination.small-screen .page:nth-last-child(-n+2), /* 後ろから1ページ */
+  .pagination.small-screen .page:nth-child(-n+2) { /* 前から1ページ */
+    display: inline-block; /* 対象のページリンクを表示 */
+  }
+}

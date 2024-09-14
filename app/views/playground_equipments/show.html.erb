@@ -1,58 +1,60 @@
 <% content_for(:title, t('.title')) %>
 <div class='playground_equipment-show-container ps-2 pe-2' >
-  <h1><%= t('.title') %></h1>
   <div class="playground_equipment-show-wrapper">
-    <div class="playground_equipment-show-left-wrapper">
-      <div>
-        <h2><%= @playground_equipment.title %></h2>
+    <h1><%= t('.title') %></h1>
+    <div class="playground_equipment-show-main">
+      <div class="playground_equipment-show-left-wrapper">
+        <div>
+          <h2><%= @playground_equipment.title %></h2>
+        </div>
+        <div class="playground_equipment-show-image-list-wrapper pt-3">
+          <ul class="playground_equipment-show-image-list slider" data-controller="slider">
+            <li class="playground_equipment-show-image-wrapper">
+              <%= image_tag(@playground_equipment.image.present? ? @playground_equipment.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image" ) %>
+            </li>
+            <li class="playground_equipment-show-image-wrapper">
+              <%= image_tag(@playground_equipment.secondary_image.present? ? @playground_equipment.secondary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image" ) %>
+            </li>
+            <li class="playground_equipment-show-image-wrapper">
+              <%= image_tag(@playground_equipment.tertiary_image.present? ? @playground_equipment.tertiary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image" ) %>
+            </li>
+            <li class="playground_equipment-show-image-wrapper">
+              <%= video_tag(@playground_equipment.video.present? ? @playground_equipment.video.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image", controls: true ) %>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="playground_equipment-show-image-list-wrapper pt-3">
-        <ul class="playground_equipment-show-image-list slider">
-          <li class="playground_equipment-show-image-wrapper">
-            <%= image_tag(@playground_equipment.image.present? ? @playground_equipment.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image" ) %>
-          </li>
-          <li class="playground_equipment-show-image-wrapper">
-            <%= image_tag(@playground_equipment.secondary_image.present? ? @playground_equipment.secondary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image" ) %>
-          </li>
-          <li class="playground_equipment-show-image-wrapper">
-            <%= image_tag(@playground_equipment.tertiary_image.present? ? @playground_equipment.tertiary_image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image" ) %>
-          </li>
-          <li class="playground_equipment-show-image-wrapper">
-            <%= video_tag(@playground_equipment.video.present? ? @playground_equipment.video.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class:"playground_equipment-show-image", controls: true ) %>
-          </li>
-        </ul>
+      <div class="playground_equipment-item-list-wrapper">
+        <div class="playground_equipment-item-list" >
+          <div>
+            <h4>種類</h4>
+            <div class="playground_equipment-item align-middle">
+              <%= @playground_equipment.kind %>
+            </div>
+          </div>
+          <div class="playground_equipment-item-wrapper">
+            <h4>対象年齢</h4>
+            <div class="playground_equipment-item">
+              <%= @playground_equipment.target_age %>
+            </div>
+          </div>
+          <div class="playground_equipment-item-wrapper">
+            <h4>遊具・設備の数</h4>
+            <div class="playground_equipment-item">
+              <%= @playground_equipment.installation %>
+            </div>
+          </div>
+          <div class="playground_equipment-item-wrapper">
+            <h4>備考</h4>
+            <div class='remarks'>
+              <%= @playground_equipment.remarks %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="playground_equipment-item-list-wrapper">
-      <div class="playground_equipment-item-list" >
-        <div>
-          <h4>種類</h4>
-          <div class="playground_equipment-item align-middle">
-            <%= @playground_equipment.kind %>
-          </div>
-        </div>
-        <div class="playground_equipment-item-wrapper">
-          <h4>対象年齢</h4>
-          <div class="playground_equipment-item">
-            <%= @playground_equipment.target_age %>
-          </div>
-        </div>
-        <div class="playground_equipment-item-wrapper">
-          <h4>遊具・設備の数</h4>
-          <div class="playground_equipment-item">
-            <%= @playground_equipment.installation %>
-          </div>
-        </div>
-        <div class="playground_equipment-item-wrapper">
-          <h4>備考</h4>
-          <div class='remarks'>
-            <%= @playground_equipment.remarks %>
-          </div>
-        </div>
-      </div>
-      <div class="mt-3">
+    <div class="playground_equipment-show-link-item">
         <%= link_to "遊具・設備一覧画面に戻る", facility_playground_equipments_path(@facility) %>
-      </div>
     </div>
   </div>
 </div>
