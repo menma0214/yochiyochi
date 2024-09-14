@@ -1,13 +1,15 @@
 <% content_for(:title, t('.title')) %>
 <div class="playground_equipments-container ps-2 pe-2">
-  <h3><%= t('.title') %></h3>
-  <% if @playground_equipments.any? %>
-    <%= render partial: 'playground_equipment', collection: @playground_equipments %>
-  <% else %>
-    <p>遊具・設備が見つかりませんでした。</p>
-  <% end %>
-  <div class="text-center mt-3">
-    <%= link_to "施設詳細画面に戻る", facility_path(@facility) %>
+  <div class="playground_equipments-wrapper">
+    <h3><%= t('.title') %></h3>
+    <% if @playground_equipments.any? %>
+      <%= render partial: 'playground_equipment', collection: @playground_equipments %>
+    <% else %>
+      <p>遊具・設備が見つかりませんでした。</p>
+    <% end %>
+    <div class="text-center mt-3 pb-3">
+      <%= link_to "施設詳細画面に戻る", facility_path(@facility) %>
+    </div>
+    <%= paginate @playground_equipments %>
   </div>
-  <%= paginate @playground_equipments %>
 </div>

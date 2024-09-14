@@ -13,6 +13,9 @@ application.register("hello", HelloController)
 import LineShareController from "./line_share_controller"
 application.register("line-share", LineShareController)
 
+import PaginationController from "./pagination_controller"
+application.register("pagination", PaginationController)
+
 import RandomImageController from "./random_image_controller"
 application.register("random-image", RandomImageController)
 

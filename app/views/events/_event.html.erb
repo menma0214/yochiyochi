@@ -1,6 +1,6 @@
 <div class="event-container m-auto">
   <div class="event-wrapper mt-5 p-3">
-    <h3 class="event-title-text"><%= link_to event.title.truncate(10, omission: '...'), event_path(event) %></h3>
+    <h3 class="event-title-text"><%= link_to event.title.truncate(20, omission: '...'), event_path(event) %></h3>
     <div class="event-body">
       <%= image_tag(event.image.present? ? event.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', class: "events-image") %>
       <div class="ms-3 event-sp">
@@ -11,7 +11,6 @@
           <%= render 'bookmarks/bookmark_buttons', bookmarkable: event %>
         </div>
         <% end %>
-        <%# <p></p> 削除検討中%>
       </div>
     </div>
   </div>
