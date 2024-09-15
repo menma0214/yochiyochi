@@ -60,6 +60,7 @@
 
 .event-show-wrapper {
   max-width: 1200px;
+  width: 100%;
   margin: auto;
 }
 
@@ -67,7 +68,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;  /* 子要素を垂直方向に中央寄せ */
-  width: 100%;
 }
 
 .event-show-image-list{
@@ -242,10 +242,10 @@
     flex-direction: column;
   }
 
-  .event-show-article {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  // .event-show-article {
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
 
   .event-show-main {
     display: flex;
