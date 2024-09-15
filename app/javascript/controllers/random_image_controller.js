@@ -5,14 +5,18 @@ export default class extends Controller {
 
   connect() {
     this.showRandomImages();
+    // ウィンドウのリサイズ時に画像のセット数を再チェック
+    window.addEventListener('resize', this.showRandomImages.bind(this));
   }
 
   showRandomImages() {
     const images = this.imageTargets;
-    const imagesPerSet = 6; // 一度に表示する画像の数
     const animationDuration = 1500; // フェードイン・フェードアウトの時間（ミリ秒）
     const gridSize = 6; // グリッドサイズ（6x6グリッド）
     let occupiedGrids = [];
+
+    // 画面幅が600px以下の場合、表示する画像の数を3に変更
+    const imagesPerSet = window.innerWidth <= 600 ? 3 : 6;
 
     function getRandom(min, max) {
       return Math.random() * (max - min) + min;
