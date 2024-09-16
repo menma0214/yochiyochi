@@ -1,9 +1,18 @@
-.container {
-  padding-top: 100px;
+.user-container {
+  width: 100%;
+  min-height: 1000px;
+  padding-top: 200px;
+  overflow: hidden;
+}
+
+.user-wrapper {
+  margin: auto;
+  max-width: 800px;
+  min-height: 1000px;
 }
 
 @media screen and (max-width: 600px){
-  .container {
+  .user-container {
     padding-top: 150px;
   }
 }

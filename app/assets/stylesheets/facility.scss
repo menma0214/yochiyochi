@@ -9,7 +9,6 @@
   min-height: 1000px;
   padding-top: 150px;
   overflow: hidden;
-  padding-top: 150px;
   background-image: url("facility.jpg");
   background-position:center center;
   background-size: cover;
@@ -20,6 +19,7 @@
 .facilities-main {
   margin: auto;
   max-width: 1200px;
+  min-height: 1000px;//fotterが上に上がるのを防ぐため
 }
 
 // show
