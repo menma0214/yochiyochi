@@ -7,6 +7,9 @@ import { application } from "./application"
 import AutocompleteController from "./autocomplete_controller"
 application.register("autocomplete", AutocompleteController)
 
+import BackgroundAnimationController from "./background_animation_controller"
+application.register("background-animation", BackgroundAnimationController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

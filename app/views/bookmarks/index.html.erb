@@ -1,15 +1,17 @@
 <% content_for(:title, t('.title')) %>
 <div class="bookmarks-container ps-2 pe-2">
+  <div data-controller="background-animation" class="snow-container">
+    <!-- 画像を降らせる -->
+    <%= image_tag "ogp.png", alt: "snowflake", class: "snowflake" %>
+    <%= image_tag "sample.png", alt: "snowflake", class: "snowflake" %>
+    <%= image_tag "yochiyochi.png", alt: "snowflake", class: "snowflake" %>
+    <!-- 必要に応じてさらに追加 -->
+  </div>
   <div class="bookmarks-wrapper text-center">
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
         <!-- 検索フォーム -->
         <%# <%= render 'shared/search_form', q: @q, url: bookmarks_facilities_path %>
-        <%# <form>
-          <div class="input-group mb-3"><input class="form-control" placeholder="検索ワード" type="search"/>
-            <div class="input-group-append"><input type="submit" value="検索" class="btn btn-primary"/></div>
-          </div>
-        </form> %>
       </div>
     </div>
     <!-- 掲示板一覧 -->

@@ -1,13 +1,47 @@
 .bookmarks-container {
   width: 100%;
   min-height: 1000px;
-  padding-top: 150px;
+  padding-top: 100px;
   overflow: hidden;
-  padding-top: 150px;
 }
 
 .bookmarks-wrapper {
+  position: relative;
   margin: auto;
   max-width: 1200px;
   min-height: 1000px;//fotterが上に上がるのを防ぐため
+  z-index: 100;
+}
+
+//背景のアニメーション
+.snow-container {
+  position: absolute;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  // background-color: #000; /* 背景色を設定 */
+}
+
+.snowflake {
+  position: absolute;
+  top: -100px; /* 画面外から降らせる */
+  opacity: 0.8; /* 少し透明にする */
+}
+
+@keyframes fall {
+  0% {
+    top: -100px; /* 画面の上からスタート */
+  }
+  100% {
+    top: 100vh; /* 画面の下まで降りる */
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg); /* 360度回転 */
+  }
 }
