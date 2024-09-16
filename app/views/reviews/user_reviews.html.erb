@@ -1,13 +1,17 @@
-<div class="article-wrapper">
-  <div class="article-title">
-    <h5 class="article-title-text">投稿済みレビュー一覧</h5>
-  </div>
-  <% if @all_reviews.present? %>
-    <%= render @all_reviews %>
-    <div class="pagination">
-      <%= paginate @all_reviews %>
+<div class="user-reviews-container">
+  <div class="user-reviews-wrapper">
+    <div class="article-title">
+      <h5 class="article-title-text">投稿済みレビュー一覧</h5>
     </div>
-  <% else %>
-    <div class="mb-3">レビューがありません</div>
-  <% end %>
+    <div>
+      <% if @all_reviews.present? %>
+        <%= render @all_reviews %>
+        <div class="pagination">
+          <%= paginate @all_reviews %>
+        </div>
+      <% else %>
+        <div class="mb-3">レビューがありません</div>
+      <% end %>
+    </div>
+  </div>
 </div>

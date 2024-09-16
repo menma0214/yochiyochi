@@ -39,12 +39,14 @@
     </div>
     <% end %>
   </div>
-  <div class="back-reviews-wrapper">
+  <div class ="review-show-link-list d-flex justify-content-end">
+    <div class="back-reviews-wrapper">
       <% if @review.reviewable_type == 'Facility' %>
         <%= link_to "レビュー一覧へ", facility_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
       <% elsif @review.reviewable_type == 'Event' %>
         <%= link_to "レビュー一覧へ", event_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
       <% end %>
+    </div>
+    <%= link_to "投稿したレビュー一覧", user_reviews_path(current_user) %>
   </div>
-  <%= link_to "投稿したレビュー一覧", user_reviews_path(current_user) %>
 </div>
