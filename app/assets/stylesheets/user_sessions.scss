@@ -1,9 +1,18 @@
-.container-md {
+.sessions-container {
+  width: 100%;
+  min-height: 1000px;
   padding-top: 200px;
+  overflow: hidden;
+}
+
+.sessions-wrapper {
+  margin: auto;
+  max-width: 800px;
+  min-height: 1000px;
 }
 
 @media screen and (max-width: 600px){
-  .container-md {
+  .sessions-container {
     padding-top: 150px;
   }
 }

@@ -8,6 +8,7 @@
 
 .user-reviews-wrapper {
   max-width: 1200px;
+  min-height: 1000px;//fotterが上に上がるのを防ぐため
   margin: auto;
 }
 
@@ -21,6 +22,7 @@
 
 .reviews-wrapper {
   max-width: 1200px;
+  min-height: 1000px;//fotterが上に上がるのを防ぐため
   margin: auto;
 }
 
