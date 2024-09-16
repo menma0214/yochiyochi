@@ -1,10 +1,29 @@
-.reviews-container{
+//user_reviews
+.user-reviews-container {
+  width: 100%;
+  min-height: 1000px;
+  padding-top: 150px;
+  overflow: hidden;
 }
 
-.review-container {
-  display: flex;
-  justify-content: center;
+.user-reviews-wrapper {
+  max-width: 1200px;
+  margin: auto;
 }
+
+//index
+.reviews-container{
+  width: 100%;
+  min-height: 1000px;
+  padding-top: 150px;
+  overflow: hidden;
+}
+
+.reviews-wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+
 
 .review-form-container {
   margin: auto;
@@ -13,26 +32,28 @@
   width: 100%;
 }
 
-// .review-wrapper {
-//   max-width: 550px;
-//   align-items: center;
-//   border: #777 solid;
-//   border-radius: 10px;
-// }
-
-.reviews-wrapper {
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  border: #777 solid;
-  border-radius: 10px;
-  max-width: 500px;
-  min-width: 300px;
-  padding: 20px;
-  width: 100%;
-  height: auto;
+//_review
+.review-container {
+  display: flex;
+  justify-content: center;
 }
 
+.review-wrapper {
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* より柔らかい影 */
+  border-radius: 10px;
+  min-width:cc 300px;
+  cursor: pointer;
+	transition: all 0.3s ease 0s;
+  padding: 15px;
+}
+
+.review-wrapper:hover {
+  border-bottom-color: transparent;
+	transform: translateY(-0.3em);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
 
 // .review-wrapper{
 //   padding-top: 300px;
@@ -51,7 +72,7 @@
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  border: #777 solid;
+  border: #b0b0b0 solid;
   border-radius: 10px;
   min-width: 300px;
   padding: 20px;
@@ -70,9 +91,6 @@
 }
 
 .review-body{
-  margin-top: 10px;
-  border: #777 solid 3px;
-  border-radius: 5px;
   height: auto;
   width: 100%;
   word-wrap: break-all;
@@ -101,10 +119,14 @@
   color: lightgray;
 }
 
+.review-show-link-list{
+  gap: 20px;
+}
+
 
 @media screen and (min-width: 751px){
   .review-show-container {
-  padding: 100px 50px 100px 50px;
+    padding: 100px 50px 100px 50px;
     margin: auto;
     max-width: 800px;
     width: 100%;
@@ -123,7 +145,12 @@
     min-width: 550px;
   }
 
-  .reviews-body {
+  .review-wrapper {
+    max-width: 550px;
+    min-width: 550px;
+  }
+
+  .review-body {
     display: flex;
     justify-content: start;
 
@@ -175,7 +202,7 @@
     display: contents;
   }
 
-  .reviews-wrapper {
+  .review-wrapper {
     max-width: 300px;
     margin: auto;
     padding: 30px;

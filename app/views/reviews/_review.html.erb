@@ -1,5 +1,5 @@
-
-  <div id="review-<%= review.id %>" class="reviews-wrapper mt-5">
+<div class="review-container">
+  <div id="review-<%= review.id %>" class="review-wrapper mt-5">
     <h3>
       <% if review.reviewable_type == 'Facility' %>
         <%= link_to review.title.truncate(10, omission: '...'), facility_review_path(review.reviewable, review) %>
@@ -7,7 +7,7 @@
         <%= link_to review.title.truncate(10, omission: '...'), event_review_path(review.reviewable, review) %>
       <% end %>
     </h3>
-    <div class="reviews-body">
+    <div class="review-body">
       <div class="review-image-wrapper">
         <%= image_tag(review.image.present? ? review.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', alt: "sample", class:"review-image rounded") %>
       </div>
@@ -51,3 +51,5 @@
       </div>
     </div>
   </div>
+</div>
+

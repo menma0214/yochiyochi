@@ -1,37 +1,45 @@
 <% content_for(:title, t('.title')) %>
-<div class="facility-show-article">
-  <div class="table-wrapper" >
-    <table class="table">
-      <tr>
-        <th class="table-light">ニックネーム</th>
-        <td class="table-decription"><%= @user.name %></td>
-      </tr>
-      <tr>
-        <th class="table-light">メールアドレス</th>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <th class="table-light">パスワード</th>
-        <td><%= @user.password %></td>
-      </tr>
-      <tr>
-        <th class="table-light">お子様の年齢</th>
-        <td><%= @user.child_age %>歳</td>
-      </tr>
-      <tr>
-        <th class="table-light">お子様の性別</th>
-        <td><%= @user.child_sex %></td>
-      </tr>
-      <tr>
-        <th class="table-light">お子様の性格</th>
-        <td><%= @user.child_personality %></td>
-      </tr>
-      <tr>
-        <th class="table-light">お子様が好きな遊び</th>
-        <td><%= @user.child_trend %></td>
-      </tr>
-    </table>
-    <%= link_to "編集", edit_mypage_path %>
-    <%= link_to "お子様の情報を登録", new_diagnostics_path %>
+<div class="mypage-show-container">
+  <div class="mypage-show-wrapper" >
+    <div class="mypage-table-wrapper" >
+      <table class="mypage-table">
+        <tr>
+          <th class="mypage-table-title">ニックネーム</th>
+          <td class="mypage-table-decription"><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th class="mypage-table-title">メールアドレス</th>
+          <td class="mypage-table-decription"><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th class="mypage-table-title">パスワード</th>
+          <td class="mypage-table-decription"><%= @user.password %></td>
+        </tr>
+        <tr>
+          <th class="mypage-table-title">お子様の年齢</th>
+          <td class="mypage-table-decription"><%= @user.child_age %>歳</td>
+        </tr>
+        <tr>
+          <th class="mypage-table-title">お子様の性別</th>
+          <td class="mypage-table-decription"><%= @user.child_sex %></td>
+        </tr>
+        <tr>
+          <th class="mypage-table-title">お子様の性格</th>
+          <td class="mypage-table-decription"><%= @user.child_personality %></td>
+        </tr>
+        <tr>
+          <th class="mypage-table-title">お子様が好きな遊び</th>
+          <td class="mypage-table-decription"><%= @user.child_trend %></td>
+        </tr>
+      </table>
+    </div>
+    <ul class="mypage-show-link-list d-flex justify-content-end">
+      <li>
+        <%= link_to "編集", edit_mypage_path %>
+      </li>
+      <li>
+        <%# 修正中 <%= link_to "お子様の情報を登録", new_diagnostics_path %>
+      </li>
+    </ul>
   </div>
 </div>

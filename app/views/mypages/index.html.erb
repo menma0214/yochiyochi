@@ -1,7 +1,10 @@
 <% content_for(:title, t('.title')) %>
-<div class="">
-  <ul>
-    <li><%= link_to "会員登録情報",mypage_path(current_user) %></li>
-    <li><%= link_to "レビュー一覧", user_reviews_path(current_user) %></li>
-  </ul>
+<div class="mypages-container">
+  <div class="mypages-wrapper">
+    <h2 class="text-center">会員登録情報メニュー</h2>
+    <ul class="mypages-link-list d-flex text-center flex-column">
+      <li><%= link_to "会員登録情報",mypage_path(current_user) %></li>
+      <li><%= link_to "レビュー一覧", user_reviews_path(current_user) %></li>
+    </ul>
+  </div>
 </div>

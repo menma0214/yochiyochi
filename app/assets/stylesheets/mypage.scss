@@ -1,0 +1,83 @@
+//index
+.mypages-container {
+  width: 100%;
+  min-height: 1000px;
+  padding-top: 150px;
+  overflow: hidden;
+}
+
+.mypages-link-list {
+  margin-top: 50px;
+  gap: 5px;
+}
+
+.mypages-link-list li {
+  font-size: 20px;
+}
+
+//show
+.mypage-show-container {
+  width: 100%;
+  min-height: 1000px;
+  padding-top: 150px;
+}
+
+.mypage-show-wrapper {
+  margin: auto;
+  max-width: 1200px;
+  padding: 0 20px 0 20px;
+}
+
+.mypage-table {
+  table-layout: fixed;
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 13px;
+  border-top: 3px solid #ccc;
+  border-right: 3px solid #ccc;
+  border-left: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
+}
+
+.mypage-table th, .mypage-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.mypage-table th {
+  width: 200px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+}
+
+.mypage-table tr:first-child th {
+  border-radius: 10px 0 0 0;
+}
+
+.mypage-table td {
+  width:100%;
+  word-wrap: break-all;
+  word-break: break-all;
+}
+
+.mypage-table tr:first-child td {
+  border-radius: 0 10px 0 0;
+}
+.mypage-table tr:last-child th {
+  border-radius: 0 0 0 10px;
+}
+.mypage-table tr:last-child td {
+  border-radius: 0 0 10px 0;
+}
+
+.mypage-table tr:last-child td, .mypage-table tr:last-child th {
+  border-bottom: none;
+}
+
+.mypage-show-link-list {
+  gap: 20px;
+}
