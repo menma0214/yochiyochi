@@ -24,13 +24,13 @@ SitemapGenerator::Sitemap.create do
   #
   #   add articles_path, :priority => 0.7, :changefreq => 'daily'
   #トップページ
-  add '/', :priority => 1.0, :changefreq => 'dialy'
+  add root_path, :priority => 1.0, :changefreq => 'dialy'
 
   #施設一覧
-  add 'facilities_path', :priority => 0.8, :changefreq => 'dialy'
+  add facilities_path, :priority => 0.8, :changefreq => 'dialy'
 
   #イベント一覧
-  add 'events_path', :priority => 0.8, :changefreq => 'dialy'
+  add events_path, :priority => 0.8, :changefreq => 'dialy'
 
   #問い合わせ
   add 'https://docs.google.com/forms/d/e/1FAIpQLSeMWLzuaz2_GmcI_bxL3rbYwFuRaLuLA1M-fI-TImID8-RQOw/viewform?embedded=true',
