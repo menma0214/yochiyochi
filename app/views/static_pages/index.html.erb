@@ -24,5 +24,13 @@
     </ul>
   </div>
 </div>
+<div>
+    <% if logged_in? %>
+    <% else %>
+      <div class="sp-none">
+        <%= render "shared/footer" %>
+      </div>
+    <% end %>
+</div>
 
 
