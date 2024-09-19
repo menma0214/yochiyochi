@@ -8,5 +8,9 @@ class PlaygroundEquipmentsController < ApplicationController
   def show
     @playground_equipment = PlaygroundEquipment.find(params[:id])
     @facility = @playground_equipment.facility
+    set_meta_tags(
+      title: @playground_equipment.title,
+      keywords: "#{@playground_equipment.kind},#{@playground_equipment.target_age},#{@playground_equipment.remarks}"
+    )
   end
 end

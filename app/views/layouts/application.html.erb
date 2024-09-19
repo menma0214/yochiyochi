@@ -3,6 +3,8 @@
   <head>
     <title>よちよち</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= yield(:description) %>">
+    <meta name="keywords" content="<%= yield(:keywords) || "施設, イベント, 子ども, 屋内, 屋外" %>">
     <meta name="google-site-verification" content="tUgVKLHlos_Ub0yX4FxM-8D1WpJONQB5BFs2qEltuBM" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', integrity: 'sha384-jLKHWM6HEW8klhZC3sh5orLukbN5PdJ5ybzU8mP32F1yBdC0jHaT2nFjB9COgucL', crossorigin: 'anonymous' %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- Google tag (gtag.js) -->

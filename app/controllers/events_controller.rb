@@ -9,6 +9,10 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @facility = @event.facility
+    set_meta_tags(
+      title: @event.title,
+      keywords: "#{@event.name},#{@event.address},#{@event.target_age},#{@event.environment},#{@event.request}"
+    )
   end
 
   def autocomplete

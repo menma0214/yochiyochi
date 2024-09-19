@@ -11,6 +11,11 @@ class FacilitiesController < ApplicationController
   def show
     @facility = Facility.find(params[:id])
     @place = @facility.place
+    # メタタグ
+    set_meta_tags(
+      title: @facility.title,
+      keywords: "#{@facility.name},#{@facility.address},#{@facility.target_age},#{@facility.environment},#{@facility.facility_url}"
+    )
   end
 
   def bookmarks
