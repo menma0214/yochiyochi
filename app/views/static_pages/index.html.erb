@@ -23,14 +23,14 @@
       <li><%= link_to 'イベントを探す', events_path, class: "event-button" %></li>
     </ul>
   </div>
-  <div>
+</div>
+<div>
     <% if logged_in? %>
     <% else %>
       <div class="sp-none">
         <%= render "shared/footer" %>
       </div>
     <% end %>
-  </div>
 </div>
 
 

@@ -31,9 +31,9 @@
               <%= link_to "ログアウト", logout_path, class:"nav-link active", data: { turbo_method: :delete } %>
               <%= link_to "施設一覧", facilities_path, class:"nav-link active" %>
               <%= link_to "イベント一覧", events_path, class:"nav-link active" %>
-              <%= link_to '問い合わせ','https://docs.google.com/forms/d/e/1FAIpQLSeMWLzuaz2_GmcI_bxL3rbYwFuRaLuLA1M-fI-TImID8-RQOw/viewform?embedded=true' %>
+              <%= link_to '問い合わせ','https://docs.google.com/forms/d/e/1FAIpQLSeMWLzuaz2_GmcI_bxL3rbYwFuRaLuLA1M-fI-TImID8-RQOw/viewform?embedded=true', class:'nav-link active' %>
               <%= link_to "利用規約", "static_pages/terms_of_use", class:"nav-link active" %>
-              <%= link_to 'プライバシーポリシー','#' %>
+              <%= link_to 'プライバシーポリシー','static_pages/privacy_policy', class:'nav-link active ' %>
             </div>
           </div>
         </div>
@@ -54,9 +54,9 @@
                 <%= link_to "新規会員登録", new_user_path, class:"nav-link active" %>
                 <%= link_to "施設一覧", facilities_path, class:"nav-link active" %>
                 <%= link_to "イベント一覧", events_path, class:"nav-link active" %>
-                <%= link_to '問い合わせ','https://docs.google.com/forms/d/e/1FAIpQLSeMWLzuaz2_GmcI_bxL3rbYwFuRaLuLA1M-fI-TImID8-RQOw/viewform?embedded=true' %>
+                <%= link_to '問い合わせ','https://docs.google.com/forms/d/e/1FAIpQLSeMWLzuaz2_GmcI_bxL3rbYwFuRaLuLA1M-fI-TImID8-RQOw/viewform?embedded=true', class:'nav-link active' %>
                 <%= link_to "利用規約", "static_pages/terms_of_use", class:"nav-link active " %>
-                <%= link_to 'プライバシーポリシー','#' %>
+                <%= link_to 'プライバシーポリシー','static_pages/privacy_policy', class:'nav-link active ' %>
               </div>
             </div>
           </div>

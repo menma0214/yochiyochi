@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/index'
   get 'static_pages/terms_of_use', to: 'static_pages#terms_of_use'
+  get 'static_pages/privacy_policy', to: 'static_pages#privacy_policy'
   get 'users/:id/reviews', to: 'reviews#user_reviews', as: 'user_reviews'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
