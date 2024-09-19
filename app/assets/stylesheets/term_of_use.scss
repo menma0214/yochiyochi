@@ -1,0 +1,23 @@
+.term_of_use-container {
+  width: 100%;
+  min-height: 1000px;
+  padding-top: 150px;
+  overflow: hidden;
+}
+
+.term_of_use-wrapper {
+  margin: auto;
+  max-width: 1200px;
+}
+
+@media screen and (min-width: 600px) {
+  .term_of_use-wrapper {
+    padding: 0 50px 0 50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .term_of_use-wrapper {
+    padding: 0 20px 0 20px;
+  }
+}
