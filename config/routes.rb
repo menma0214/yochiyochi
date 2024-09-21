@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "/sitemap"
   post "oauth/callback", to: "oauths#callback"
   get "oauth/callback", to: "oauths#callback"
   # get "oauth/callback", to: "user_sessions#create"
