@@ -30,10 +30,9 @@ Rails.application.routes.draw do
   # get '/logout', to: 'user_sessions#destroy'
   delete 'logout', to: 'user_sessions#destroy'
   root 'static_pages#index'
-
   get 'static_pages/index'
-  get 'static_pages/terms_of_use', to: 'static_pages#terms_of_use'
-  get 'static_pages/privacy_policy', to: 'static_pages#privacy_policy'
+  get 'terms_of_use', to: 'static_pages#terms_of_use'
+  get 'privacy_policy', to: 'static_pages#privacy_policy'
   get 'users/:id/reviews', to: 'reviews#user_reviews', as: 'user_reviews'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -53,58 +52,30 @@ Rails.application.routes.draw do
   #   delete 'logout' => 'user_sessions#destroy', :as => :logout
   # end
   resources :users, only: %i[new create show destroy withdraw]
-    # collection do
-    #   get 'static_pages/terms_of_use'
-    # end
     resources :reviews, only: %i[user_reviews]
   resource :diagnostics, only: %i[new create]do
     get :complete, on: :collection
-    collection do
-      get 'static_pages/terms_of_use'
-    end
   end
   resources :user_sessions, only: %i[new create destroy]
-    # collection do
-    #   get 'static_pages/terms_of_use'
-    # end
+
   resources :mypages, only: %i[index show edit update]
-    # collection do
-    #   get 'static_pages/terms_of_use'
-    # end
   resources :bookmarks, only: %i[index create destroy]
-    # collection do
-    #   get 'static_pages/terms_of_use'
-    # end
   resources :events do
-    get 'static_pages/terms_of_use', on: :member #idの取得が必要な場合
     resources :reviews, only: %i[index show new create update destroy edit update]  # 必要なアクションのみを指定する
-      get 'static_pages/terms_of_use', on: :member
     collection do
       get :bookmarks, only: %i[index create destroy]
       get :autocomplete
-      get 'static_pages/terms_of_use'
     end
   end
   resources :facilities, only: %i[index show new create update destroy] do
-
     collection do
       get :bookmarks, only: %i[index create destroy]
       get :autocomplete
-      get 'static_pages/terms_of_use'
     end
     resources :playground_equipments, only: %i[index show],shallow: true
-      collection do
-        get 'static_pages/terms_of_use'
-      end
     resources :reviews, only: %i[index new show create destroy edit update]  # 必要なアクションのみを指定する
-      collection do
-        get 'static_pages/terms_of_use'
-      end
   end
   resources :autocomplete, only: %i[index]
   resources :password_resets, only: %i[new create edit update]
   resources :recommendations, only: %i[index]
-    # collection do
-    #   get 'static_pages/terms_of_use'
-    # end
 end
