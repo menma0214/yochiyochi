@@ -1,6 +1,13 @@
 require 'carrierwave/orm/activerecord'
 require 'carrierwave/storage/fog'
 
+if Rails.env.test?
+  CarrierWave.configure do |config|
+    config.storage = :file
+    config.enable_processing = false
+  end
+else
+
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/aws'
   config.fog_credentials = {
