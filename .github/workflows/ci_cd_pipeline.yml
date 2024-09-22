@@ -40,6 +40,10 @@ jobs:
         gem install bundler
         bundle install
         yarn install
+    - name: Set up AWS credentials
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 # デバッグ作成されてから接続されてるかの確認
     # - name: Wait for PostgreSQL to be ready
     #   run: |
