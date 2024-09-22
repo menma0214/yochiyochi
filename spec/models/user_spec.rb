@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
     user2 = build(:user)
     user2.email = user1.email
     user2.valid?
-    expect(user2.errors[:email]).to include('はすでに存在します')
+    expect(user2.errors[:email]).to include('メールアドレスはすでに使用されています')
   end
 
   it 'ニックネーム、メールアドレスが必須項目であること' do
