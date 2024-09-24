@@ -1,6 +1,5 @@
 require 'carrierwave/orm/activerecord'
 require 'carrierwave/storage/fog'
-
 if Rails.env.test?
   CarrierWave.configure do |config|
     config.storage = :file
