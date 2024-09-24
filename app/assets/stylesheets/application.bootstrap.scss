@@ -23,7 +23,7 @@
 //   display: flex;
 //   flex-direction: column;
 // }
-
+//共通
 .autocomplete-results {
   position: absolute;
   background-color: white;
@@ -58,3 +58,17 @@ h1, h2, h3, h4, h5, h6 {
   color: #555; /* 見出しの色も柔らかい色合いを選ぶ */
 }
 
+.link-hover {
+  align-items: center;
+  cursor: pointer;
+	transition: all 0.3s ease 0s;
+}
+
+.link-hover:hover {
+	border-bottom-color: transparent;
+	transform: translateY(-0.3em);
+}
+
+ul {
+  padding: 0;
+}

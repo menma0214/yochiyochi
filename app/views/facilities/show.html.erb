@@ -97,25 +97,25 @@
     <div class="facility-list-wrapper">
       <ul class="facility-link-item-list">
         <li class="facility-link-item">
-          <%= link_to "遊具・設備情報", facility_playground_equipments_path(@facility) %>
+          <%= link_to "遊具・設備情報", facility_playground_equipments_path(@facility), class:"nav-link active link-hover" %>
         </li>
         <li class="facility-link-item">
-            <%= link_to "レビュー一覧", facility_reviews_path(@facility) %>
+            <%= link_to "レビュー一覧", facility_reviews_path(@facility), class:"nav-link active link-hover" %>
         </li>
         <li class="facility-link-item">
-          <%= link_to 'レビューを投稿する', new_facility_review_path(@facility) %>
+          <%= link_to 'レビューを投稿する', new_facility_review_path(@facility), class:"nav-link active link-hover" %>
         </li>
         <li class="facility-link-item">
-          <%= link_to '施設一覧', facilities_path %>
+          <%= link_to '施設一覧', facilities_path, class:"nav-link active link-hover" %>
         </li>
       </ul>
       <ul class="facility-share-item-list">
-        <li class="facility-share-item">
-          <i class="fa-brands fa-square-x-twitter"></i>
-          <%= link_to 'シェア', "https://twitter.com/share?url=#{request.original_url}", title: 'Twitter', target: '_blank', rel: "noopener noreferrer", class: "text-decoration-none" %>
+        <li class="facility-share-item d-flex">
+          <i class="fa-brands fa-square-x-twitter p-1"></i>
+          <%= link_to 'シェア', "https://twitter.com/share?url=#{request.original_url}", title: 'Twitter', target: '_blank', rel: "noopener noreferrer", class: "text-decoration-none nav-link active" %>
         </li>
         <li class="facility-share-item">
-          <div id="line-share-button" class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-color="default" data-size="small" data-count="true" data-ver="3" style="display: none;"></div>
+          <div id="line-share-button" class="line-it-button pt-1" data-lang="ja" data-type="share-a" data-env="REAL" data-color="default" data-size="small" data-count="true" data-ver="3" style="display: none;"></div>
           <!-- LINEの公式JavaScript -->
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         </li>
