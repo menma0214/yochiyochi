@@ -1,19 +1,20 @@
 <%= search_form_for @q, url: (@search_type == 'facilities' ? facilities_path : events_path) do |f| %>
   <div class="search-form input-group mb-3">
     <% if @search_type == 'facilities' %>
-      <div data-controller="autocomplete" data-autocomplete-url-value="<%= autocomplete_facilities_path %>">
+      <div class="search-bar" data-controller="autocomplete" data-autocomplete-url-value="<%= autocomplete_facilities_path %>">
         <%= f.text_field :title_or_name_or_furigana_or_address_or_business_hours_or_fee_or_target_age_or_environment_or_request_or_contact_cont, class: 'form-control', placeholder: t('.search_word'), data: { action: "input->autocomplete#search" } %>
         <ul data-autocomplete-target="results" class="autocomplete-results"></ul>
       </div>
     <% elsif @search_type == 'events' %>
-      <div data-controller="autocomplete" data-autocomplete-url-value="<%= autocomplete_events_path %>">
+      <div class="search-bar" data-controller="autocomplete" data-autocomplete-url-value="<%= autocomplete_events_path %>">
         <%= f.text_field :title_or_name_or_furigana_or_address_or_business_hours_or_fee_or_target_age_or_environment_or_request_or_contact_cont, class: 'form-control', placeholder: t('.search_word'), data: { action: "input->autocomplete#search" } %>
         <ul data-autocomplete-target="results" class="autocomplete-results"></ul>
       </div>
     <% end %>
 
     <div class="input-group-append">
-      <%= f.submit class: 'btn btn-primary' %>
+      <%= f.submit class: 'btn btn-primary search-btn' %>
     </div>
   </div>
 <% end %>
+
