@@ -21,8 +21,8 @@ class Facility < ApplicationRecord
   end
 
   validates :title, presence: true, length: {maximum: 255}
-  validates :name, presence: true
-  validates :furigana, presence: true
+  validates :name, presence: true, length: {maximum: 255}
+  validates :furigana, presence: true, length: {maximum: 255}
   validates :address, presence: true
   validates :business_hours, presence: true
   validates :fee, presence: true
@@ -30,5 +30,7 @@ class Facility < ApplicationRecord
   validates :environment, presence: true
   validates :request, presence: true, length: {maximum: 65_535}
   validates :contact, presence: true
-  validates :facility_url, format: {with: URI::DEFAULT_PARSER.make_regexp(%w[http https]), message:'URLが正しくありません'}, allow_blank: true, presence: true
+  validates :facility_url, format: {with: URI::DEFAULT_PARSER.make_regexp(%w[http https]), message:'URLが正しくありません'}, presence: true
+  validates :min_age, presence: true
+  validates :max_age, presence: true
 end

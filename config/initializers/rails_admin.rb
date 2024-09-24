@@ -13,7 +13,7 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
 
   config.parent_controller = 'ApplicationController' #追記
-#Google formの問い合わせフォームリンク
+  #Google formの問い合わせフォームリンク
   config.navigation_static_links = {
     'Google Form' => 'https://docs.google.com/forms/d/1j4SK6xYxl7rKjwCSlBrN2nVMM3EsJnw_JbX02OIVuGQ/edit?pli=1#question=1652545694&field=1768989908'
   }
@@ -59,4 +59,12 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  # config.model 'PlaygroundEquipment' do
+  #   list do
+  #     field :min_age
+  #     field :max_age
+  #   end
+  # end
+
 end
