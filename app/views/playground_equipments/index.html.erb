@@ -8,7 +8,7 @@
       <p>遊具・設備が見つかりませんでした。</p>
     <% end %>
     <div class="text-center mt-3 pb-3">
-      <%= link_to "施設詳細画面に戻る", facility_path(@facility) %>
+      <%= link_to "施設詳細画面に戻る", facility_path(@facility), class: "link-hover" %>
     </div>
     <%= paginate @playground_equipments %>
   </div>

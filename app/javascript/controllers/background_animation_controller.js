@@ -31,7 +31,7 @@ export default class extends Controller {
     flake.style.animation = `fall ${duration}s linear ${delay}s infinite, rotate ${duration}s linear ${delay}s infinite`;
 
     // 画像の大きさもランダムに（オプション）
-    const size = Math.random() * 30 + 20; // 20px〜50pxの大きさ
+    const size = Math.random() * 30 + 40; // 50px程度の大きさ
     flake.style.width = `${size}px`;
   }
 

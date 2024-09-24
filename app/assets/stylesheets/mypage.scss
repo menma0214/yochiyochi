@@ -4,6 +4,11 @@
   min-height: 1000px;
   padding-top: 150px;
   overflow: hidden;
+  background-image: url("mypage.jpg");
+  background-position:top center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-blend-mode: lighten;
 }
 
 .mypages-link-list {
@@ -20,6 +25,12 @@
   width: 100%;
   min-height: 1000px;
   padding-top: 150px;
+  overflow: hidden;
+  background-image: url("mypage.jpg");
+  background-position:top center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-blend-mode: lighten;
 }
 
 .mypage-show-wrapper {
@@ -41,6 +52,7 @@
   border-right: 3px solid #ccc;
   border-left: 3px solid #ccc;
   border-bottom: 3px solid #ccc;
+  opacity: 0.9;
 }
 
 .mypage-table th, .mypage-table td {
@@ -80,4 +92,31 @@
 
 .mypage-show-link-list {
   gap: 20px;
+}
+
+.mypage-form-container {
+  width: 100%;
+  min-height: 1000px;
+  padding-top: 150px;
+  overflow: hidden;
+  background-image: url("mypage.jpg");
+  background-position:top center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-blend-mode: lighten;
+}
+
+.mypage-form-wrapper {
+  max-width: 1200px;
+  min-height: 1000px;
+  margin: auto;
+}
+
+.mypage-form {
+  position: relative;
+  background-color: #fff;
+  opacity: 0.85;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
