@@ -37,7 +37,8 @@ RSpec.describe PlaygroundEquipment, type: :model do
                         kind: 'b' * 256
                       )
       expect(pe).to be_invalid
-      expect(review.errors[:body]).to include('は255文字以内で入力してください')
+      expect(pe.errors[:title]).to include('は255文字以内で入力してください')
+      expect(pe.errors[:kind]).to include('は255文字以内で入力してください')
     end
   end
 
@@ -62,7 +63,7 @@ RSpec.describe PlaygroundEquipment, type: :model do
     it '無効であること' do
       pe = build(:playground_equipment, remarks: 'd' * 65536)
       expect(pe).to be_invalid
-      expect(review.errors[:body]).to include('は65535文字以内で入力してください')
+      expect(pe.errors[:remarks]).to include('は65535文字以内で入力してください')
     end
   end
 

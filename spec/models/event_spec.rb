@@ -61,7 +61,9 @@ RSpec.describe Event, type: :model do
                         furigana: 'c' * 256
                       )
       expect(event).to be_invalid
-      expect(review.errors[:body]).to include('は255文字以内で入力してください')
+      expect(event.errors[:title]).to include('は255文字以内で入力してください')
+      expect(event.errors[:name]).to include('は255文字以内で入力してください')
+      expect(event.errors[:furigana]).to include('は255文字以内で入力してください')
     end
   end
 
@@ -76,7 +78,7 @@ RSpec.describe Event, type: :model do
     it '無効であること' do
       event = build(:event, request: 'd' * 65536)
       expect(event).to be_invalid
-      expect(review.errors[:body]).to include('は65535文字以内で入力してください')
+      expect(event.errors[:request]).to include('は65535文字以内で入力してください')
     end
   end
 end
