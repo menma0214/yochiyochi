@@ -1,7 +1,7 @@
 .bookmarks-container {
   width: 100%;
   min-height: 1000px;
-  padding-top: 100px;
+  padding-top: 80px;//ヘッダー分の余白（アニメーションのスタート位置に違和感を出さないため）
   overflow: hidden;
 }
 
@@ -9,7 +9,7 @@
   position: relative;
   margin: auto;
   max-width: 1200px;
-  min-height: 1000px;//fotterが上に上がるのを防ぐため
+  height: auto;
   z-index: 100;
 }
 
@@ -17,7 +17,7 @@
 .snow-container {
   position: absolute;
   overflow: hidden;
-  height: 100vh;
+  min-height: 1000px;//最低限のアニメーション高さの確保
   width: 100%;
   // background-color: #000; /* 背景色を設定 */
 }
