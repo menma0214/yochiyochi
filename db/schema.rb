@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_24_035729) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_24_100234) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_24_035729) do
     t.string "furigana"
     t.string "address"
     t.string "business_hours"
-    t.string "fee"
+    t.text "fee"
     t.string "target_age"
     t.string "environment"
     t.text "request"
@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_24_035729) do
     t.string "furigana"
     t.string "address"
     t.string "business_hours"
-    t.string "fee"
+    t.text "fee"
     t.string "target_age"
     t.string "environment"
     t.text "request"
