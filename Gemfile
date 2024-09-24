@@ -44,7 +44,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # gem "dartsass-rails", "~> 0.4.0"
 
 #管理者画面
-gem 'rails_admin', '~> 3.0'
+gem 'rails_admin'
 gem 'cancancan'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -61,10 +61,10 @@ gem 'sorcery'
 gem 'rails-i18n', '~>7.0.0'
 
 #S3用のgem
-gem 'aws-sdk-s3', '~> 1.48'
+gem 'aws-sdk-s3'
 gem 'fog-aws'
 #画像のアップロード
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave'
 # 画像加工のため
 # gem 'mini_magick', '~> 4.9'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
@@ -111,4 +111,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-gem "sassc-rails"
