@@ -61,7 +61,9 @@ RSpec.describe Facility, type: :model do
                         furigana: 'c' * 256
                       )
       expect(facility).to be_invalid
-      expect(review.errors[:body]).to include('は255文字以内で入力してください')
+      expect(facility.errors[:title]).to include('は255文字以内で入力してください')
+      expect(facility.errors[:name]).to include('は255文字以内で入力してください')
+      expect(facility.errors[:furigana]).to include('は255文字以内で入力してください')
     end
   end
 
@@ -76,7 +78,7 @@ RSpec.describe Facility, type: :model do
     it '無効であること' do
       facility = build(:facility, request: 'd' * 65536)
       expect(facility).to be_invalid
-      expect(review.errors[:body]).to include('は65535文字以内で入力してください')
+      expect(facility.errors[:request]).to include('は65535文字以内で入力してください')
     end
   end
 
