@@ -1,6 +1,26 @@
+.search-btn {
+  width: 60px;
+}
 
-.search-form {
-  min-width: 150px;
-  max-width: 400px;
-  margin: auto;
+@media screen and ( min-width: 601px ) {
+
+  .search-form {
+    width: 410px;
+    margin: auto;
+  }
+
+  .search-bar {
+    width: 350px;
+  }
+}
+
+@media screen and ( max-width: 600px ) {
+  .search-form {
+    width: 300px;
+    margin: auto;
+  }
+
+  .search-bar {
+    width: 240px;
+  }
 }
