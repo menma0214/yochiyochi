@@ -56,9 +56,9 @@ RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile || cat log/produ
 # Final stage for app image
 FROM base
 
-# Install packages needed for deployment
+# Install packages needed for deployment # ImageMagickのインストールを追加
 RUN apt-get update -qq && \
-    # apt-get install --no-install-recommends -y curl libvips postgresql-client imagemagick libmagickwand-dev && \ # ImageMagickのインストールを追加
+    apt-get install --no-install-recommends -y curl libvips postgresql-client imagemagick libmagickwand-dev && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
