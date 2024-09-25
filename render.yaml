@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: yochiyochi   # サービス名は適宜変更してください
+    env: ruby                 # 環境はRubyを使用
+    buildCommand: ./render-build.sh && bundle install  # ImageMagickインストールとbundle installを実行
+    startCommand: bundle exec rails server             # Railsアプリを起動
