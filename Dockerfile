@@ -19,9 +19,9 @@ FROM base as build
 
 # Install packages needed to build gems and node modules
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential curl git libpq-dev libvips node-gyp pkg-config python-is-python3
-#image_magickのインストール
-RUN apt-get update && apt-get install -y imagemagick
+    apt-get install --no-install-recommends -y build-essential curl git libpq-dev libvips node-gyp pkg-config python-is-python3\
+    imagemagick libmagickwand-dev # ImageMagickと依存パッケージのインストール
+
 # Install JavaScript dependencies
 ARG NODE_VERSION=20.13.1
 ARG YARN_VERSION=1.22.22
@@ -58,7 +58,7 @@ FROM base
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libvips postgresql-client && \
+    # apt-get install --no-install-recommends -y curl libvips postgresql-client imagemagick libmagickwand-dev && \ # ImageMagickのインストールを追加
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
