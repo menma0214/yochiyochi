@@ -66,7 +66,7 @@ gem 'fog-aws'
 #画像のアップロード
 gem 'carrierwave'
 # 画像加工のため
-# gem 'mini_magick', '~> 4.9'
+gem 'mini_magick'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 gem 'dotenv-rails'
