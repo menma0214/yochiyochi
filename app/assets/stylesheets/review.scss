@@ -29,7 +29,7 @@
 
 .review-form-container {
   margin: auto;
-  padding: auto 200px auto 200px;
+  padding: 200px 20px 100px 20px;
   max-width: 1200px;
   width: 100%;
 }
@@ -57,17 +57,19 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-// .review-wrapper{
-//   padding-top: 300px;
-// }
-
-
 
 .review-form-wrapper {
   padding: 15px;
   border: solid #777;
   border-radius: 10px;
   
+}
+
+.review-show-container {
+  padding: 150px 30px 100px 30px;
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
 }
 
 .review-show-wrapper{
@@ -127,12 +129,7 @@
 
 
 @media screen and (min-width: 751px){
-  .review-show-container {
-    padding: 100px 50px 100px 50px;
-    margin: auto;
-    max-width: 800px;
-    width: 100%;
-  }
+
 
   .review-btn-wrapper{
     display: flex;
