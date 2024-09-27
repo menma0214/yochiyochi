@@ -1,5 +1,5 @@
 <% content_for(:title, t('.title')) %>
-<div class="mypage-form-container">
+<div class="mypage-form-container ps-3 pe-3">
   <div class ="mypage-form-wrapper">
     <div class="row">
       <h1><%= t('.title', user_name: current_user.name) %></h1>
@@ -33,7 +33,7 @@
             <%= f.label t('.child_trend') %>
             <%= f.select :child_trend,["ボール遊び","かけっこ","読書"], class: 'form-control' %>
           </div>
-          <div class="actions mt-3">
+          <div class="actions mt-3 text-center">
             <%= f.submit t('.update'), class: 'btn btn-primary' %>
           </div>
         <% end %>
