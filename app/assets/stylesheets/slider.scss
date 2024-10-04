@@ -22,6 +22,8 @@
 .slider .slick-slide video {
   width: 100%;
 }
+
+//jsで600px以下では矢印ボタンを非表示に調整しているためにここには無記載
 .slider .slick-arrow {
   width: 30px;
   height: 30px;
@@ -46,13 +48,13 @@
   position: absolute;
   transform: rotate(45deg);
 }
-.slider .slick-next {
-  top: 305px;
-  left: 315px;
-}
 .slider .slick-prev {
   top: 305px;
   right: 315px;
+}
+.slider .slick-next {
+  top: 305px;
+  left: 315px;
 }
 .slider .slick-next::before {
   bottom: 9px;
@@ -84,4 +86,24 @@
 }
 .slick-dots .slick-active button {
   background: #0a467d;
+}
+//トップページのスライダー調整
+.top-page .slick-arrow {}
+
+@media screen and (min-width: 769px) {
+  .top-page .slick-prev{
+    right: 345px;
+
+  } .top-page .slick-next {
+    left: 345px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-page .slick-prev{
+    right: 195px;
+
+  } .top-page .slick-next {
+    left: 195px;
+  }
 }

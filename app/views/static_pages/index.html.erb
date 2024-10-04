@@ -1,5 +1,6 @@
 <% content_for(:title, t('.title')) %>
-<div class="image-container">
+<% content_for :body_class, "top-page" %>
+<div class="image-container ps-2 pe-2">
   <div data-controller="random-image">
     <%= image_tag "https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/TopPageAnimationImage/IMG_4683.jpg", class: "random-image", data: { random_image_target: "image" } %>
     <%= image_tag "https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/TopPageAnimationImage/IMG_4684.jpg", class: "random-image", data: { random_image_target: "image" } %>
@@ -22,6 +23,91 @@
       <li><%= link_to '施設を探す', facilities_path, class: "facility-button" %></li>
       <li><%= link_to 'イベントを探す', events_path, class: "event-button" %></li>
     </ul>
+  </div>
+  <ul class="help-list">
+    <li class="help-list-item">
+      <h4>検索ページへGO!!</h4>
+      <p>まずは探すボタンかサイドバー探す<br>ボタンをクリックorタッチ！<p>
+      <%# PCサイズ %>
+      <ul class="help-image-list slider help-sp-none" data-controller="slider">
+        <li class="help-pc-image-wrapper">
+          <%= image_tag 'top-help-button.gif', class:"help-pc-image" %>
+        </li>
+        <li class="help-pc-image-wrapper">
+          <%= image_tag 'top-help-sidebar-facility.gif', class:"help-pc-image" %>
+        </li>
+      </ul>
+      <%# SPサイズ %>
+      <ul class="help-image-list slider help-pc-none" data-controller="slider">
+        <li class="help-sp-image-wrapper">
+          <%= image_tag 'top-sp-help-button.gif', class:"help-sp-image" %>
+        </li>
+        <li class="help-sp-image-wrapper">
+          <%= image_tag 'top-sp-help-sidebar-facility.gif', class:"help-sp-image" %>
+        </li>
+      </ul>
+    </li>
+    <li class="help-list-item mt-5">
+      <h4>検索バーからフリーワード検索！</h4>
+      <p>住所・ワード・施設やイベント名等で検索しよう！<p>
+        <%# PCサイズ %>
+      <ul class="help-image-list slider help-sp-none" data-controller="slider">
+        <li class="help-pc-image-wrapper">
+          <%= image_tag 'help-pc-normal-search.gif.gif', class:"help-pc-image" %>
+        </li>
+        <li class="help-pc-image-wrapper">
+          <%= image_tag 'help-pc-autocomplete.gif', class:"help-pc-image" %>
+        </li>
+      </ul>
+      <%# SPサイズ %>
+      <ul class="help-image-list slider help-pc-none" data-controller="slider">
+        <li class="help-sp-image-wrapper">
+          <%= image_tag 'help-sp-normal-search.gif', class:"help-sp-image" %>
+        </li>
+        <li class="help-sp-image-wrapper">
+          <%= image_tag 'help-sp-autocomplete.gif', class:"help-sp-image" %>
+        </li>
+      </ul>
+    </li>
+    <li class="help-list-item mt-5">
+      <h4>レビューを投稿！確認！</h4>
+      <p>レビューを書いて情報を共有をしよう！<br>他のパパ・ママが投稿した内容も確認できるよ！<p>
+      <ul class="help-image-list slider help-sp-none" data-controller="slider">
+        <li class="help-pc-image-wrapper">
+          <%= image_tag 'help-pc-review1.gif', class:"help-pc-image" %>
+        </li>
+        <li class="help-pc-image-wrapper">
+          <%= image_tag 'help-review2.gif', class:"help-pc-image" %>
+        </li>
+        <li class="help-pc-image-wrapper">
+          <%= image_tag 'help-review3.gif', class:"help-pc-image" %>
+        </li>
+        <li class="help-pc-image-wrapper">
+          <%= image_tag 'help-review4.gif', class:"help-pc-image" %>
+        </li>
+        <li class="help-pc-image-wrapper">
+          <%= image_tag 'help-review5.gif', class:"help-pc-image" %>
+        </li>
+      </ul>
+      <%# SPサイズ %>
+      <ul class="help-image-list slider help-pc-none" data-controller="slider">
+        <li class="help-sp-image-wrapper">
+          <%= image_tag 'help-sp-review1.gif', class:"help-sp-image" %>
+        </li>
+        <li class="help-sp-image-wrapper">
+          <%= image_tag 'help-review2.gif', class:"help-sp-image" %>
+        </li>
+        <li class="help-sp-image-wrapper">
+          <%= image_tag 'help-review3.gif', class:"help-sp-image" %>
+        </li>
+        <li class="help-sp-image-wrapper">
+          <%= image_tag 'help-review4.gif', class:"help-sp-image" %>
+        </li>
+        <li class="help-sp-image-wrapper">
+          <%= image_tag 'help-review5.gif', class:"help-sp-image" %>
+        </li>
+      </ul>
+    </li>
   </div>
 </div>
 <div>
