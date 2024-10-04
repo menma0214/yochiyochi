@@ -10,7 +10,7 @@ ul li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* 画面の高さいっぱいに配置 */
+  // height: 100vh; /* 画面の高さいっぱいに配置 */
   text-align: center;
 }
 
@@ -71,6 +71,7 @@ ul li {
 }
 
 .image-container {
+  padding-top: 450px;
   margin:auto;
   width: 100%;
   height: auto;
@@ -89,4 +90,104 @@ ul li {
   transition: all 1.5s ease-in-out;
   transform-origin: center;
   z-index: 1; /* 背景画像と前後関係を制御 */
+}
+
+.help-list {
+  margin-top: 200px;
+  position: relative;
+  z-index: 100;
+  text-align: center;
+
+}
+
+.help-list-item {
+  margin: auto;
+  padding: 10px;
+  background-color: #ebfff3;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.help-list-item:hover {
+  background-color: #dcf9ff; /* ホバー時の色変化 */
+}
+
+.help-image-list{
+  margin-top: 100px;
+  padding: 0%;
+  align-items: center;
+  width: 100%;
+  max-width: 768px;
+  height: auto;
+}
+
+@media screen and (min-width: 769px) {
+  .help-pc-none {
+    display: none !important;
+  }
+
+  .help-list-item {
+    width: 600px;
+  }
+
+  .help-pc-image-wrapper{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* スライダーの横幅を超える画像が表示されないようにする */
+    padding: auto;
+  }
+  
+  .help-pc-image{
+    width: 100%;
+    min-width: 250px;
+    max-width: 500px; /* 横幅がスライダーの横幅を超えないようにする */
+    max-height: 100%; /* 縦幅もスライダーの高さを超えないようにする */
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain; /* アスペクト比を保ちながら中央に配置 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 縦横中央に配置するためのトランスフォーム */
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .help-sp-none {
+    display: none !important;
+  }
+
+  .help-list-item {
+    width: 300px;
+  }
+
+  .help-sp-image-wrapper{
+    width: 100%;
+    min-width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* スライダーの横幅を超える画像が表示されないようにする */
+    padding: auto;
+  }
+  
+  .help-sp-image{
+    max-width: 100%;/* 横幅がスライダーの横幅を超えないようにする */
+    max-height: 100%; /* 縦幅もスライダーの高さを超えないようにする */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover; /* アスペクト比を保ちながら中央に配置 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 縦横中央に配置するためのトランスフォーム */
+  }
 }
