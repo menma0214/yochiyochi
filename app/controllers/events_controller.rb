@@ -3,7 +3,14 @@ class EventsController < ApplicationController
   def index
     @search_type = 'events'
     @q = Event.ransack(params[:q])
-    @events = @q.result(distinct:true).order(created_at: :desc).page(params[:page]).per(5)
+    if params[:tag_id].present?
+      @events = Event.joins(:tags).where(tags: {id: params[:tag_id]}).order(created_at: :desc).page(params[:page]).per(5)
+    else
+      @events = @q.result(distinct:true).order(created_at: :desc).page(params[:page]).per(5)
+    end
+
+    # タグの一覧を取得
+    @tags = Tag.all
   end
 
   def show

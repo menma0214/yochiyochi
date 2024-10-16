@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   belongs_to :facility
   has_many :reviews, :as => :reviewable, dependent: :destroy
   has_many :bookmarks, :as => :bookmarkable, dependent: :destroy
+  has_many :taggings, as: :taggable, dependent: :destroy
+  has_many :tags, through: :taggings
 
   mount_uploader :image, ImageUploader
   mount_uploader :secondary_image, ImageUploader

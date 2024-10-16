@@ -5,6 +5,8 @@ class Facility < ApplicationRecord
   has_many :users, through: :bookmarks
   has_many :events, dependent: :destroy
   # has_many :bookmarked_by_users, through: :bookmarks, source: :user
+  has_many :taggings, as: :taggable, dependent: :destroy
+  has_many :tags, through: :taggings
   has_one :place, dependent: :destroy
 
   mount_uploader :image, ImageUploader

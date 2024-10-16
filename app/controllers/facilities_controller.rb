@@ -5,7 +5,15 @@ class FacilitiesController < ApplicationController
   def index
     @search_type = 'facilities'
     @q = Facility.ransack(params[:q])
-    @facilities = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(5)
+    # 条件付きでページネーションを設定
+    if params[:tag_id].present?
+      @facilities = Facility.joins(:tags).where(tags: { id: params[:tag_id] }).order(created_at: :desc).page(params[:page]).per(5)
+    else
+      @facilities = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(5)
+    end
+
+    # タグの一覧を取得
+    @tags = Tag.all
   end
 
   def show
