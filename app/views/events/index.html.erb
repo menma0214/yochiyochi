@@ -2,11 +2,7 @@
 <div class="events-container ps-3 pe-3">
   <div class="events-main">
     <%= render 'shared/search_form', q: @q, url: events_path %>
-      <div>
-        <%= @tags.each do |tag| %>
-          <%= link_to tag.name, events_path(tag_id: tag.id) %>
-        <% end %>
-      </div>
+    
     <div class="event-article-wrapper">
       <div class="event-article-title">
         <h5 class="event-article-title-text">イベント情報</h5>

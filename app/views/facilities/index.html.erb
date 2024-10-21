@@ -2,18 +2,6 @@
 <div class="facilities-container ps-3 pe-3">
   <div class="facilities-main">
     <%= render 'shared/search_form', q: @q, url: facilities_path %>
-
-    <div class="tagsdropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        タグで検索
-      </button>
-      <ul class="dropdown-menu">
-        <% @tags.each do |tag| %>
-          <li><%= link_to tag.name, facilities_path(tag_id: tag.id)%></li>
-        <% end %>
-      </ul>
-    </div>
-
     <div class="article-wrapper">
       <div class="article-title">
         <h5 class="article-title-text">施設情報</h5>
