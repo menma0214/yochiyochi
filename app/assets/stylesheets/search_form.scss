@@ -18,8 +18,8 @@
 
 .search-option-wrapper {
   gap: 20px;
-  display: flex; /* グリッドの要素を横並びにする */
-  justify-content: center; /* 要素を中央に配置 */
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap; /* 小さい画面では折り返しを有効にする */
 }
 
@@ -53,8 +53,8 @@
 
   .search-option-wrapper {
     gap: 20px;
-    display: flex; /* グリッドの要素を横並びにする */
-    justify-content: center; /* 要素を中央に配置 */
+    display: flex;
+    justify-content: center;
     flex-direction: column;
   }
 
