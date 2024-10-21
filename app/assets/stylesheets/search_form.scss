@@ -1,26 +1,65 @@
+/* 検索フォームのレスポンシブ対応 */
 .search-btn {
-  width: 60px;
+  width: auto;
 }
 
-@media screen and ( min-width: 601px ) {
+.tagsdropdown {
+  margin: auto;
+}
 
+.tag-btn {
+  padding: 5px 10px 5px 10px;
+  background-color: #868686;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.search-option-wrapper {
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* 小さい画面では折り返しを有効にする */
+}
+
+.search-option-font {
+  color: #666666;
+}
+
+.search-form {
+  width: 100%;
+  max-width: 600px; /* 検索フォームの最大幅を設定 */
+  margin: 20px auto; /* 中央に配置 */
+  display: flex; /* フォーム全体をフレックスで中央寄せに */
+  flex-direction: column; /* フォーム内の要素を縦に並べる */
+  align-items: center; /* フォームの要素を中央に配置 */
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 600px; /* 検索バーの最大幅 */
+  margin-bottom: 10px; /* 下に余白を追加 */
+}
+
+@media screen and (max-width: 600px) {
   .search-form {
-    width: 410px;
-    margin: auto;
+    width: 90%; /* 小さな画面でのフォーム幅 */
   }
 
   .search-bar {
-    width: 350px;
-  }
-}
-
-@media screen and ( max-width: 600px ) {
-  .search-form {
-    width: 300px;
-    margin: auto;
+    width: 100%; /* 小さな画面では幅いっぱいに */
   }
 
-  .search-bar {
-    width: 240px;
+  .search-option-wrapper {
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .search-option {
+    display: flex;
+    flex-direction: column;
   }
 }

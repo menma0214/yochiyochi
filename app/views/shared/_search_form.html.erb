@@ -5,14 +5,66 @@
         <%= f.text_field :title_or_name_or_furigana_or_address_or_business_hours_or_fee_or_target_age_or_environment_or_request_or_contact_cont, class: 'form-control', placeholder: t('.search_word'), data: { action: "input->autocomplete#search" } %>
         <ul data-autocomplete-target="results" class="autocomplete-results"></ul>
       </div>
+      <div class="m-auto search-option-wrapper">
+        <div class="tagsdropdown pt-2">
+          <button class="tag-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            タグで検索
+          </button>
+          <ul class="dropdown-menu">
+            <% @tags.each do |tag| %>
+              <li><%= link_to tag.name, facilities_path(tag_id: tag.id)%></li>
+            <% end %>
+          </ul>
+        </div>
+        <ul class="search-option-list">
+          <li class="mt-3 search-option">
+            <label class="search-option-font"><i class="fa-solid fa-location-dot pe-1"></i>都道府県</label>
+            <%= select_tag :prefecture, options_for_select(['東京都', '大阪府', '北海道']), prompt: '選択してください', class: "form-controll" %>
+          </li>
+          <li class="mt-3 search-option">
+            <label class="search-option-font"><i class="fa-solid fa-person pe-1"></i>大人料金の範囲</label>
+            <%= select_tag :adult_fee_range, options_for_select([['1000円〜2000円', '1000-2000'], ['2000円〜3000円', '2000-3000']]), prompt: '選択してください', class: "form-controll" %>
+          </li>
+          <li class="mt-3 search-option">
+            <label class="search-option-font"><i class="fa-solid fa-child pe-1"></i>子供料金の範囲</label>
+            <%= select_tag :child_fee_range, options_for_select([['1000円〜2000円', '1000-2000'], ['2000円〜3000円', '2000-3000']]), prompt: '選択してください', class: "form-controll" %>
+          </li>
+        </ul>
+      </div>
     <% elsif @search_type == 'events' %>
       <div class="search-bar" data-controller="autocomplete" data-autocomplete-url-value="<%= autocomplete_events_path %>">
         <%= f.text_field :title_or_name_or_furigana_or_address_or_business_hours_or_fee_or_target_age_or_environment_or_request_or_contact_cont, class: 'form-control', placeholder: t('.search_word'), data: { action: "input->autocomplete#search" } %>
         <ul data-autocomplete-target="results" class="autocomplete-results"></ul>
       </div>
+      <div class="m-auto search-option-wrapper">
+        <div class="tagsdropdown pt-2">
+          <button class="tag-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            タグで検索
+          </button>
+          <ul class="dropdown-menu">
+            <% @tags.each do |tag| %>
+              <li><%= link_to tag.name, events_path(tag_id: tag.id)%></li>
+            <% end %>
+          </ul>
+        </div>
+        <ul class="search-option-list">
+          <li class="mt-3 search-option">
+            <label class="search-option-font"><i class="fa-solid fa-location-dot pe-1"></i>都道府県</label>
+            <%= select_tag :prefecture, options_for_select(['東京都', '大阪府', '北海道']), prompt: '選択してください', class: "form-controll" %>
+          </li>
+          <li class="mt-3 search-option">
+            <label class="search-option-font"><i class="fa-solid fa-person pe-1"></i>大人料金の範囲</label>
+            <%= select_tag :adult_fee_range, options_for_select([['1000円〜2000円', '1000-2000'], ['2000円〜3000円', '2000-3000']]), prompt: '選択してください', class: "form-controll" %>
+          </li>
+          <li class="mt-3 search-option">
+            <label class="search-option-font"><i class="fa-solid fa-child pe-1"></i>子供料金の範囲</label>
+            <%= select_tag :child_fee_range, options_for_select([['1000円〜2000円', '1000-2000'], ['2000円〜3000円', '2000-3000']]), prompt: '選択してください', class: "form-controll" %>
+          </li>
+        </ul>
+      </div>
     <% end %>
 
-    <div class="input-group-append">
+    <div class="input-group-append mt-3">
       <%= f.submit class: 'btn btn-primary search-btn' %>
     </div>
   </div>

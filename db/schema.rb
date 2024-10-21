@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_10_231427) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_16_082255) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_10_231427) do
     t.string "secondary_image"
     t.string "tertiary_image"
     t.text "event_url"
+    t.integer "adult_fee"
+    t.integer "child_fee"
     t.index ["facility_id"], name: "index_events_on_facility_id"
   end
 
@@ -81,6 +83,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_10_231427) do
     t.integer "max_age"
     t.string "secondary_image"
     t.string "tertiary_image"
+    t.integer "adult_fee"
+    t.integer "child_fee"
   end
 
   create_table "places", force: :cascade do |t|
@@ -139,6 +143,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_10_231427) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "fee_tag", default: "default_value", null: false
+    t.string "region_tag", default: "default_value", null: false
+    t.string "prefecture_tag", default: "default_value", null: false
   end
 
   create_table "users", force: :cascade do |t|
