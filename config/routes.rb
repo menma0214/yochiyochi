@@ -12,6 +12,16 @@ Rails.application.routes.draw do
 
   get 'diagnostics/new'
   get 'diagnostics/create'
+  get 'diagnostics/step1', to: 'diagnostics#step1'
+  get 'diagnostics/step2', to: 'diagnostics#step2'
+  get 'diagnostics/step3', to: 'diagnostics#step3'
+  get 'diagnostics/step4', to: 'diagnostics#step4'
+  get 'diagnostics/result', to: 'diagnostics#result'
+  post 'diagnostics/step2', to: 'diagnostics#step2'
+  post 'diagnostics/step3', to: 'diagnostics#step3'
+  post 'diagnostics/step4', to: 'diagnostics#step4'
+  post 'diagnostics/result', to: 'diagnostics#result'
+
   namespace :admin do
     resources :sessions, only: %i[new create destroy]
     get 'login', to: 'sessions#new'

@@ -1,0 +1,35 @@
+<div class="diagnostics-container">
+  <div class="diagnostics-wrapper">
+    <h1>Q4</h1>
+    <%= form_with url: diagnostics_result_path, method: :post, local: true, data: { turbo: false } do |f| %>
+      <div class="mt-5">
+        <h5>ご希望の地方はどちらですか？</h5>
+        <div class="mt-3 ps-3">
+          <%= f.radio_button :answer4, "北海道", id: "answer4_hokkaido" %>
+          <%= f.label :answer4, "北海道", for: "answer4_hokkaido" %><br>
+          <%= f.radio_button :answer4, "東北", class:"mt-2", id: "answer4_tohoku" %>
+          <%= f.label :answer4, "東北", for: "answer4_tohoku" %><br>
+          <%= f.radio_button :answer4, "関東", class:"mt-2", id: "answer4_kanto" %>
+          <%= f.label :answer4, "関東", for: "answer4_kanto" %><br>
+          <%= f.radio_button :answer4, "中部", class:"mt-2", id: "answer4_tyubu" %>
+          <%= f.label :answer4, "中部", for: "answer4_tyubu" %><br>
+          <%= f.radio_button :answer4, "近畿", class:"mt-2", id: "answer4_kinki" %>
+          <%= f.label :answer4, "近畿", for: "answer4_kinki" %><br>
+          <%= f.radio_button :answer4, "中国", class:"mt-2", id: "answer4_tyugoku" %>
+          <%= f.label :answer4, "中国", for: "answer4_tyugoku" %><br>
+          <%= f.radio_button :answer4, "四国", class:"mt-2", id: "answer4_shikoku" %>
+          <%= f.label :answer4, "四国", for: "answer4_shikoku" %><br>
+          <%= f.radio_button :answer4, "九州(沖縄県以外)", class:"mt-2", id: "answer4_kyusyu" %>
+          <%= f.label :answer4, "九州(沖縄県以外)", for: "answer4_kyusyu" %><br>
+          <%= f.radio_button :answer4, "沖縄県", class:"mt-2", id: "answer4_okinawa" %>
+          <%= f.label :answer4, "沖縄県", for: "answer4_okinawa" %><br>
+        </div>
+      </div>
+      <%= f.submit "次へ", class:"mt-3" %>
+    <% end %>
+    <div class="mt-5 nav-link active link-hover">
+      <%= link_to "前の質問に戻る", diagnostics_step3_path %>
+    </div>
+  </div>
+</div>
+

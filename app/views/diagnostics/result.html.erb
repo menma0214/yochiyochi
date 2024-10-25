@@ -1,0 +1,16 @@
+<div class="diagnostics-result-container pb-5">
+  <div class="diagnostics-wrapper">
+    <h1>診断結果</h1>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <% if @diagnostic_results.present? %>
+            <%= render @diagnostic_results %>
+          <% else %>
+            <p><%= t('.no_result') %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
