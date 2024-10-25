@@ -1,0 +1,22 @@
+<div class="diagnostics-container">
+  <div class="diagnostics-wrapper">
+    <h1>Q1</h1>
+    <%# turboが適用されてページが切り変わらないことを防ぐために`local: true`と'data: {turbo: false}'を記述 %>
+    <%= form_with url: diagnostics_step2_path, method: :post, local: true, data: { turbo: false } do |f| %>
+      <div class="mt-5">
+        <h5>交通手段はどちらですか？</h5>
+        <div class="mt-3 ps-3">
+          <%# idとforを追記し、明示的に個別のIDを設定と一致させてラベルをクリックorタッチでもラジオボタンが反応させる %>
+          <%= f.radio_button :answer1, "公共交通機関(バスや電車等)", id: "answer1_transport" %>
+          <%= f.label :answer1, "公共交通機関(バスや電車等)", for: "answer1_transport" %><br>
+
+          <%= f.radio_button :answer1, "車", id: "answer1_car", class: "mt-2" %>
+          <%= f.label :answer1, "車", for: "answer1_car" %><br>
+        </div>
+      </div>
+      <div>
+        <%= f.submit "次へ", class:"mt-3" %>
+      </div>
+    <% end %>
+  </div>
+</div>

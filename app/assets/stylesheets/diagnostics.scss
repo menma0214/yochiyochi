@@ -1,0 +1,28 @@
+.diagnostics-container {
+  padding: 150px 20px 0 20px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("bear_girl.jpg");
+  background-position:top center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-blend-mode: lighten;
+}
+
+.diagnostics-result-container {
+  padding: 150px 20px 0 20px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("dack_boy.jpg");
+  background-position:top center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-blend-mode: lighten;
+}
+
+
+.diagnostics-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  min-height: 1000px;//fotterが上に上がるのを防ぐため
+}

@@ -1,0 +1,20 @@
+<div class="diagnostics-container">
+  <div class="diagnostics-wrapper">
+    <h1>Q2</h1>
+    <%= form_with url: diagnostics_step3_path, method: :post, local: true, data: { turbo: false } do |f| %>
+      <div class="mt-5">
+        <h5>屋内施設と屋外施設のどちらが希望ですか？</h5>
+        <div class="mt-3 ps-3">
+          <%= f.radio_button :answer2, "屋内", id: "answer2_indoor" %>
+          <%= f.label :answer2, "屋内", for: "answer2_indoor" %><br>
+          <%= f.radio_button :answer2, "屋外", class:"mt-2", id: "answer2_outdoor" %>
+          <%= f.label :answer2, "屋外", for: "answer2_outdoor" %>
+        </div>
+      </div>
+      <%= f.submit "次へ", class:"mt-3" %>
+    <% end %>
+    <div class="mt-5 nav-link active link-hover">
+      <%= link_to "前の質問に戻る", diagnostics_step1_path %>
+    </div>
+  </div>
+</div>

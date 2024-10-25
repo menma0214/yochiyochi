@@ -1,0 +1,20 @@
+<div class="diagnostics-container">
+  <div class="diagnostics-wrapper">
+    <h1>Q3</h1>
+    <%= form_with url: diagnostics_step4_path, method: :post, local: true, data: { turbo: false } do |f| %>
+      <div class="mt-5">
+        <h5>施設情報とイベント情報、どちらを希望ですか？</h5>
+        <div class="mt-3 ps-3">
+          <%= f.radio_button :answer3, "施設", id: "answer3_facility" %>
+          <%= f.label :answer3, "施設", for: "answer3_facility" %><br>
+          <%= f.radio_button :answer3, "イベント", class:"mt-2", id: "answer3_event" %>
+          <%= f.label :answer3, "イベント", for: "answer3_event" %>
+        </div>
+      </div>
+      <%= f.submit "次へ", class:"mt-3" %>
+    <% end %>
+    <div class="mt-5 nav-link active link-hover">
+      <%= link_to "前の質問に戻る", diagnostics_step2_path %>
+    </div>
+  </div>
+</div>
