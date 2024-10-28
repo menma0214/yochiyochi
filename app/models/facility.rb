@@ -4,7 +4,6 @@ class Facility < ApplicationRecord
   has_many :bookmarks, :as => :bookmarkable, dependent: :destroy
   has_many :users, through: :bookmarks
   has_many :events, dependent: :destroy
-  # has_many :bookmarked_by_users, through: :bookmarks, source: :user
   has_many :taggings, as: :taggable, dependent: :destroy
   has_many :tags, through: :taggings
   has_one :place, dependent: :destroy
@@ -20,6 +19,11 @@ class Facility < ApplicationRecord
 
   def self.ransackable_associations(auth_object = nil)
     []
+  end
+
+  # 子供の性格や遊びの好みが一致するイベントを検索するスコープ
+  scope :matching_child_preferences, ->(child_trend, child_age) do
+    joins(:tags).where("tags.name IN (?) AND min_age <= ? AND max_age >= ?", child_trend, child_age, child_age)
   end
 
   validates :title, presence: true, length: {maximum: 255}
