@@ -2,8 +2,8 @@ class RecommendationsController < ApplicationController
   before_action :require_login, only: [:index]
 
   def index
-    @recommended_facilities = current_user.recommended_facilities
-    @recommended_events = current_user.recommended_events
+    @recommended_facilities = current_user.recommended_facilities.limit(3)
+    @recommended_events = current_user.recommended_events.limit(3)
   end
 
   private
