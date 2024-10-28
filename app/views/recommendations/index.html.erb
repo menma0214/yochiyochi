@@ -2,25 +2,34 @@
 <% content_for(:title, t('.title')) %>
 <div class="recommendation-container">
   <div class="recommendation-wrapper">
-    <h1>おすすめ一覧</h1>
-
-    <h2>おすすめの施設</h2>
-    <ul>
-      <% @recommended_facilities.each do |facility| %>
-        <li>
-          <%= link_to facility.name, facility_path(facility) %>
-          (<%= facility.address %>, <%= facility.business_hours %>)
-        </li>
-      <% end %>
-    </ul>
-
-    <h2>おすすめのイベント</h2>
-    <ul>
-      <% @recommended_events.each do |event| %>
-        <li>
-          <%= link_to event.title, event_path(event) %>
-        </li>
-      <% end %>
-    </ul>
+    <h1 class="text-center">おすすめ一覧</h1>
+    <div class="mt-5">
+      <h2 class="text-center">おすすめの施設</h2>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <% if @recommended_facilities.present? %>
+              <%= render @recommended_facilities %>
+            <% else %>
+              <p class="text-center"><%= t('.no_result') %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5">
+      <h2 class="text-center">おすすめのイベント</h2>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <% if @recommended_events.present? %>
+              <%= render @recommended_events %>
+            <% else %>
+              <p class="text-center"><%= t('.no_result') %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

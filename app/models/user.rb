@@ -43,19 +43,14 @@ class User < ApplicationRecord
     end
   end
 
-  # 施設のおすすめロジック
-  def recommended_facilities
-    Facility.where('min_age <= ? AND max_age >= ?', self.child_age, self.child_age)
-            .where(environment: self.child_sex)
-            .where(request: self.child_personality)
-            .where(request: self.child_trend)
-  end
+# おすすめのイベントと施設を取得するメソッド
+def recommended_facilities
+  Facility.joins(:tags).where("tags.name IN (?) AND min_age <= ? AND max_age >= ?", child_trend, child_age, child_age)
+end
 
-  # イベントのおすすめロジック
-  def recommended_events
-    Event.where('min_age <= ? AND max_age >= ?', self.child_age, self.child_age)
-          # .or(Event.where('theme LIKE ?', "%#{self.child_personality}%"))
-  end
+def recommended_events
+  Event.joins(:tags).where("tags.name IN (?) AND min_age <= ? AND max_age >= ?", child_trend, child_age, child_age)
+end
 
   validates :email, uniqueness: { scope: :deleted_at, message: "メールアドレスはすでに使用されています" }
   validates :email, presence: true
