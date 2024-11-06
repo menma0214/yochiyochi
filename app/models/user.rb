@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :bookmark_facilities, through: :bookmarks, source: :bookmarkable, source_type: 'Facility'
   has_many :bookmark_events, through: :bookmarks, source: :bookmarkable, source_type: 'Event'
   has_many :authentications, dependent: :destroy
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :authentications
   scope :active, -> { where(deleted_at: nil) }
 

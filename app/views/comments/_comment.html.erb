@@ -1,0 +1,23 @@
+<div data-controller="comment" id="comment-<%= comment.id %>" class="p-2 ms-auto me-auto mt-2 comment-container">
+  <div>
+    <h3 class="small"><%= comment.user.name %></h3>
+    <p><%= simple_format(comment.body) %></p>
+  </div>
+  <% if comment.user.own?(current_user) %>
+    <div class="action overflow-hidden">
+      <%= render "comments/edit", comment: comment %>
+      <ul class="list-inline justify-content-center" style="float: right;">
+        <li data-comment-target="content" class="list-inline-item">
+          <%= link_to edit_comment_path(comment), data: { action: "comment#edit" }, class: 'edit-comment-link' do %>
+            <i class='bi bi-pencil-fill'></i>
+          <% end %>
+        </li>
+        <li class="list-inline-item">
+          <%= link_to comment_path(comment), class: "delete-comment-link", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} do %>
+              <i class="bi bi-trash-fill"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>

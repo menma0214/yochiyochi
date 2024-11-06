@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :reviewable, polymorphic: true
-  # belongs_to :event
+  has_many :comments, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 

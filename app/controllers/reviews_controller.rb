@@ -18,6 +18,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @review.comments.includes(:user).order(created_at: :desc)
   end
 
 
@@ -85,13 +87,12 @@ class ReviewsController < ApplicationController
 
   def set_facility_or_event
     if params[:facility_id]
-      @reviewable = Facility.find(params[:facility_id])
+      @reviewable = Facility.find_by(id: params[:facility_id])
       @facility = @reviewable
     elsif params[:event_id]
-      @reviewable = Event.find(params[:event_id])
+      @reviewable = Event.find_by(id: params[:event_id])
       @event = @reviewable
     end
-    Rails.logger.debug "@reviewable: #{@reviewable.inspect}"
   end
 
   def set_review

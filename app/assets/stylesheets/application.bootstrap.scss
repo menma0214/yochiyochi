@@ -18,6 +18,7 @@
 @import'../stylesheets/term_of_use.scss';
 @import'../stylesheets/privacy_policy.scss';
 @import '../stylesheets/diagnostics.scss';
+@import '../stylesheets/comment.scss';
 
 
 // .container-shared{
@@ -72,4 +73,8 @@ h1, h2, h3, h4, h5, h6 {
 
 ul {
   padding: 0;
+}
+
+.hidden {
+  display: none;
 }
