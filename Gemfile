@@ -85,6 +85,9 @@ gem 'meta-tags'
 #SEO（サイトマップ）
 gem 'sitemap_generator'
 
+#自動削除
+gem 'whenever'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

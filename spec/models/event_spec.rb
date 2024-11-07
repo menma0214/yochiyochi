@@ -24,7 +24,9 @@ RSpec.describe Event, type: :model do
                         contact: nil,
                         event_url: nil,
                         min_age: nil,
-                        max_age: nil)
+                        max_age: nil,
+                        start_date: nil,
+                        end_date: nil)
       event.valid?
       expect(event.errors[:title]).to include('を入力してください')
       expect(event.errors[:name]).to include('を入力してください')
@@ -39,6 +41,8 @@ RSpec.describe Event, type: :model do
       expect(event.errors[:event_url]).to include('を入力してください')
       expect(event.errors[:min_age]).to include('を入力してください')
       expect(event.errors[:max_age]).to include('を入力してください')
+      expect(event.errors[:start_date]).to include('を入力してください')
+      expect(event.errors[:end_date]).to include('を入力してください')
     end
   end
 
