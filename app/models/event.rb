@@ -31,4 +31,6 @@ class Event < ApplicationRecord
   validates :event_url, format: {with: URI::DEFAULT_PARSER.make_regexp(%w[http https]), message:'URLが正しくありません'}, presence: true
   validates :min_age, presence: true
   validates :max_age, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_16_082255) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_07_192553) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_16_082255) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id", null: false
+    t.bigint "review_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_comments_on_review_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.bigint "facility_id", null: false
     t.string "title"
@@ -60,6 +70,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_16_082255) do
     t.text "event_url"
     t.integer "adult_fee"
     t.integer "child_fee"
+    t.date "start_date"
+    t.date "end_date"
     t.index ["facility_id"], name: "index_events_on_facility_id"
   end
 
@@ -143,9 +155,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_16_082255) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "fee_tag", default: "default_value", null: false
-    t.string "region_tag", default: "default_value", null: false
-    t.string "prefecture_tag", default: "default_value", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -176,6 +185,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_16_082255) do
   add_foreign_key "bookmarks", "events"
   add_foreign_key "bookmarks", "facilities"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "comments", "reviews"
+  add_foreign_key "comments", "users"
   add_foreign_key "events", "facilities"
   add_foreign_key "places", "facilities"
   add_foreign_key "playground_equipments", "facilities"

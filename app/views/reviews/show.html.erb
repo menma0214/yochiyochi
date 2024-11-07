@@ -1,52 +1,61 @@
 <% content_for(:title, t('.title')) %>
 <div class="review-show-container ps-3 pe-3">
-  <h3><%= t('.title') %></h3>
   <div class="review-show-wrapper">
-    <div class="review-show">
-      <div class="d-flex justify-content-between">
-        <h4 class="review-title"><%= simple_format(@review.title) %></h4>
-        <div><%= l @review.created_at, format: :long %></div>
-      </div>
-      <div>
-        <%= image_tag(@review.image.present? ? @review.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', alt: "sample", height: "150px", class: "review-image") %>
-      </div>
-      <p>
-        <strong>評価:</strong>
-        <%= display_stars(@review.rate) %>
-      </p>
-      <div class="review-body">
-        <%= simple_format(@review.body) %>
-      </div>
-    </div>
-  </div>
-  <div class="review-btn-wrapper mt-3">
-    <% if @review.user&.own?(@current_user) %>
-    <div class="review-btns">
-      <div class="review-edit">
-        <% if @review.reviewable_type == 'Facility' %>
-          <%= link_to "編集", edit_facility_review_path(@review.reviewable, @review), class: "edit-review-#{@review.id} btn btn-success" %>
-        <% elsif @review.reviewable_type == 'Event' %>
-          <%= link_to "編集", edit_event_review_path(@review.reviewable, @review), class: "edit-review-#{@review.id} btn btn-success" %>
-        <% end %>
-      </div>
-      <div class="review-delete">
-        <% if @review.reviewable_type == 'Facility' %>
-          <%= link_to "削除", facility_review_path(@review.reviewable, @review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
-        <% elsif @review.reviewable_type == 'Event' %>
-          <%= link_to "削除", event_review_path(@review.reviewable, @review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
-        <% end %>
+    <h3><%= t('.title') %></h3>
+    <div class="review-show-main-wrapper">
+      <div class="review-show">
+        <div class="d-flex justify-content-between">
+          <h4 class="review-title"><%= simple_format(@review.title) %></h4>
+          <div><%= l @review.created_at, format: :long %></div>
+        </div>
+        <div>
+          <%= image_tag(@review.image.present? ? @review.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', alt: "sample", height: "150px", class: "review-image") %>
+        </div>
+        <p>
+          <strong>評価:</strong>
+          <%= display_stars(@review.rate) %>
+        </p>
+        <div class="review-body">
+          <%= simple_format(@review.body) %>
+        </div>
       </div>
     </div>
-    <% end %>
-  </div>
-  <div class ="review-show-link-list d-flex justify-content-end">
-    <div class="back-reviews-wrapper">
-      <% if @review.reviewable_type == 'Facility' %>
-        <%= link_to "レビュー一覧へ", facility_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
-      <% elsif @review.reviewable_type == 'Event' %>
-        <%= link_to "レビュー一覧へ", event_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
+    <div class="review-btn-wrapper mt-3">
+      <% if @review.user&.own?(@current_user) %>
+      <div class="review-btns">
+        <div class="review-edit">
+          <% if @review.reviewable_type == 'Facility' %>
+            <%= link_to "編集", edit_facility_review_path(@review.reviewable, @review), class: "edit-review-#{@review.id} btn btn-success" %>
+          <% elsif @review.reviewable_type == 'Event' %>
+            <%= link_to "編集", edit_event_review_path(@review.reviewable, @review), class: "edit-review-#{@review.id} btn btn-success" %>
+          <% end %>
+        </div>
+        <div class="review-delete">
+          <% if @review.reviewable_type == 'Facility' %>
+            <%= link_to "削除", facility_review_path(@review.reviewable, @review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
+          <% elsif @review.reviewable_type == 'Event' %>
+            <%= link_to "削除", event_review_path(@review.reviewable, @review), class: "delete-review-#{@review.id} btn btn-success", data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
+          <% end %>
+        </div>
+      </div>
       <% end %>
     </div>
-    <%= link_to "投稿したレビュー一覧", user_reviews_path(current_user) %>
+    <%= render 'comments/form' %>
+    <h2 class="mt-5">コメント一覧</h2>
+    <div id="table-comment" class="mt-3 ms-auto me-auto">
+      <% if @comments.present? %>
+        <%= render @comments %>
+      <% end %>
+    </div>
+    <div class ="review-show-link-list d-flex justify-content-center">
+      <div class="back-reviews-wrapper">
+        <% if @review.reviewable_type == 'Facility' %>
+          <%= link_to "レビュー一覧へ", facility_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
+        <% elsif @review.reviewable_type == 'Event' %>
+          <%= link_to "レビュー一覧へ", event_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
+        <% end %>
+      </div>
+      <%= link_to "投稿したレビュー一覧", user_reviews_path(current_user) %>
+    </div>
   </div>
 </div>

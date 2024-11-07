@@ -1,0 +1,10 @@
+<div class="row mb-3 ms-auto me-auto comment-new">
+  <div class="col-lg-8 offset-lg-2">
+    <%= form_with model: [@review.reviewable, @review, @comment], url: polymorphic_path([@review.reviewable, @review, :comments]), data: { controller: "form-reset", action: "turbo:submit-end->form-reset#reset" } do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :body, "コメント" %>
+      <%= f.text_area :body, class: "form-control mb-3", rows: "4", placeholder: "コメントを入力してください" %>
+      <%= f.submit t("defaults.post"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

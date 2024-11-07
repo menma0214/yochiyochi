@@ -62,8 +62,11 @@ Rails.application.routes.draw do
   #   post 'login' => "user_sessions#create"
   #   delete 'logout' => 'user_sessions#destroy', :as => :logout
   # end
-  resources :users, only: %i[new create show destroy withdraw]
-    resources :reviews, only: %i[user_reviews]
+  resources :users, only: %i[new create show destroy withdraw] do
+    resources :reviews, only: %i[user_reviews] do
+      resources :comments, only: %i[create edit update destroy], shallow: true
+    end
+  end
   resource :diagnostics, only: %i[new create]do
     get :complete, on: :collection
   end
@@ -72,7 +75,9 @@ Rails.application.routes.draw do
   resources :mypages, only: %i[index show edit update]
   resources :bookmarks, only: %i[index create destroy]
   resources :events do
-    resources :reviews, only: %i[index show new create update destroy edit update]  # 必要なアクションのみを指定する
+    resources :reviews, only: %i[index show new create update destroy edit update] do# 必要なアクションのみを指定する
+      resources :comments, only: %i[create edit update destroy], shallow: true
+    end
     collection do
       get :bookmarks, only: %i[index create destroy]
       get :autocomplete
@@ -84,9 +89,14 @@ Rails.application.routes.draw do
       get :autocomplete
     end
     resources :playground_equipments, only: %i[index show],shallow: true
-    resources :reviews, only: %i[index new show create destroy edit update]  # 必要なアクションのみを指定する
+    resources :reviews, only: %i[index new show create destroy edit update] do # 必要なアクションのみを指定する
+      resources :comments, only: %i[create edit update destroy], shallow: true
+    end
   end
   resources :autocomplete, only: %i[index]
   resources :password_resets, only: %i[new create edit update]
   resources :recommendations, only: %i[index]
+  # resources :reviews, only: %i[index new show create destroy edit update] do 必要なアクションのみを指定する
+  #   resources :comments, only: %i[create edit update destroy], shallow: true
+  # end
 end

@@ -10,6 +10,12 @@ application.register("autocomplete", AutocompleteController)
 import BackgroundAnimationController from "./background_animation_controller"
 application.register("background-animation", BackgroundAnimationController)
 
+import CommentController from "./comment_controller"
+application.register("comment", CommentController)
+
+import FormResetController from "./form_reset_controller"
+application.register("form-reset", FormResetController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

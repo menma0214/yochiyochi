@@ -13,6 +13,8 @@ FactoryBot.define do
     min_age { Faker::Number.between(from: 0, to: 5) }
     max_age { Faker::Number.between(from: 0, to: 5) }
     event_url { Faker::Internet.url }
+    start_date { Faker::Date.between(from: Date.today, to: 30.days.from_now) }
+    end_date { Faker::Date.between(from: start_date, to: start_date + 7.days) }
     association :facility
     # remote_image_url {"https://example.com/test_image.jpg"}# テスト用ダミーのURLを使用
   end
