@@ -55,7 +55,7 @@ ja:
     new:
       title: ログイン
       login: ログイン
-      to_register_page: 新規会員登録ページへ
+      to_register_page: 新規会員登録ページへ（再登録もこちら）
       password_forget: パスワードをお忘れの方はこちら
       auto_login: ログイン状態を維持する
   mypages:

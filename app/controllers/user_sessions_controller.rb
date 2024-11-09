@@ -6,8 +6,8 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    # デバッグ用ログ出力
-    Rails.logger.debug "Attempting to login with email: #{params[:email]}"
+    # # デバッグ用ログ出力
+    # Rails.logger.debug "Attempting to login with email: #{params[:email]}"
 
     # 該当ユーザーの検索
     @user = User.find_by(email: params[:email])
