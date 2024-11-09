@@ -11,6 +11,24 @@
   min-height: 1000px;
 }
 
+.withdraw-container {
+  width: 100%;
+  padding-top: 150px;
+  min-height: 1000px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.withdraw-wrapper {
+  margin: auto;
+  max-width: 800px;
+  min-height: 1000px;
+}
+
+.withdraw-botton-list {
+  margin-top: 100px;
+}
+
 @media screen and (max-width: 600px){
   .user-container {
     padding-top: 150px;

@@ -37,23 +37,7 @@ class UsersController < ApplicationController
         render :new, status: :unprocessable_entity
       end
     end
-    # if @user.save
-    #   redirect_to login_path, success: t('users.create.success')
-    # else
-    #   flash.now[:danger] = t('users.create.failure')
-    #   render :new, status: :unprocessable_entity
-    # end
   end
-
-  # def update
-  #   if @user.update(user_params)
-  #     flash[:success] = t('users.flash_messages.updated', item: User.model_name.human)
-  #     redirect_to mypage_path
-  #   else
-  #     flash[:danger] = t('users.flash_messages.not_updated', item: User.model_name.human)
-  #     render edit_mypage_path, status: :unprocessable_entity
-  #   end
-  # end
 
   def destroy
     if current_user
@@ -70,7 +54,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find_by(id: params[:id])
     if @user.nil?
-      Rails.logger.debug "No user found with id: #{params[:id]}"
+      # Rails.logger.debug "No user found with id: #{params[:id]}"
       redirect_to root_path, alert: 'ユーザーが見つかりません' and return
     end
   end
