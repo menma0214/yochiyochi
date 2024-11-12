@@ -45,7 +45,7 @@
 - bootstrap
 
 ## データベース
-- mysql2 8.1.0
+- postgresql
 
 ## 開発ツール
 - Docker 24.0.7
