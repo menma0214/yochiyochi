@@ -34,24 +34,14 @@
 
 # 技術スタック
 
-## プログラミング言語　
-- Ruby 3.2.2
-
-## フレームワーク
-- Ruby on Rails 7.0.8
-
-## フロントエンド
-- JQuery
-- bootstrap
-
-## データベース
-- postgresql
-
-## 開発ツール
-- Docker 24.0.7
-- Github
-- Rspec
-
+| カテゴリー | 使用技術 |
+|---------| --------|
+| プログラミング言語 | Ruby 3.2.2 |
+| フレームワーク| Ruby on Rails 7.0.8, bootstrap, jquery, stimulus |
+| フロントエンド | HTML, CSS, javascript|
+| データベース | postgresql |
+| ファイルサーバー | AWS S3 |
+| 開発ツール | Docker 24.0.7, Github, Rspec |
 
 ## 機能候補
 - ユーザー登録時に５項目のアンケートを実施。アンケート結果に合わせたおすすめスポットを表示。(socery)
