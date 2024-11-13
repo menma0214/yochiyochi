@@ -5,8 +5,18 @@
 ## 📖サービス概要
 - 小さなお子様とのお出かけスポットを検索できるサービス。
 - [サービス概要](https://yochiyochi.onrender.com/)
+- [このサービスへの思い・作成理由](https://github.com/menma0214/yochiyochi/edit/main/README.md#%E3%81%93%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%B8%E3%81%AE%E6%80%9D%E3%81%84%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E7%90%86%E7%94%B1)
+- [ユーザー層について](https://github.com/menma0214/yochiyochi/edit/main/README.md#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E5%B1%A4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+- [サービスの利用イメージ](https://github.com/menma0214/yochiyochi/edit/main/README.md#%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E5%88%A9%E7%94%A8%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8)
+- [ユーザーの獲得について](https://github.com/menma0214/yochiyochi/edit/main/README.md#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E7%8D%B2%E5%BE%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+- [サービスの差別化ポイント・推しポイント](https://github.com/menma0214/yochiyochi/edit/main/README.md#%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E5%B7%AE%E5%88%A5%E5%8C%96%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E6%8E%A8%E3%81%97%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88)
+- [技術スタック](https://github.com/menma0214/yochiyochi/edit/main/README.md#%E6%8A%80%E8%A1%93%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF)
+- [実装機能](https://github.com/menma0214/yochiyochi/edit/main/README.md#%EF%B8%8F%E5%AE%9F%E8%A3%85%E6%A9%9F%E8%83%BD)
+- [機能の実装方針予定](https://github.com/menma0214/yochiyochi/edit/main/README.md#%E6%A9%9F%E8%83%BD%E3%81%AE%E5%AE%9F%E8%A3%85%E6%96%B9%E9%87%9D%E4%BA%88%E5%AE%9A)
+- [画面遷移図](https://github.com/menma0214/yochiyochi/edit/main/README.md#%EF%B8%8F%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3)
+- [ER図](https://github.com/menma0214/yochiyochi/edit/main/README.md#%EF%B8%8Fer%E5%9B%B3)
 
-## 🚗このサービスへの思い・作りたい理由
+## 🚗このサービスへの思い・作成理由
 私にはまだ歩き出したばかりの息子がいます。
 そんな小さな子どもでも毎回似たような遊具、もしくは年齢にそぐわない遊具しかない公園では退屈するかと考え、様々な場所に連れ出してあげたいという思いが強まりました。
 また、様々な理由で両親が離婚や別居中になってしまったお宅のお子様が面会交流を実施する際に利用できる場所も限られると感じました。
@@ -29,10 +39,8 @@
 ## 🧸サービスの差別化ポイント・推しポイント
 - 他サービスだと検索結果がイベントやPR、スポット名、口コミが入り乱れてわかりにくいが、当サービスではスポット、イベント情報は分けたUIを実装。
 - 屋内施設と屋外施設で絞り込みが可能。
-- レビューは閲覧したユーザーと施設関係者への配慮し、NGワードを設定。
-- レビューの投稿には低く偏った意見を防止するために、良い点を必ず記載するように実装。
 - 遊具、アトラクション情報からも検索可能
-- 子どもの年齢以外の特徴からスポットやイベントの検索が可能。
+- 子どもの年齢以外の特徴からおすすめスポットやイベントの検索が可能。
 
 # 💻技術スタック
 
@@ -58,23 +66,23 @@
 
 | 診断機能 |
 |---------|
-| [![Image from Gyazo](https://i.gyazo.com/1a4b8ea9f9ff5cd390d98cbddcb934ab.gif)](https://gyazo.com/1a4b8ea9f9ff5cd390d98cbddcb934ab) |
+| [![Image from Gyazo](https://i.gyazo.com/1b91872e30d6c99a07ccaf311802aec9.gif)](https://gyazo.com/1b91872e30d6c99a07ccaf311802aec9) |
 | ユーザー登録時に4ステップのアンケートを実施。アンケート結果に合わせたおすすめスポットを表示。(socery) |
 
-
-## 🤖機能候補
-
-
-- 施設場所の確認のためのマップ機能(geocoder,マップ表示はajax)
-- レビュー投稿、星で評価(星は追加予定案)
-- ブックマーク（Ajax）
-- 施設情報に画像と動画を掲載(bootstrap)
-- ページネーション(kaminari)
+| 他実装機能 |
+|---------|
+| 施設場所の確認のためのマップ機能(geocoder,マップ表示はajax) |
+| レビュー投稿、星で評価(星は追加予定案) |
+| ブックマーク（Ajax） |
+| 施設情報に画像と動画を掲載(bootstrap) |
+| ページネーション(kaminari) |
 
 ## 🔧機能の実装方針予定
 - ユーザー（の子供）全体から施設利用者の年齢層の統計をグラフで表示
 - 検索履歴の保存機能
 - 公式のYouTube、SNS埋め込み機能(bootstrap)
+- レビューは閲覧したユーザーと施設関係者への配慮し、NGワードを設定。
+- レビューの投稿には低く偏った意見を防止するために、良い点を必ず記載するように実装。
 - 都度追加予定
 
 ## 🖥️画面遷移図
