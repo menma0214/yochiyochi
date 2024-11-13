@@ -2,7 +2,7 @@
 [![Image from Gyazo](https://i.gyazo.com/6581e07b97fc0872d88e6363106b002e.png)](https://gyazo.com/6581e07b97fc0872d88e6363106b002e)
 
 ## 📖目次
-- [サービス概要](https://yochiyochi.onrender.com/)
+- [サービス概要](https://github.com/menma0214/yochiyochi?tab=readme-ov-file#%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%A6%82%E8%A6%81)
 - [このサービスへの思い・作成理由](https://github.com/menma0214/yochiyochi/edit/main/README.md#%E3%81%93%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%B8%E3%81%AE%E6%80%9D%E3%81%84%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E7%90%86%E7%94%B1)
 - [ユーザー層について](https://github.com/menma0214/yochiyochi/edit/main/README.md#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E5%B1%A4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
 - [サービスの利用イメージ](https://github.com/menma0214/yochiyochi/edit/main/README.md#%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E5%88%A9%E7%94%A8%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8)
