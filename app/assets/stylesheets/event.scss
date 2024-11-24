@@ -198,9 +198,8 @@
 }
 
 .events-image {
-  max-width: 300px;
+  max-width: 450px;
   width: 100%;
-  height: 150px;
   border-radius: 10px;
 }
 
@@ -221,6 +220,10 @@
 
   .event-show-article {
     padding-top: 150px;
+  }
+
+  .events-image {
+    height: 300px;
   }
 
 }
@@ -266,15 +269,19 @@
   .event-share-item-list {
     margin-top: 10px;
   }
+
+  .events-image {
+    max-width: 350px;
+    height: 300px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  // スマホサイズは対象のdivを削除してスタイル調整
-  .event-sp {
-    display: contents;
-  }
-
   .event-wrapper {
     max-width: 300px;
+  }
+
+  .events-image {
+    height: 150px;
   }
 }
