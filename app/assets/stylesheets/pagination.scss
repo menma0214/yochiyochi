@@ -44,4 +44,16 @@
   .pagination.small-screen .page:nth-child(-n+2) { /* 前から1ページ */
     display: inline-block; /* 対象のページリンクを表示 */
   }
+
+  .small-screen {
+    display: flex; /* 必要に応じて適切なスタイルを指定 */
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .small-screen .page {
+    font-size: 12px;
+    padding: 4px;
+  }
+
 }
