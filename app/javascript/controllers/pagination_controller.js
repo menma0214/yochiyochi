@@ -14,11 +14,11 @@ export default class extends Controller {
 
   checkWindowSize() {
     if (window.innerWidth <= 600) {
-      console.log('Adding small-screen class');
+      // console.log('Adding small-screen class');//エラー確認
       this.showLimitedPagination();
     } else {
-      console.log('Removing small-screen class');
-      this.showFullPagination(); // ここでエラーが発生している
+      // console.log('Removing small-screen class');//エラー確認
+      this.showFullPagination();
     }
   }
 
