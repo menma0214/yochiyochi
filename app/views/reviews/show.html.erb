@@ -8,7 +8,7 @@
           <h4 class="review-title"><%= simple_format(@review.title) %></h4>
           <div><%= l @review.created_at, format: :long %></div>
         </div>
-        <div>
+        <div class="text-center">
           <%= image_tag(@review.image.present? ? @review.image.url : 'https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/sample.png', alt: "sample", height: "150px", class: "review-image") %>
         </div>
         <p>
