@@ -53,6 +53,7 @@
 | フロントエンド | HTML, CSS, javascript|
 | データベース | postgresql |
 | ファイルサーバー | AWS S3 |
+|インフラ|Render|
 | 開発ツール | Docker 24.0.7, Github, Rspec |
 
 ## ⭐️実装機能
