@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @review.comments.includes(:user).order(created_at: :desc)
+    @comments = @review.comments.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
   end
 
 
