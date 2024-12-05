@@ -48,15 +48,15 @@
       </div>
       <%= paginate @comments %>
     <% end %>
-    <div class ="review-show-link-list d-flex justify-content-center">
-      <div class="back-reviews-wrapper">
+    <div class ="review-show-link-list d-flex justify-content-center gap-5">
+      <%# <div class="back-reviews-wrapper"> %>
         <% if @review.reviewable_type == 'Facility' %>
-          <%= link_to "レビュー一覧へ", facility_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
+          <%= link_to "レビュー一覧", facility_reviews_path(@review.reviewable), class: "nav-link active link-hover" %>
         <% elsif @review.reviewable_type == 'Event' %>
-          <%= link_to "レビュー一覧へ", event_reviews_path(@review.reviewable), class: "back-reviews-btn" %>
+          <%= link_to "レビュー一覧", event_reviews_path(@review.reviewable), class: "nav-link active link-hover" %>
         <% end %>
-      </div>
-      <%= link_to "投稿したレビュー一覧", user_reviews_path(current_user) %>
+      <%# </div> %>
+      <%= link_to "投稿したレビュー一覧", user_reviews_path(current_user), class: "nav-link active link-hover" %>
     </div>
   </div>
 </div>

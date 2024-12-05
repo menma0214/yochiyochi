@@ -20,7 +20,7 @@
           <p><%= review.body.truncate(30, omission: '...') %></p>
           <%# <p></p> 削除検討中%>
         <% if review.user&.own?(@current_user) %>
-          <td class="action">
+          <div class="action">
             <ul class="list-inline justify-content-center" style="float: right;">
               <li class="list-inline-item">
                 <% if review.reviewable_type == 'Facility' %>
@@ -46,7 +46,7 @@
                 <% end %>
               </li>
             </ul>
-          </td>
+          </div>
         <% end %>
       </div>
     </div>
