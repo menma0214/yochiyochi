@@ -7,9 +7,19 @@ class CommentsController < ApplicationController
   def create
     @comment = @review.comments.build(comment_params)
     @comment.user = current_user # current_userを直接割り当て
-    Rails.logger.info "Comment user: #{@comment.user.inspect}"
+    # Rails.logger.info "Comment user: #{@comment.user.inspect}"
 
-    @comment.save
+    if @comment.save
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to review_path, notice: 'Comment was successfully created.' }
+      end
+    else
+      respond_to do |format|
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("form", partial: "form", locals: { comment: @comment }) }
+      end
+    end
   end
 
   def edit

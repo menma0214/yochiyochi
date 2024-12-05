@@ -40,13 +40,14 @@
       </div>
       <% end %>
     </div>
-    <%= render 'comments/form' %>
+    <%= render 'comments/form', comment: @comment, review: @review %>
     <h2 class="mt-5">コメント一覧</h2>
-    <div id="table-comment" class="mt-3 ms-auto me-auto">
-      <% if @comments.present? %>
+    <% if @comments.present? %>
+      <div id="table-comment" class="mt-3 ms-auto me-auto">
         <%= render @comments %>
-      <% end %>
-    </div>
+      </div>
+      <%= paginate @comments %>
+    <% end %>
     <div class ="review-show-link-list d-flex justify-content-center">
       <div class="back-reviews-wrapper">
         <% if @review.reviewable_type == 'Facility' %>

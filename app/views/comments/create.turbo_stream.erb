@@ -1,5 +1,3 @@
-<turbo-stream target="comment_<%= @comment.id %>">
-  <template>
-    <%= render partial: "comments/comment", locals: { comment: @comment } %>
-  </template>
-</turbo-stream>
+<%= turbo_stream.prepend "table-comment" do %>
+  <%= render @comment %>
+<% end %>
