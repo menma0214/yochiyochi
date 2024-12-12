@@ -1,5 +1,6 @@
 <% content_for(:title, t('.title')) %>
 <% content_for :body_class, "top-page" %>
+<%= render 'shared/flash_message' %>
 <div class="image-container ps-2 pe-2">
   <div data-controller="random-image">
     <%= image_tag "https://yochiyochi-images-videos.s3.ap-southeast-1.amazonaws.com/TopPageAnimationImage/IMG_4683.jpg", class: "random-image", data: { random_image_target: "image" } %>
