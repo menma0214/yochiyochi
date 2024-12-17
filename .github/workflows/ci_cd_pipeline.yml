@@ -32,7 +32,10 @@ jobs:
 
     - name: Load environment variables from .env.test
       run: echo "AWS_ACCESS_KEY_ID=dummy_access_key" >> $GITHUB_ENV && echo "AWS_SECRET_ACCESS_KEY=dummy_secret_key" >> $GITHUB_ENV && echo "S3_BUCKET=dummy_bucket" >> $GITHUB_ENV && echo "ENCRYPTION_KEY=$(ruby -r securerandom -e 'puts SecureRandom.hex(16)')" >> $GITHUB_ENV 
-  
+
+    - name: Debug environment variables
+      run: echo "ENCRYPTION_KEY=${ENCRYPTION_KEY}"
+
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
