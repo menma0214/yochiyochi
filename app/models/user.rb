@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :authentications
+  attr_encrypted :email, key: ENV['ENCRYPTION_KEY']
   scope :active, -> { where(deleted_at: nil) }
 
 
