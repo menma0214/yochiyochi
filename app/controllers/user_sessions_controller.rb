@@ -13,11 +13,11 @@ class UserSessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
 
     # ユーザーが存在するか確認
-    if @user.nil?
-      Rails.logger.debug "No user found with email: #{params[:email]}"
-    else
-      Rails.logger.debug "User found: #{@user.inspect}"
-    end
+    # if @user.nil?
+    #   Rails.logger.debug "No user found with email: #{params[:email]}"
+    # else
+    #   Rails.logger.debug "User found: #{@user.inspect}"
+    # end
 
     # 退会済みユーザーかどうかチェック
     if @user&.deleted_at.present?
