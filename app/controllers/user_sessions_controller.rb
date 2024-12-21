@@ -21,7 +21,7 @@ class UserSessionsController < ApplicationController
 
     # 退会済みユーザーかどうかチェック
     if @user&.deleted_at.present?
-      Rails.logger.debug "User is deleted: #{@user.inspect}"
+      # Rails.logger.debug "User is deleted: #{@user.inspect}"
       flash.now[:danger] = 'このアカウントは退会済みです。'
       render :new, status: :unprocessable_entity
       return
@@ -31,10 +31,10 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password], params[:remember_me])
 
     if @user
-      Rails.logger.debug "Login successful for user: #{@user.inspect}"
+      # Rails.logger.debug "Login successful for user: #{@user.inspect}"
       redirect_to root_path, success: t('user_sessions.create.success')
     else
-      Rails.logger.debug "Login failed for email: #{params[:email]}"
+      # Rails.logger.debug "Login failed for email: #{params[:email]}"
       flash.now[:danger] = t('user_sessions.create.failure')
       render :new, status: :unprocessable_entity
     end
